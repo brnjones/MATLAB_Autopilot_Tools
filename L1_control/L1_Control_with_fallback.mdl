@@ -1,12 +1,12 @@
 Model {
-  Name			  "L1_Control"
+  Name			  "L1_Control_with_fallback"
   Version		  7.9
   MdlSubVersion		  0
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.164"
+    ComputedModelVersion    "1.172"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -27,9 +27,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "user"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Apr 08 17:11:54 2013"
-  RTWModifiedTimeStamp	  287341906
-  ModelVersionFormat	  "1.%<AutoIncrement:164>"
+  LastModifiedDate	  "Mon Apr 08 17:10:53 2013"
+  RTWModifiedTimeStamp	  287338368
+  ModelVersionFormat	  "1.%<AutoIncrement:172>"
   ConfigurationManager	  "None"
   SampleTimeColors	  on
   SampleTimeAnnotations	  off
@@ -666,6 +666,23 @@ Model {
       PreserveConstantTs      off
     }
     Block {
+      BlockType		      Delay
+      DelayLengthSource	      "Dialog"
+      DelayLength	      "2"
+      DelayLengthUpperLimit   "100"
+      InitialConditionSource  "Dialog"
+      InitialCondition	      "0.0"
+      ExternalReset	      "None"
+      PreventDirectFeedthrough off
+      DiagnosticForOutOfRangeDelayLength "None"
+      RemoveProtectionDelayLength off
+      InputProcessing	      "Elements as channels (sample based)"
+      UseCircularBuffer	      off
+      SampleTime	      "-1"
+      StateMustResolveToSignalObject off
+      CodeGenStateStorageClass "Auto"
+    }
+    Block {
       BlockType		      Demux
       Outputs		      "4"
       DisplayOption	      "none"
@@ -983,9 +1000,9 @@ Model {
     }
   }
   System {
-    Name		    "L1_Control"
-    Location		    [202, 74, 1347, 747]
-    Open		    off
+    Name		    "L1_Control_with_fallback"
+    Location		    [-101, -1126, 1615, -21]
+    Open		    on
     ModelBrowserVisibility  on
     ModelBrowserWidth	    200
     ScreenColor		    "white"
@@ -998,7 +1015,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "80"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "1186"
+    SIDHighWatermark	    "1255"
     Block {
       BlockType		      SubSystem
       Name		      "AHRS Complementary Filter"
@@ -2060,30 +2077,23 @@ Model {
 	  IconDisplay		  "Port number"
 	}
 	Block {
-	  BlockType		  Reference
+	  BlockType		  Delay
 	  Name			  "Integer Delay"
 	  SID			  "1170"
 	  Ports			  [1, 1]
 	  Position		  [315, 28, 350, 62]
-	  LibraryVersion	  "1.216"
-	  SourceBlock		  "simulink/Discrete/Integer Delay"
-	  SourceType		  "Integer Delay"
-	  vinit			  "0.0"
-	  samptime		  "-1"
-	  NumDelays		  "2"
+	  InputPortMap		  "u0"
+	  InputProcessing	  "Inherited"
 	}
 	Block {
-	  BlockType		  Reference
+	  BlockType		  Delay
 	  Name			  "Integer Delay1"
 	  SID			  "1171"
 	  Ports			  [1, 1]
 	  Position		  [315, 188, 350, 222]
-	  LibraryVersion	  "1.216"
-	  SourceBlock		  "simulink/Discrete/Integer Delay"
-	  SourceType		  "Integer Delay"
-	  vinit			  "0.0"
-	  samptime		  "-1"
-	  NumDelays		  "8"
+	  InputPortMap		  "u0"
+	  DelayLength		  "8"
+	  InputProcessing	  "Inherited"
 	}
 	Block {
 	  BlockType		  Reference
@@ -2091,17 +2101,9 @@ Model {
 	  SID			  "1157"
 	  Ports			  [2, 1]
 	  Position		  [405, 37, 435, 73]
-	  LibraryVersion	  "1.216"
+	  LibraryVersion	  "1.260"
 	  SourceBlock		  "simulink/Signal\nRouting/Manual Switch"
 	  SourceType		  "Manual Switch"
-	  ShowPortLabels	  "FromPortIcon"
-	  SystemSampleTime	  "-1"
-	  FunctionWithSeparateData off
-	  RTWMemSecFuncInitTerm	  "Inherit from model"
-	  RTWMemSecFuncExecute	  "Inherit from model"
-	  RTWMemSecDataConstants  "Inherit from model"
-	  RTWMemSecDataInternal	  "Inherit from model"
-	  RTWMemSecDataParameters "Inherit from model"
 	  sw			  "1"
 	  action		  "0"
 	  varsize		  off
@@ -2234,7 +2236,7 @@ Model {
       LibraryVersion	      "1.260"
       SourceBlock	      "simulink/Signal\nRouting/Manual Switch"
       SourceType	      "Manual Switch"
-      sw		      "0"
+      sw		      "1"
       action		      "0"
       varsize		      off
     }
@@ -2271,7 +2273,7 @@ Model {
       System {
 	Name			"Modified L1 Guidance - Circle"
 	Location		[202, 74, 1347, 707]
-	Open			on
+	Open			off
 	ModelBrowserVisibility	on
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -2358,7 +2360,6 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"groundspeed_vector"
-		PropagatedSignals	", "
 		RTWStorageClass		"Auto"
 		DataLoggingNameMode	"SignalName"
 	      }
@@ -4270,19 +4271,11 @@ Model {
 	      SID		      "1150"
 	      Ports		      [1, 1]
 	      Position		      [260, 110, 290, 140]
-	      LibraryVersion	      "1.216"
+	      LibraryVersion	      "1.260"
 	      SourceBlock	      "simulink/Logic and Bit\nOperations/Compare\nTo Zero"
 	      SourceType	      "Compare To Zero"
-	      ShowPortLabels	      "FromPortIcon"
-	      SystemSampleTime	      "-1"
-	      FunctionWithSeparateData off
-	      RTWMemSecFuncInitTerm   "Inherit from model"
-	      RTWMemSecFuncExecute    "Inherit from model"
-	      RTWMemSecDataConstants  "Inherit from model"
-	      RTWMemSecDataInternal   "Inherit from model"
-	      RTWMemSecDataParameters "Inherit from model"
 	      relop		      ">"
-	      LogicOutDataTypeMode    "uint8"
+	      OutDataTypeStr	      "uint8"
 	      ZeroCross		      on
 	    }
 	    Block {
@@ -4823,23 +4816,23 @@ Model {
       RequestExecContextInheritance off
       MaskHideContents	      off
       MaskPromptString	      "Tracking Loop Period (sec) - set to 15 times total loop delay|Tracking Loop Theoretical "
-      "Damping Ratio"
-      MaskStyleString	      "edit,edit"
-      MaskVariables	      "period=@1;dampingRatio=@2;"
-      MaskTunableValueString  "on,on"
-      MaskCallbackString      "|"
-      MaskEnableString	      "on,on"
-      MaskVisibilityString    "on,on"
-      MaskToolTipString	      "on,on"
+      "Damping Ratio|Enables fallback mode [1=enabled, 0=disabled]"
+      MaskStyleString	      "edit,edit,edit"
+      MaskVariables	      "period=@1;dampingRatio=@2;fallbackEnable=@3;"
+      MaskTunableValueString  "on,on,on"
+      MaskCallbackString      "||"
+      MaskEnableString	      "on,on,on"
+      MaskVisibilityString    "on,on,on"
+      MaskToolTipString	      "on,on,on"
       MaskIconFrame	      on
       MaskIconOpaque	      on
       MaskIconRotate	      "none"
       MaskPortRotate	      "default"
       MaskIconUnits	      "autoscale"
-      MaskValueString	      "20|0.71"
+      MaskValueString	      "20|0.71|1"
       System {
 	Name			"Modified L1 Guidance - Line"
-	Location		[-8, -8, 1288, 992]
+	Location		[-101, -1126, 1615, -21]
 	Open			off
 	ModelBrowserVisibility	on
 	ModelBrowserWidth	200
@@ -4861,7 +4854,6 @@ Model {
 	  Port {
 	    PortNumber		    1
 	    Name		    "groundspeed_vector"
-	    PropagatedSignals	    ", "
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
 	  }
@@ -4870,15 +4862,21 @@ Model {
 	  BlockType		  Inport
 	  Name			  "current_loc"
 	  SID			  "383"
-	  Position		  [30, 493, 60, 507]
+	  Position		  [30, 558, 60, 572]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
+	  Port {
+	    PortNumber		    1
+	    Name		    "loc"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
 	}
 	Block {
 	  BlockType		  Inport
 	  Name			  "next_WP"
 	  SID			  "384"
-	  Position		  [30, 548, 60, 562]
+	  Position		  [30, 618, 60, 632]
 	  Port			  "3"
 	  IconDisplay		  "Port number"
 	  Port {
@@ -4893,7 +4891,7 @@ Model {
 	  BlockType		  Inport
 	  Name			  "prev_WP"
 	  SID			  "385"
-	  Position		  [30, 593, 60, 607]
+	  Position		  [30, 663, 60, 677]
 	  Port			  "4"
 	  IconDisplay		  "Port number"
 	  Port {
@@ -5342,7 +5340,7 @@ Model {
 	  Name			  "Calc Lat Acc Dem"
 	  SID			  "691"
 	  Ports			  [5, 1]
-	  Position		  [815, 51, 915, 269]
+	  Position		  [850, 56, 950, 274]
 	  MinAlgLoopOccurrences	  off
 	  PropExecContextOutsideSubsystem off
 	  RTWSystemCode		  "Auto"
@@ -5593,7 +5591,7 @@ Model {
 	    }
 	    Block {
 	      BlockType		      Inport
-	      Name		      "air"
+	      Name		      "A_loc"
 	      SID		      "644"
 	      Position		      [25, 108, 55, 122]
 	      Port		      "2"
@@ -6042,7 +6040,7 @@ Model {
 	      }
 	    }
 	    Line {
-	      SrcBlock		      "air"
+	      SrcBlock		      "A_loc"
 	      SrcPort		      1
 	      DstBlock		      "unitVector 2"
 	      DstPort		      1
@@ -6071,6 +6069,364 @@ Model {
 	}
 	Block {
 	  BlockType		  SubSystem
+	  Name			  "Calc Nu to fly To WP B"
+	  SID			  "1187"
+	  Ports			  [2, 3, 1]
+	  Position		  [385, 764, 540, 876]
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "Calc Nu to fly To WP B"
+	    Location		    [202, 74, 1364, 747]
+	    Open		    off
+	    ModelBrowserVisibility  on
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "groundspeed_Vector"
+	      SID		      "1188"
+	      Position		      [65, 33, 95, 47]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "loc_B_unit"
+	      SID		      "1219"
+	      Position		      [140, 58, 170, 72]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      EnablePort
+	      Name		      "Enable"
+	      SID		      "1190"
+	      Ports		      []
+	      Position		      [217, 190, 237, 210]
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "Constant"
+	      SID		      "1191"
+	      Position		      [450, 185, 480, 215]
+	    }
+	    Block {
+	      BlockType		      DotProduct
+	      Name		      "Dot Product"
+	      SID		      "1192"
+	      Position		      [310, 122, 340, 153]
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      Port {
+		PortNumber		1
+		Name			"ltrackVel"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "Gain4"
+	      SID		      "1197"
+	      Position		      [450, 40, 480, 70]
+	      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Trigonometry
+	      Name		      "atan2"
+	      SID		      "1198"
+	      Ports		      [2, 1]
+	      Position		      [450, 112, 485, 148]
+	      Operator		      "atan2"
+	      Port {
+		PortNumber		1
+		Name			"Nu"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "crossproductZ"
+	      SID		      "1199"
+	      Ports		      [2, 1]
+	      Position		      [275, 27, 370, 78]
+	      MinAlgLoopOccurrences   off
+	      PropExecContextOutsideSubsystem off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      Opaque		      off
+	      RequestExecContextInheritance off
+	      MaskHideContents	      off
+	      Port {
+		PortNumber		1
+		Name			"xtrackVel"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      System {
+		Name			"crossproductZ"
+		Location		[16, 52, 1480, 1604]
+		Open			off
+		ModelBrowserVisibility	on
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"A4"
+		PaperUnits		"centimeters"
+		TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		Block {
+		  BlockType		  Inport
+		  Name			  "vecIn2D 1"
+		  SID			  "1200"
+		  Position		  [55, 37, 85, 53]
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "vecIn2D 2"
+		  SID			  "1201"
+		  Position		  [55, 98, 85, 112]
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Demux
+		  Name			  "Demux"
+		  SID			  "1202"
+		  Ports			  [1, 2]
+		  Position		  [135, 26, 140, 64]
+		  ShowName		  off
+		  Outputs		  "2"
+		  DisplayOption		  "bar"
+		}
+		Block {
+		  BlockType		  Demux
+		  Name			  "Demux1"
+		  SID			  "1203"
+		  Ports			  [1, 2]
+		  Position		  [135, 86, 140, 124]
+		  ShowName		  off
+		  Outputs		  "2"
+		  DisplayOption		  "bar"
+		}
+		Block {
+		  BlockType		  Product
+		  Name			  "Product"
+		  SID			  "1204"
+		  Ports			  [2, 1]
+		  Position		  [245, 27, 275, 58]
+		  InputSameDT		  off
+		  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+		  SaturateOnIntegerOverflow off
+		}
+		Block {
+		  BlockType		  Product
+		  Name			  "Product1"
+		  SID			  "1205"
+		  Ports			  [2, 1]
+		  Position		  [245, 87, 275, 118]
+		  InputSameDT		  off
+		  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+		  SaturateOnIntegerOverflow off
+		}
+		Block {
+		  BlockType		  Sum
+		  Name			  "Sum2"
+		  SID			  "1206"
+		  Ports			  [2, 1]
+		  Position		  [320, 35, 340, 55]
+		  ShowName		  off
+		  IconShape		  "round"
+		  Inputs		  "|+-"
+		  InputSameDT		  off
+		  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+		  SaturateOnIntegerOverflow off
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "scalarOut1"
+		  SID			  "1207"
+		  Position		  [380, 38, 410, 52]
+		  IconDisplay		  "Port number"
+		}
+		Line {
+		  SrcBlock		  "Product1"
+		  SrcPort		  1
+		  Points		  [50, 0]
+		  DstBlock		  "Sum2"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "vecIn2D 2"
+		  SrcPort		  1
+		  DstBlock		  "Demux1"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  1
+		  DstBlock		  "Product"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  2
+		  Points		  [73, 0; 0, 40]
+		  DstBlock		  "Product1"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "vecIn2D 1"
+		  SrcPort		  1
+		  DstBlock		  "Demux"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux1"
+		  SrcPort		  1
+		  Points		  [21, 0; 0, 15]
+		  DstBlock		  "Product1"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "Demux1"
+		  SrcPort		  2
+		  Points		  [47, 0; 0, -65]
+		  DstBlock		  "Product"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "Sum2"
+		  SrcPort		  1
+		  DstBlock		  "scalarOut1"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Product"
+		  SrcPort		  1
+		  DstBlock		  "Sum2"
+		  DstPort		  1
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "xtrackVel"
+	      SID		      "1214"
+	      Position		      [510, 48, 540, 62]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "dampingWeight"
+	      SID		      "1215"
+	      Position		      [510, 193, 540, 207]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Nu"
+	      SID		      "1216"
+	      Position		      [510, 123, 540, 137]
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "Constant"
+	      SrcPort		      1
+	      DstBlock		      "dampingWeight"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Gain4"
+	      SrcPort		      1
+	      DstBlock		      "xtrackVel"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "Nu"
+	      Labels		      [0, 0]
+	      SrcBlock		      "atan2"
+	      SrcPort		      1
+	      DstBlock		      "Nu"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "groundspeed_Vector"
+	      SrcPort		      1
+	      Points		      [155, 0]
+	      Branch {
+		Points			[0, 90]
+		DstBlock		"Dot Product"
+		DstPort			1
+	      }
+	      Branch {
+		DstBlock		"crossproductZ"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      Name		      "ltrackVel"
+	      Labels		      [0, 0]
+	      SrcBlock		      "Dot Product"
+	      SrcPort		      1
+	      DstBlock		      "atan2"
+	      DstPort		      2
+	    }
+	    Line {
+	      Name		      "xtrackVel"
+	      Labels		      [0, 0]
+	      SrcBlock		      "crossproductZ"
+	      SrcPort		      1
+	      Points		      [30, 0]
+	      Branch {
+		DstBlock		"Gain4"
+		DstPort			1
+	      }
+	      Branch {
+		Points			[0, 65]
+		DstBlock		"atan2"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "loc_B_unit"
+	      SrcPort		      1
+	      Points		      [70, 0]
+	      Branch {
+		Points			[0, 80]
+		DstBlock		"Dot Product"
+		DstPort			2
+	      }
+	      Branch {
+		DstBlock		"crossproductZ"
+		DstPort			2
+	      }
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
 	  Name			  "Calc Nu to fly along AB line"
 	  SID			  "645"
 	  Ports			  [4, 4, 1]
@@ -6084,7 +6440,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Calc Nu to fly along AB line"
-	    Location		    [16, 52, 1772, 1341]
+	    Location		    [202, 74, 1364, 747]
 	    Open		    off
 	    ModelBrowserVisibility  on
 	    ModelBrowserWidth	    200
@@ -6113,7 +6469,7 @@ Model {
 	    }
 	    Block {
 	      BlockType		      Inport
-	      Name		      "air"
+	      Name		      "A_loc"
 	      SID		      "649"
 	      Position		      [220, 133, 250, 147]
 	      NamePlacement	      "alternate"
@@ -6216,7 +6572,7 @@ Model {
 		ZoomFactor		"100"
 		Block {
 		  BlockType		  Inport
-		  Name			  "A_air"
+		  Name			  "A_loc"
 		  SID			  "589"
 		  Position		  [15, 28, 45, 42]
 		  IconDisplay		  "Port number"
@@ -6684,7 +7040,7 @@ Model {
 		  DstPort		  2
 		}
 		Line {
-		  SrcBlock		  "A_air"
+		  SrcBlock		  "A_loc"
 		  SrcPort		  1
 		  Points		  [10, 0; 0, 30]
 		  DstBlock		  "crossproductZ 1"
@@ -7100,7 +7456,7 @@ Model {
 	      DstPort		      1
 	    }
 	    Line {
-	      SrcBlock		      "air"
+	      SrcBlock		      "A_loc"
 	      SrcPort		      1
 	      DstBlock		      "Calculate Nu1 Angle"
 	      DstPort		      1
@@ -7160,7 +7516,7 @@ Model {
 	  Name			  "Calc Roll Angle Demand"
 	  SID			  "685"
 	  Ports			  [1, 1]
-	  Position		  [955, 130, 1075, 190]
+	  Position		  [990, 135, 1110, 195]
 	  MinAlgLoopOccurrences	  off
 	  PropExecContextOutsideSubsystem off
 	  RTWSystemCode		  "Auto"
@@ -7268,11 +7624,83 @@ Model {
 	  }
 	}
 	Block {
-	  BlockType		  SubSystem
-	  Name			  "Detect Region"
-	  SID			  "664"
+	  BlockType		  Merge
+	  Name			  "Merge"
+	  SID			  "674"
 	  Ports			  [3, 1]
-	  Position		  [390, 519, 535, 591]
+	  Position		  [730, 235, 770, 275]
+	  Inputs		  "3"
+	  Port {
+	    PortNumber		    1
+	    Name		    "Nu"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Merge
+	  Name			  "Merge1"
+	  SID			  "676"
+	  Ports			  [3, 1]
+	  Position		  [735, 55, 775, 95]
+	  Inputs		  "3"
+	  Port {
+	    PortNumber		    1
+	    Name		    "xtrackVel"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Merge
+	  Name			  "Merge2"
+	  SID			  "682"
+	  Ports			  [3, 1]
+	  Position		  [735, 125, 775, 165]
+	  Inputs		  "3"
+	  Port {
+	    PortNumber		    1
+	    Name		    "dampingWeight"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Scope
+	  Name			  "Scope"
+	  SID			  "1247"
+	  Ports			  [1]
+	  Position		  [870, 799, 900, 831]
+	  ZOrder		  -3
+	  Floating		  off
+	  Location		  [188, 390, 512, 629]
+	  Open			  on
+	  NumInputPorts		  "1"
+	  List {
+	    ListType		    AxesTitles
+	    axes1		    "%<SignalLabel>"
+	  }
+	  List {
+	    ListType		    ScopeGraphics
+	    FigureColor		    "[0.5 0.5 0.5]"
+	    AxesColor		    "[0 0 0]"
+	    AxesTickColor	    "[1 1 1]"
+	    LineColors		    "[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
+	    LineStyles		    "-|-|-|-|-|-"
+	    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
+	    MarkerStyles	    "none|none|none|none|none|none"
+	  }
+	  ShowLegends		  off
+	  SaveName		  "ScopeData4"
+	  DataFormat		  "StructureWithTime"
+	  SampleTime		  "0"
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Set Objective"
+	  SID			  "664"
+	  Ports			  [6, 3]
+	  Position		  [390, 520, 535, 700]
 	  MinAlgLoopOccurrences	  off
 	  PropExecContextOutsideSubsystem off
 	  RTWSystemCode		  "Auto"
@@ -7281,8 +7709,8 @@ Model {
 	  RequestExecContextInheritance	off
 	  MaskHideContents	  off
 	  System {
-	    Name		    "Detect Region"
-	    Location		    [-8, -8, 1288, 992]
+	    Name		    "Set Objective"
+	    Location		    [202, 74, 1364, 747]
 	    Open		    off
 	    ModelBrowserVisibility  on
 	    ModelBrowserWidth	    200
@@ -7297,25 +7725,49 @@ Model {
 	    ZoomFactor		    "100"
 	    Block {
 	      BlockType		      Inport
-	      Name		      "air"
+	      Name		      "groundspeed_Vector"
+	      SID		      "1245"
+	      Position		      [70, 313, 100, 327]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "A_loc"
 	      SID		      "665"
 	      Position		      [70, 72, 100, 88]
+	      Port		      "2"
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
 	      Name		      "L1_dist"
 	      SID		      "666"
-	      Position		      [385, 117, 415, 133]
-	      Port		      "2"
+	      Position		      [70, 257, 100, 273]
+	      Port		      "3"
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
-	      Name		      "AB_unit"
+	      Name		      "A_B_unit"
 	      SID		      "668"
 	      Position		      [70, 158, 100, 172]
-	      Port		      "3"
+	      Port		      "4"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "loc_B"
+	      SID		      "1250"
+	      Position		      [70, 418, 100, 432]
+	      Port		      "5"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "loc_B_unit"
+	      SID		      "1225"
+	      Position		      [70, 368, 100, 382]
+	      Port		      "6"
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
@@ -7338,7 +7790,7 @@ Model {
 	      BlockType		      Constant
 	      Name		      "Constant 2\n2"
 	      SID		      "639"
-	      Position		      [450, 210, 480, 240]
+	      Position		      [475, 210, 505, 240]
 	      Value		      "-1/sqrt(2)"
 	    }
 	    Block {
@@ -7346,7 +7798,7 @@ Model {
 	      Name		      "Divide"
 	      SID		      "635"
 	      Ports		      [2, 1]
-	      Position		      [450, 152, 480, 183]
+	      Position		      [475, 152, 505, 183]
 	      Inputs		      "*/"
 	      InputSameDT	      off
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -7374,6 +7826,20 @@ Model {
 	      }
 	    }
 	    Block {
+	      BlockType		      DotProduct
+	      Name		      "Dot Product3"
+	      SID		      "1226"
+	      Position		      [215, 312, 245, 343]
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	    }
+	    Block {
+	      BlockType		      DotProduct
+	      Name		      "Dot Product4"
+	      SID		      "1251"
+	      Position		      [145, 417, 175, 448]
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	    }
+	    Block {
 	      BlockType		      Logic
 	      Name		      "Logical\nOperator"
 	      SID		      "640"
@@ -7383,11 +7849,77 @@ Model {
 	      OutDataTypeStr	      "boolean"
 	    }
 	    Block {
+	      BlockType		      Logic
+	      Name		      "Logical\nOperator1"
+	      SID		      "1231"
+	      Ports		      [2, 1]
+	      Position		      [530, 322, 560, 353]
+	      Operator		      "OR"
+	      AllPortsSameDT	      off
+	      OutDataTypeStr	      "boolean"
+	    }
+	    Block {
+	      BlockType		      Logic
+	      Name		      "Logical\nOperator2"
+	      SID		      "1233"
+	      Ports		      [2, 1]
+	      Position		      [460, 397, 490, 428]
+	      AllPortsSameDT	      off
+	      OutDataTypeStr	      "boolean"
+	    }
+	    Block {
+	      BlockType		      Logic
+	      Name		      "Logical\nOperator3"
+	      SID		      "1235"
+	      Ports		      [2, 1]
+	      Position		      [795, 102, 825, 133]
+	      AllPortsSameDT	      off
+	      OutDataTypeStr	      "boolean"
+	    }
+	    Block {
+	      BlockType		      Logic
+	      Name		      "Logical\nOperator4"
+	      SID		      "1236"
+	      Ports		      [2, 1]
+	      Position		      [795, 182, 825, 213]
+	      AllPortsSameDT	      off
+	      OutDataTypeStr	      "boolean"
+	    }
+	    Block {
+	      BlockType		      Logic
+	      Name		      "Logical\nOperator5"
+	      SID		      "1237"
+	      Ports		      [1, 1]
+	      Position		      [725, 174, 755, 206]
+	      Operator		      "NOT"
+	      AllPortsSameDT	      off
+	      OutDataTypeStr	      "boolean"
+	    }
+	    Block {
+	      BlockType		      Logic
+	      Name		      "Logical\nOperator6"
+	      SID		      "1238"
+	      Ports		      [1, 1]
+	      Position		      [725, 254, 755, 286]
+	      Operator		      "NOT"
+	      AllPortsSameDT	      off
+	      OutDataTypeStr	      "boolean"
+	    }
+	    Block {
+	      BlockType		      Logic
+	      Name		      "Logical\nOperator7"
+	      SID		      "1254"
+	      Ports		      [2, 1]
+	      Position		      [605, 331, 635, 364]
+	      AllPortsSameDT	      off
+	      OutDataTypeStr	      "boolean"
+	    }
+	    Block {
 	      BlockType		      RelationalOperator
 	      Name		      "Relational\nOperator"
 	      SID		      "634"
 	      Ports		      [2, 1]
-	      Position		      [450, 82, 480, 113]
+	      Position		      [475, 82, 505, 113]
 	      Operator		      ">"
 	      InputSameDT	      off
 	      OutDataTypeStr	      "boolean"
@@ -7397,10 +7929,64 @@ Model {
 	      Name		      "Relational\nOperator1"
 	      SID		      "638"
 	      Ports		      [2, 1]
-	      Position		      [530, 162, 560, 193]
+	      Position		      [555, 162, 585, 193]
 	      Operator		      "<"
 	      InputSameDT	      off
 	      OutDataTypeStr	      "boolean"
+	    }
+	    Block {
+	      BlockType		      RelationalOperator
+	      Name		      "Relational\nOperator2"
+	      SID		      "1249"
+	      Ports		      [2, 1]
+	      Position		      [330, 387, 360, 418]
+	      Operator		      "<"
+	      InputSameDT	      off
+	      OutDataTypeStr	      "boolean"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Retreating"
+	      SID		      "1227"
+	      Ports		      [1, 1]
+	      Position		      [330, 314, 360, 346]
+	      ZOrder		      -6
+	      LibraryVersion	      "1.260"
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Compare\nTo Zero"
+	      SourceType	      "Compare To Zero"
+	      relop		      "<"
+	      OutDataTypeStr	      "uint8"
+	      ZeroCross		      on
+	    }
+	    Block {
+	      BlockType		      Scope
+	      Name		      "Scope"
+	      SID		      "1253"
+	      Ports		      [1]
+	      Position		      [795, 559, 825, 591]
+	      ZOrder		      -3
+	      Floating		      off
+	      Location		      [188, 390, 512, 629]
+	      Open		      on
+	      NumInputPorts	      "1"
+	      List {
+		ListType		AxesTitles
+		axes1			"%<SignalLabel>"
+	      }
+	      List {
+		ListType		ScopeGraphics
+		FigureColor		"[0.5 0.5 0.5]"
+		AxesColor		"[0 0 0]"
+		AxesTickColor		"[1 1 1]"
+		LineColors		"[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
+		LineStyles		"-|-|-|-|-|-"
+		LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
+		MarkerStyles		"none|none|none|none|none|none"
+	      }
+	      ShowLegends	      off
+	      SaveName		      "ScopeData5"
+	      DataFormat	      "StructureWithTime"
+	      SampleTime	      "0"
 	    }
 	    Block {
 	      BlockType		      Sqrt
@@ -7415,10 +8001,49 @@ Model {
 	      }
 	    }
 	    Block {
+	      BlockType		      Sqrt
+	      Name		      "Sqrt1"
+	      SID		      "1252"
+	      Position		      [215, 420, 245, 450]
+	    }
+	    Block {
+	      BlockType		      UnitDelay
+	      Name		      "Unit Delay"
+	      SID		      "1234"
+	      Position		      [460, 463, 495, 497]
+	      ZOrder		      -18
+	      BlockMirror	      on
+	      InputProcessing	      "Elements as channels (sample based)"
+	      SampleTime	      "-1"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "fallbackEnable"
+	      SID		      "1255"
+	      Position		      [530, 395, 560, 425]
+	      Value		      "fallbackEnable"
+	    }
+	    Block {
 	      BlockType		      Outport
-	      Name		      "flyToA"
+	      Name		      "fly to A"
 	      SID		      "667"
-	      Position		      [710, 103, 740, 117]
+	      Position		      [880, 113, 910, 127]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "fly AB"
+	      SID		      "1223"
+	      Position		      [880, 193, 910, 207]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "fly to B"
+	      SID		      "1224"
+	      Position		      [880, 343, 910, 357]
+	      Port		      "3"
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
@@ -7454,7 +8079,7 @@ Model {
 	    Line {
 	      SrcBlock		      "Add 3"
 	      SrcPort		      1
-	      Points		      [0, -15]
+	      Points		      [40, 0]
 	      DstBlock		      "Divide"
 	      DstPort		      2
 	    }
@@ -7487,12 +8112,12 @@ Model {
 	    Line {
 	      SrcBlock		      "Relational\nOperator1"
 	      SrcPort		      1
-	      Points		      [25, 0; 0, -65]
+	      Points		      [0, -65]
 	      DstBlock		      "Logical\nOperator"
 	      DstPort		      2
 	    }
 	    Line {
-	      SrcBlock		      "air"
+	      SrcBlock		      "A_loc"
 	      SrcPort		      1
 	      Points		      [30, 0]
 	      Branch {
@@ -7515,73 +8140,181 @@ Model {
 	    Line {
 	      SrcBlock		      "L1_dist"
 	      SrcPort		      1
-	      Points		      [15, 0]
-	      DstBlock		      "Relational\nOperator"
-	      DstPort		      2
+	      Points		      [200, 0]
+	      Branch {
+		Points			[135, 0; 0, -160]
+		DstBlock		"Relational\nOperator"
+		DstPort			2
+	      }
+	      Branch {
+		Points			[0, 130]
+		DstBlock		"Relational\nOperator2"
+		DstPort			1
+	      }
 	    }
 	    Line {
-	      SrcBlock		      "AB_unit"
+	      SrcBlock		      "A_B_unit"
 	      SrcPort		      1
 	      DstBlock		      "Dot Product2"
 	      DstPort		      2
 	    }
 	    Line {
-	      SrcBlock		      "Logical\nOperator"
+	      SrcBlock		      "loc_B_unit"
 	      SrcPort		      1
-	      DstBlock		      "flyToA"
+	      Points		      [95, 0]
+	      DstBlock		      "Dot Product3"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Dot Product3"
+	      SrcPort		      1
+	      DstBlock		      "Retreating"
 	      DstPort		      1
 	    }
-	  }
-	}
-	Block {
-	  BlockType		  Logic
-	  Name			  "Logical\nOperator"
-	  SID			  "669"
-	  Ports			  [1, 1]
-	  Position		  [540, 34, 570, 66]
-	  BlockMirror		  on
-	  Operator		  "NOT"
-	  Inputs		  "1"
-	  AllPortsSameDT	  off
-	  OutDataTypeStr	  "boolean"
-	}
-	Block {
-	  BlockType		  Merge
-	  Name			  "Merge"
-	  SID			  "674"
-	  Ports			  [2, 1]
-	  Position		  [695, 230, 735, 270]
-	  Port {
-	    PortNumber		    1
-	    Name		    "Nu"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
-	}
-	Block {
-	  BlockType		  Merge
-	  Name			  "Merge1"
-	  SID			  "676"
-	  Ports			  [2, 1]
-	  Position		  [700, 50, 740, 90]
-	  Port {
-	    PortNumber		    1
-	    Name		    "xtrackVel"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
-	}
-	Block {
-	  BlockType		  Merge
-	  Name			  "Merge2"
-	  SID			  "682"
-	  Ports			  [2, 1]
-	  Position		  [700, 120, 740, 160]
-	  Port {
-	    PortNumber		    1
-	    Name		    "dampingWeight"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
+	    Line {
+	      SrcBlock		      "Retreating"
+	      SrcPort		      1
+	      DstBlock		      "Logical\nOperator1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Logical\nOperator2"
+	      SrcPort		      1
+	      Points		      [5, 0; 0, -70]
+	      DstBlock		      "Logical\nOperator1"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Relational\nOperator2"
+	      SrcPort		      1
+	      DstBlock		      "Logical\nOperator2"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Logical\nOperator1"
+	      SrcPort		      1
+	      DstBlock		      "Logical\nOperator7"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Unit Delay"
+	      SrcPort		      1
+	      Points		      [-25, 0; 0, -60]
+	      DstBlock		      "Logical\nOperator2"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Logical\nOperator"
+	      SrcPort		      1
+	      Points		      [30, 0]
+	      Branch {
+		DstBlock		"Logical\nOperator3"
+		DstPort			1
+	      }
+	      Branch {
+		Points			[0, 80]
+		DstBlock		"Logical\nOperator5"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Logical\nOperator4"
+	      SrcPort		      1
+	      DstBlock		      "fly AB"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Logical\nOperator5"
+	      SrcPort		      1
+	      DstBlock		      "Logical\nOperator4"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Logical\nOperator6"
+	      SrcPort		      1
+	      Points		      [20, 0; 0, -65]
+	      Branch {
+		DstBlock		"Logical\nOperator4"
+		DstPort			2
+	      }
+	      Branch {
+		DstBlock		"Logical\nOperator3"
+		DstPort			2
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Logical\nOperator3"
+	      SrcPort		      1
+	      DstBlock		      "fly to A"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "groundspeed_Vector"
+	      SrcPort		      1
+	      DstBlock		      "Dot Product3"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Dot Product4"
+	      SrcPort		      1
+	      DstBlock		      "Sqrt1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "loc_B"
+	      SrcPort		      1
+	      Points		      [20, 0]
+	      Branch {
+		DstBlock		"Dot Product4"
+		DstPort			1
+	      }
+	      Branch {
+		Points			[0, 15]
+		DstBlock		"Dot Product4"
+		DstPort			2
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Sqrt1"
+	      SrcPort		      1
+	      Points		      [30, 0; 0, -25]
+	      DstBlock		      "Relational\nOperator2"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Logical\nOperator7"
+	      SrcPort		      1
+	      Points		      [25, 0]
+	      Branch {
+		Points			[0, 130]
+		DstBlock		"Unit Delay"
+		DstPort			1
+	      }
+	      Branch {
+		Points			[0, -80]
+		DstBlock		"Logical\nOperator6"
+		DstPort			1
+	      }
+	      Branch {
+		Points			[190, 0]
+		Branch {
+		  DstBlock		  "fly to B"
+		  DstPort		  1
+		}
+		Branch {
+		  Points		  [0, 225]
+		  DstBlock		  "Scope"
+		  DstPort		  1
+		}
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "fallbackEnable"
+	      SrcPort		      1
+	      Points		      [25, 0]
+	      DstBlock		      "Logical\nOperator7"
+	      DstPort		      2
+	    }
 	  }
 	}
 	Block {
@@ -7589,7 +8322,7 @@ Model {
 	  Name			  "Sum"
 	  SID			  "413"
 	  Ports			  [2, 1]
-	  Position		  [150, 545, 170, 565]
+	  Position		  [165, 615, 185, 635]
 	  ShowName		  off
 	  IconShape		  "round"
 	  Inputs		  "|+-"
@@ -7608,7 +8341,7 @@ Model {
 	  Name			  "Sum1"
 	  SID			  "414"
 	  Ports			  [2, 1]
-	  Position		  [115, 490, 135, 510]
+	  Position		  [135, 555, 155, 575]
 	  ShowName		  off
 	  IconShape		  "round"
 	  Inputs		  "|+-"
@@ -7617,7 +8350,25 @@ Model {
 	  SaturateOnIntegerOverflow off
 	  Port {
 	    PortNumber		    1
-	    Name		    "air"
+	    Name		    "A_loc"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum2"
+	  SID			  "1222"
+	  Ports			  [2, 1]
+	  Position		  [130, 686, 160, 719]
+	  ShowName		  off
+	  Inputs		  "-+"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	  Port {
+	    PortNumber		    1
+	    Name		    "loc_B"
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
 	  }
@@ -7627,7 +8378,7 @@ Model {
 	  Name			  "unitVector 1"
 	  SID			  "448"
 	  Ports			  [1, 1]
-	  Position		  [205, 535, 285, 575]
+	  Position		  [220, 605, 300, 645]
 	  MinAlgLoopOccurrences	  off
 	  PropExecContextOutsideSubsystem off
 	  RTWSystemCode		  "Auto"
@@ -7735,10 +8486,122 @@ Model {
 	  }
 	}
 	Block {
+	  BlockType		  SubSystem
+	  Name			  "unitVector 2"
+	  SID			  "1239"
+	  Ports			  [1, 1]
+	  Position		  [220, 685, 300, 725]
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  Port {
+	    PortNumber		    1
+	    Name		    "loc_B_unit"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  System {
+	    Name		    "unitVector 2"
+	    Location		    [16, 52, 1368, 1236]
+	    Open		    off
+	    ModelBrowserVisibility  on
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "vecIn"
+	      SID		      "1240"
+	      Position		      [20, 68, 50, 82]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Product
+	      Name		      "Divide"
+	      SID		      "1241"
+	      Ports		      [2, 1]
+	      Position		      [285, 62, 315, 93]
+	      Inputs		      "*/"
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      RndMeth		      "Floor"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      DotProduct
+	      Name		      "Dot Product"
+	      SID		      "1242"
+	      Position		      [140, 67, 170, 98]
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	    }
+	    Block {
+	      BlockType		      Sqrt
+	      Name		      "Sqrt"
+	      SID		      "1243"
+	      Position		      [205, 70, 235, 100]
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "vecOut"
+	      SID		      "1244"
+	      Position		      [420, 73, 450, 87]
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "vecIn"
+	      SrcPort		      1
+	      Points		      [43, 0]
+	      Branch {
+		Points			[0, -51; 160, 0; 0, 46]
+		DstBlock		"Divide"
+		DstPort			1
+	      }
+	      Branch {
+		Points			[0, 15]
+		DstBlock		"Dot Product"
+		DstPort			2
+	      }
+	      Branch {
+		DstBlock		"Dot Product"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Sqrt"
+	      SrcPort		      1
+	      DstBlock		      "Divide"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Dot Product"
+	      SrcPort		      1
+	      DstBlock		      "Sqrt"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Divide"
+	      SrcPort		      1
+	      DstBlock		      "vecOut"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
 	  BlockType		  Outport
 	  Name			  "navRollDem"
 	  SID			  "456"
-	  Position		  [1115, 153, 1145, 167]
+	  Position		  [1150, 158, 1180, 172]
 	  IconDisplay		  "Port number"
 	}
 	Block {
@@ -7750,13 +8613,14 @@ Model {
 	  IconDisplay		  "Port number"
 	}
 	Line {
-	  Name			  "air"
+	  Name			  "A_loc"
+	  Labels		  [0, 0]
 	  SrcBlock		  "Sum1"
 	  SrcPort		  1
-	  Points		  [170, 0]
+	  Points		  [150, 0]
 	  Branch {
 	    Labels		    [1, 0]
-	    Points		    [0, -160]
+	    Points		    [0, -225]
 	    Branch {
 	      Points		      [0, -210]
 	      DstBlock		      "Calc Nu to fly along AB line"
@@ -7769,9 +8633,8 @@ Model {
 	  }
 	  Branch {
 	    Labels		    [1, 0]
-	    Points		    [65, 0]
-	    DstBlock		    "Detect Region"
-	    DstPort		    1
+	    DstBlock		    "Set Objective"
+	    DstPort		    2
 	  }
 	}
 	Line {
@@ -7779,9 +8642,9 @@ Model {
 	  Labels		  [0, 0]
 	  SrcBlock		  "prev_WP"
 	  SrcPort		  1
-	  Points		  [60, 0]
+	  Points		  [80, 0]
 	  Branch {
-	    Points		    [35, 0]
+	    Points		    [30, 0]
 	    DstBlock		    "Sum"
 	    DstPort		    2
 	  }
@@ -7791,25 +8654,45 @@ Model {
 	  }
 	}
 	Line {
+	  Name			  "loc"
+	  Labels		  [0, 0]
 	  SrcBlock		  "current_loc"
 	  SrcPort		  1
-	  DstBlock		  "Sum1"
-	  DstPort		  1
+	  Points		  [35, 0]
+	  Branch {
+	    DstBlock		    "Sum1"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Labels		    [2, 0]
+	    Points		    [0, 130]
+	    DstBlock		    "Sum2"
+	    DstPort		    1
+	  }
 	}
 	Line {
 	  Name			  "B_v"
 	  Labels		  [0, 0]
 	  SrcBlock		  "next_WP"
 	  SrcPort		  1
-	  DstBlock		  "Sum"
-	  DstPort		  1
+	  Points		  [20, 0]
+	  Branch {
+	    DstBlock		    "Sum"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Labels		    [2, 0]
+	    Points		    [0, 85]
+	    DstBlock		    "Sum2"
+	    DstPort		    2
+	  }
 	}
 	Line {
 	  Name			  "Kv"
 	  Labels		  [3, 0]
 	  SrcBlock		  "Calc Coefficients"
 	  SrcPort		  3
-	  Points		  [227, 0; 0, -315]
+	  Points		  [262, 0; 0, -310]
 	  DstBlock		  "Calc Lat Acc Dem"
 	  DstPort		  3
 	}
@@ -7818,7 +8701,7 @@ Model {
 	  Labels		  [0, 0]
 	  SrcBlock		  "Calc Coefficients"
 	  SrcPort		  2
-	  Points		  [243, 0; 0, -240]
+	  Points		  [278, 0; 0, -235]
 	  DstBlock		  "Calc Lat Acc Dem"
 	  DstPort		  4
 	}
@@ -7834,9 +8717,9 @@ Model {
 	  }
 	  Branch {
 	    Labels		    [0, 0]
-	    Points		    [0, 175]
-	    DstBlock		    "Detect Region"
-	    DstPort		    2
+	    Points		    [0, 215]
+	    DstBlock		    "Set Objective"
+	    DstPort		    3
 	  }
 	}
 	Line {
@@ -7857,8 +8740,22 @@ Model {
 	    }
 	    Branch {
 	      Points		      [0, 145]
-	      DstBlock		      "Calc Coefficients"
-	      DstPort		      1
+	      Branch {
+		DstBlock		"Calc Coefficients"
+		DstPort			1
+	      }
+	      Branch {
+		Points			[0, 90]
+		Branch {
+		  DstBlock		  "Set Objective"
+		  DstPort		  1
+		}
+		Branch {
+		  Points		  [0, 260]
+		  DstBlock		  "Calc Nu to fly To WP B"
+		  DstPort		  1
+		}
+	      }
 	    }
 	  }
 	}
@@ -7881,39 +8778,23 @@ Model {
 	  Labels		  [0, 0]
 	  SrcBlock		  "unitVector 1"
 	  SrcPort		  1
-	  Points		  [40, 0]
+	  Points		  [30, 0]
 	  Branch {
-	    Points		    [0, -395]
+	    Points		    [0, -465]
 	    DstBlock		    "Calc Nu to fly along AB line"
 	    DstPort		    3
 	  }
 	  Branch {
 	    Labels		    [0, 0]
-	    Points		    [0, 25]
-	    DstBlock		    "Detect Region"
-	    DstPort		    3
+	    DstBlock		    "Set Objective"
+	    DstPort		    4
 	  }
 	}
 	Line {
-	  SrcBlock		  "Detect Region"
+	  SrcBlock		  "Set Objective"
 	  SrcPort		  1
-	  Points		  [65, 0; 0, -310]
-	  Branch {
-	    Points		    [0, -195]
-	    DstBlock		    "Logical\nOperator"
-	    DstPort		    1
-	  }
-	  Branch {
-	    Points		    [-145, 0]
-	    DstBlock		    "Calc Nu to fly To WP A"
-	    DstPort		    enable
-	  }
-	}
-	Line {
-	  SrcBlock		  "Logical\nOperator"
-	  SrcPort		  1
-	  Points		  [-75, 0]
-	  DstBlock		  "Calc Nu to fly along AB line"
+	  Points		  [60, 0; 0, -305; -140, 0]
+	  DstBlock		  "Calc Nu to fly To WP A"
 	  DstPort		  enable
 	}
 	Line {
@@ -7934,7 +8815,7 @@ Model {
 	Line {
 	  SrcBlock		  "Calc Nu to fly To WP A"
 	  SrcPort		  3
-	  Points		  [125, 0; 0, -85]
+	  Points		  [125, 0; 0, -90]
 	  DstBlock		  "Merge"
 	  DstPort		  2
 	}
@@ -7956,7 +8837,7 @@ Model {
 	Line {
 	  SrcBlock		  "Calc Nu to fly To WP A"
 	  SrcPort		  1
-	  Points		  [95, 0; 0, -215]
+	  Points		  [95, 0; 0, -220]
 	  DstBlock		  "Merge1"
 	  DstPort		  2
 	}
@@ -7978,7 +8859,7 @@ Model {
 	Line {
 	  SrcBlock		  "Calc Nu to fly To WP A"
 	  SrcPort		  2
-	  Points		  [110, 0; 0, -170]
+	  Points		  [110, 0; 0, -175]
 	  DstBlock		  "Merge2"
 	  DstPort		  2
 	}
@@ -7994,6 +8875,81 @@ Model {
 	  DstBlock		  "navRollDem"
 	  DstPort		  1
 	}
+	Line {
+	  SrcBlock		  "Set Objective"
+	  SrcPort		  2
+	  Points		  [70, 0; 0, -560; -150, 0]
+	  DstBlock		  "Calc Nu to fly along AB line"
+	  DstPort		  enable
+	}
+	Line {
+	  Name			  "loc_B"
+	  Labels		  [0, 0]
+	  SrcBlock		  "Sum2"
+	  SrcPort		  1
+	  Points		  [25, 0]
+	  Branch {
+	    DstBlock		    "unitVector 2"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, -45; 170, 0; 0, -5]
+	    DstBlock		    "Set Objective"
+	    DstPort		    5
+	  }
+	}
+	Line {
+	  Name			  "loc_B_unit"
+	  Labels		  [0, 0]
+	  SrcBlock		  "unitVector 2"
+	  SrcPort		  1
+	  Points		  [65, 0]
+	  Branch {
+	    Points		    [0, -20]
+	    DstBlock		    "Set Objective"
+	    DstPort		    6
+	  }
+	  Branch {
+	    DstBlock		    "Calc Nu to fly To WP B"
+	    DstPort		    2
+	  }
+	}
+	Line {
+	  SrcBlock		  "Set Objective"
+	  SrcPort		  3
+	  Points		  [25, 0; 0, 40]
+	  Branch {
+	    Points		    [0, 39]
+	    DstBlock		    "Calc Nu to fly To WP B"
+	    DstPort		    enable
+	  }
+	  Branch {
+	    Points		    [0, 105]
+	    DstBlock		    "Scope"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "Calc Nu to fly To WP B"
+	  SrcPort		  1
+	  Points		  [135, 0; 0, -695]
+	  DstBlock		  "Merge1"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Calc Nu to fly To WP B"
+	  SrcPort		  2
+	  Points		  [150, 0; 0, -660]
+	  DstBlock		  "Merge2"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Calc Nu to fly To WP B"
+	  SrcPort		  3
+	  Points		  [165, 0; 0, -585]
+	  DstBlock		  "Merge"
+	  DstPort		  3
+	}
       }
     }
     Block {
@@ -8001,7 +8957,7 @@ Model {
       Name		      "Next WP NE"
       SID		      "5"
       Position		      [435, 304, 490, 336]
-      Value		      "[500;0]"
+      Value		      "[1000;0]"
       SampleTime	      "0.1"
       Port {
 	PortNumber		1
@@ -8149,7 +9105,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"SimpleHorizPlant"
-	Location		[-8, -8, 1288, 992]
+	Location		[35, -116, 1331, 884]
 	Open			off
 	ModelBrowserVisibility	on
 	ModelBrowserWidth	200
@@ -8233,7 +9189,7 @@ Model {
 	  Name			  "Iniital NE position"
 	  SID			  "1"
 	  Position		  [590, 279, 665, 311]
-	  Value			  "[-100;-100]"
+	  Value			  "[-100;-500]"
 	  Port {
 	    PortNumber		    1
 	    Name		    "pos_NE"
@@ -8570,8 +9526,8 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Wind Generator"
-	Location		[805, 370, 1176, 533]
-	Open			off
+	Location		[805, 370, 1323, 651]
+	Open			on
 	ModelBrowserVisibility	on
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -8599,17 +9555,9 @@ Model {
 	  SID			  "1161"
 	  Ports			  [0, 1]
 	  Position		  [25, 30, 55, 60]
-	  LibraryVersion	  "1.216"
+	  LibraryVersion	  "1.260"
 	  SourceBlock		  "simulink/Sources/Band-Limited\nWhite Noise"
 	  SourceType		  "Band-Limited White Noise."
-	  ShowPortLabels	  "FromPortIcon"
-	  SystemSampleTime	  "-1"
-	  FunctionWithSeparateData off
-	  RTWMemSecFuncInitTerm	  "Inherit from model"
-	  RTWMemSecFuncExecute	  "Inherit from model"
-	  RTWMemSecDataConstants  "Inherit from model"
-	  RTWMemSecDataInternal	  "Inherit from model"
-	  RTWMemSecDataParameters "Inherit from model"
 	  Cov			  "[0.1]"
 	  Ts			  "0.1"
 	  seed			  "[23341]"
@@ -8621,17 +9569,9 @@ Model {
 	  SID			  "1162"
 	  Ports			  [0, 1]
 	  Position		  [25, 100, 55, 130]
-	  LibraryVersion	  "1.216"
+	  LibraryVersion	  "1.260"
 	  SourceBlock		  "simulink/Sources/Band-Limited\nWhite Noise"
 	  SourceType		  "Band-Limited White Noise."
-	  ShowPortLabels	  "FromPortIcon"
-	  SystemSampleTime	  "-1"
-	  FunctionWithSeparateData off
-	  RTWMemSecFuncInitTerm	  "Inherit from model"
-	  RTWMemSecFuncExecute	  "Inherit from model"
-	  RTWMemSecDataConstants  "Inherit from model"
-	  RTWMemSecDataInternal	  "Inherit from model"
-	  RTWMemSecDataParameters "Inherit from model"
 	  Cov			  "[0.1]"
 	  Ts			  "0.1"
 	  seed			  "[23342]"
@@ -8686,7 +9626,7 @@ Model {
 	  Name			  "windVelNE"
 	  SID			  "63"
 	  Position		  [25, 170, 55, 200]
-	  Value			  "[0;-10]"
+	  Value			  "[0;-20]"
 	}
 	Block {
 	  BlockType		  Outport
@@ -8720,24 +9660,11 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "Transfer Fcn"
-	  SrcPort		  1
-	  Points		  [30, 0; 0, 30]
-	  DstBlock		  "Mux"
-	  DstPort		  1
-	}
-	Line {
 	  SrcBlock		  "Transfer Fcn1"
 	  SrcPort		  1
 	  Points		  [30, 0; 0, -20]
 	  DstBlock		  "Mux"
 	  DstPort		  2
-	}
-	Line {
-	  SrcBlock		  "Mux"
-	  SrcPort		  1
-	  DstBlock		  "Add"
-	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "windVelNE"
@@ -8750,6 +9677,19 @@ Model {
 	  SrcBlock		  "Add"
 	  SrcPort		  1
 	  DstBlock		  "Out1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Transfer Fcn"
+	  SrcPort		  1
+	  Points		  [30, 0; 0, 30]
+	  DstBlock		  "Mux"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Mux"
+	  SrcPort		  1
+	  DstBlock		  "Add"
 	  DstPort		  1
 	}
       }
