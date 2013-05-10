@@ -1,12 +1,12 @@
 Model {
   Name			  "L1_Control"
-  Version		  7.9
+  Version		  7.5
   MdlSubVersion		  0
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.178"
+    ComputedModelVersion    "1.186"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -16,10 +16,8 @@ Model {
   OverrideScopeRefreshTime on
   DisableAllScopes	  off
   DataTypeOverride	  "UseLocalSettings"
-  DataTypeOverrideAppliesTo "AllNumericTypes"
   MinMaxOverflowLogging	  "UseLocalSettings"
   MinMaxOverflowArchiveMode "Overwrite"
-  FPTRunName		  "Run 1"
   MaxMDLFileLineLength	  120
   Created		  "Thu Mar 07 08:50:48 2013"
   Creator		  "prisebor"
@@ -27,9 +25,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "user"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sun Apr 14 21:58:30 2013"
-  RTWModifiedTimeStamp	  287872896
-  ModelVersionFormat	  "1.%<AutoIncrement:178>"
+  LastModifiedDate	  "Fri May 10 17:16:22 2013"
+  RTWModifiedTimeStamp	  290106930
+  ModelVersionFormat	  "1.%<AutoIncrement:186>"
   ConfigurationManager	  "None"
   SampleTimeColors	  on
   SampleTimeAnnotations	  off
@@ -37,7 +35,6 @@ Model {
   WideLines		  off
   ShowLineDimensions	  off
   ShowPortDataTypes	  off
-  ShowDesignRanges	  off
   ShowLoopsOnError	  on
   IgnoreBidirectionalLines off
   ShowStorageClass	  off
@@ -105,13 +102,13 @@ Model {
     Dimension		    1
     Simulink.ConfigSet {
       $ObjectID		      1
-      Version		      "1.12.0"
+      Version		      "1.10.0"
       Array {
 	Type			"Handle"
 	Dimension		8
 	Simulink.SolverCC {
 	  $ObjectID		  2
-	  Version		  "1.12.0"
+	  Version		  "1.10.0"
 	  StartTime		  "0.0"
 	  StopTime		  "100"
 	  AbsTol		  "auto"
@@ -129,8 +126,6 @@ Model {
 	  MaxConsecutiveMinStep	  "1"
 	  RelTol		  "1e-3"
 	  SolverMode		  "Auto"
-	  EnableConcurrentExecution off
-	  ConcurrentTasks	  off
 	  Solver		  "ode45"
 	  SolverName		  "ode45"
 	  SolverJacobianMethodControl "auto"
@@ -146,7 +141,7 @@ Model {
 	}
 	Simulink.DataIOCC {
 	  $ObjectID		  3
-	  Version		  "1.12.0"
+	  Version		  "1.10.0"
 	  Decimation		  "1"
 	  ExternalInput		  "[t, u]"
 	  FinalStateName	  "xFinal"
@@ -158,7 +153,6 @@ Model {
 	  SaveFinalState	  off
 	  SaveCompleteFinalSimState off
 	  SaveFormat		  "Array"
-	  SignalLoggingSaveFormat "ModelDataLogs"
 	  SaveOutput		  on
 	  SaveState		  off
 	  SignalLogging		  on
@@ -178,7 +172,7 @@ Model {
 	}
 	Simulink.OptimizationCC {
 	  $ObjectID		  4
-	  Version		  "1.12.0"
+	  Version		  "1.10.0"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    8
@@ -197,13 +191,12 @@ Model {
 	  ConditionallyExecuteInputs on
 	  InlineParams		  off
 	  UseIntDivNetSlope	  off
-	  UseFloatMulNetSlope	  off
-	  UseSpecifiedMinMax	  off
 	  InlineInvariantSignals  off
 	  OptimizeBlockIOStorage  on
 	  BufferReuse		  on
 	  EnhancedBackFolding	  off
 	  StrengthReduction	  off
+	  EnforceIntegerDowncast  on
 	  ExpressionFolding	  on
 	  BooleansAsBitfields	  off
 	  BitfieldContainerType	  "uint_T"
@@ -230,11 +223,10 @@ Model {
 	  BufferReusableBoundary  on
 	  SimCompilerOptimization "Off"
 	  AccelVerboseBuild	  off
-	  ParallelExecutionInRapidAccelerator on
 	}
 	Simulink.DebuggingCC {
 	  $ObjectID		  5
-	  Version		  "1.12.0"
+	  Version		  "1.10.0"
 	  RTPrefix		  "error"
 	  ConsistencyChecking	  "none"
 	  ArrayBoundsChecking	  "none"
@@ -257,8 +249,6 @@ Model {
 	  MinStepSizeMsg	  "warning"
 	  TimeAdjustmentMsg	  "none"
 	  MaxConsecutiveZCsMsg	  "error"
-	  MaskedZcDiagnostic	  "warning"
-	  IgnoredZcDiagnostic	  "warning"
 	  SolverPrmCheckMsg	  "warning"
 	  InheritedTsInSrcMsg	  "warning"
 	  DiscreteInheritContinuousMsg "warning"
@@ -289,14 +279,12 @@ Model {
 	  UnconnectedOutputMsg	  "warning"
 	  UnconnectedLineMsg	  "warning"
 	  SFcnCompatibilityMsg	  "none"
-	  FrameProcessingCompatibilityMsg "warning"
 	  UniqueDataStoreMsg	  "none"
 	  BusObjectLabelMismatch  "warning"
 	  RootOutportRequireBusObject "warning"
 	  AssertControl		  "UseLocalSettings"
 	  EnableOverflowDetection off
 	  ModelReferenceIOMsg	  "none"
-	  ModelReferenceMultiInstanceNormalModeStructChecksumCheck "error"
 	  ModelReferenceVersionMismatchMessage "none"
 	  ModelReferenceIOMismatchMessage "none"
 	  ModelReferenceCSMismatchMessage "none"
@@ -306,32 +294,19 @@ Model {
 	  ModelReferenceExtraNoncontSigs "error"
 	  StateNameClashWarn	  "warning"
 	  SimStateInterfaceChecksumMismatchMsg "warning"
-	  SimStateOlderReleaseMsg "error"
-	  InitInArrayFormatMsg	  "warning"
 	  StrictBusMsg		  "ErrorLevel1"
 	  BusNameAdapt		  "WarnAndRepair"
 	  NonBusSignalsTreatedAsBus "none"
 	  LoggingUnavailableSignals "error"
 	  BlockIODiagnostic	  "none"
-	  SFUnusedDataAndEventsDiag "warning"
-	  SFUnexpectedBacktrackingDiag "warning"
-	  SFInvalidInputDataAccessInChartInitDiag "warning"
-	  SFNoUnconditionalDefaultTransitionDiag "warning"
-	  SFTransitionOutsideNaturalParentDiag "warning"
-	  SFUnconditionalTransitionShadowingDiag "warning"
 	}
 	Simulink.HardwareCC {
 	  $ObjectID		  6
-	  Version		  "1.12.0"
+	  Version		  "1.10.0"
 	  ProdBitPerChar	  8
 	  ProdBitPerShort	  16
 	  ProdBitPerInt		  32
 	  ProdBitPerLong	  32
-	  ProdBitPerFloat	  32
-	  ProdBitPerDouble	  64
-	  ProdBitPerPointer	  32
-	  ProdLargestAtomicInteger "Char"
-	  ProdLargestAtomicFloat  "None"
 	  ProdIntDivRoundTo	  "Undefined"
 	  ProdEndianess		  "Unspecified"
 	  ProdWordSize		  32
@@ -341,11 +316,6 @@ Model {
 	  TargetBitPerShort	  16
 	  TargetBitPerInt	  32
 	  TargetBitPerLong	  32
-	  TargetBitPerFloat	  32
-	  TargetBitPerDouble	  64
-	  TargetBitPerPointer	  32
-	  TargetLargestAtomicInteger "Char"
-	  TargetLargestAtomicFloat "None"
 	  TargetShiftRightIntArith on
 	  TargetIntDivRoundTo	  "Undefined"
 	  TargetEndianess	  "Unspecified"
@@ -359,11 +329,10 @@ Model {
 	}
 	Simulink.ModelReferenceCC {
 	  $ObjectID		  7
-	  Version		  "1.12.0"
+	  Version		  "1.10.0"
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
 	  CheckModelReferenceTargetMessage "error"
 	  EnableParallelModelReferenceBuilds off
-	  ParallelModelReferenceErrorOnInvalidPool on
 	  ParallelModelReferenceMATLABWorkerInit "None"
 	  ModelReferenceNumInstancesAllowed "Multi"
 	  PropagateVarSize	  "Infer from blocks in model"
@@ -374,7 +343,7 @@ Model {
 	}
 	Simulink.SFSimCC {
 	  $ObjectID		  8
-	  Version		  "1.12.0"
+	  Version		  "1.10.0"
 	  SFSimEnableDebug	  on
 	  SFSimOverflowDetection  on
 	  SFSimEcho		  on
@@ -383,13 +352,12 @@ Model {
 	  SimExtrinsic		  on
 	  SimIntegrity		  on
 	  SimUseLocalCustomCode	  off
-	  SimParseCustomCode	  on
 	  SimBuildMode		  "sf_incremental_build"
 	}
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
 	  $ObjectID		  9
-	  Version		  "1.12.0"
+	  Version		  "1.10.0"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    15
@@ -439,9 +407,6 @@ Model {
 	  GenerateTraceReportSf	  off
 	  GenerateTraceReportEml  off
 	  GenerateCodeInfo	  off
-	  GenerateWebview	  off
-	  GenerateCodeMetricsReport off
-	  GenerateCodeReplacementReport	off
 	  RTWCompilerOptimization "Off"
 	  CheckMdlBeforeBuild	  "Off"
 	  CustomRebuildMode	  "OnUpdate"
@@ -450,7 +415,7 @@ Model {
 	    Dimension		    2
 	    Simulink.CodeAppCC {
 	      $ObjectID		      10
-	      Version		      "1.12.0"
+	      Version		      "1.10.0"
 	      Array {
 		Type			"Cell"
 		Dimension		22
@@ -490,7 +455,6 @@ Model {
 	      IncAutoGenComments      off
 	      SimulinkDataObjDesc     off
 	      SFDataObjDesc	      off
-	      MATLABFcnDesc	      off
 	      IncDataTypeInIds	      off
 	      MangleLength	      1
 	      CustomSymbolStrGlobalVar "$R$N$M"
@@ -505,9 +469,7 @@ Model {
 	      ParamNamingRule	      "None"
 	      SignalNamingRule	      "None"
 	      InsertBlockDesc	      off
-	      InsertPolySpaceComments off
 	      SimulinkBlockComments   on
-	      MATLABSourceComments    off
 	      EnableCustomComments    off
 	      InlinedPrmAccess	      "Literals"
 	      ReqsInCode	      off
@@ -516,7 +478,7 @@ Model {
 	    Simulink.GRTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
 	      $ObjectID		      11
-	      Version		      "1.12.0"
+	      Version		      "1.10.0"
 	      Array {
 		Type			"Cell"
 		Dimension		15
@@ -540,10 +502,10 @@ Model {
 	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
 	      TargetLibSuffix	      ""
 	      TargetPreCompLibLocation ""
-	      CodeReplacementLibrary  "ANSI_C"
+	      TargetFunctionLibrary   "ANSI_C"
 	      UtilityFuncGeneration   "Auto"
 	      ERTMultiwordTypeDef     "System defined"
-	      CodeExecutionProfiling  off
+	      ERTCodeCoverageTool     "None"
 	      ERTMultiwordLength      256
 	      MultiwordLength	      2048
 	      GenerateFullHeader      on
@@ -553,11 +515,9 @@ Model {
 	      ModelReferenceCompliant on
 	      ParMdlRefBuildCompliant on
 	      CompOptLevelCompliant   on
-	      ConcurrentExecutionCompliant on
 	      IncludeMdlTerminateFcn  on
 	      GeneratePreprocessorConditionals "Disable all"
 	      CombineOutputUpdateFcns off
-	      CombineSignalStateStructs	off
 	      SuppressErrorStatus     off
 	      ERTFirstTimeCompliant   off
 	      IncludeFileDelimiter    "Auto"
@@ -578,7 +538,6 @@ Model {
 	      ModelStepFunctionPrototypeControlCompliant off
 	      CPPClassGenCompliant    off
 	      AutosarCompliant	      off
-	      GRTInterface	      on
 	      UseMalloc		      off
 	      ExtMode		      off
 	      ExtModeStaticAlloc      off
@@ -590,7 +549,6 @@ Model {
 	      RTWCAPISignals	      off
 	      RTWCAPIParams	      off
 	      RTWCAPIStates	      off
-	      RTWCAPIRootIO	      off
 	      GenerateASAP2	      off
 	    }
 	    PropName		    "Components"
@@ -600,7 +558,7 @@ Model {
       }
       Name		      "Configuration"
       CurrentDlgPage	      "Solver"
-      ConfigPrmDlgPosition     [ 243, 78, 1156, 628 ] 
+      ConfigPrmDlgPosition    " [ 243, 78, 1156, 628 ] "
     }
     PropName		    "ConfigurationSets"
   }
@@ -608,7 +566,6 @@ Model {
     $PropName		    "ActiveConfigurationSet"
     $ObjectID		    1
   }
-  ExplicitPartitioning	  off
   BlockDefaults {
     ForegroundColor	    "black"
     BackgroundColor	    "white"
@@ -642,45 +599,21 @@ Model {
   }
   BlockParameterDefaults {
     Block {
-      BlockType		      Abs
-      ZeroCross		      on
-      SampleTime	      "-1"
-      OutMin		      "[]"
-      OutMax		      "[]"
-      OutDataTypeStr	      "Inherit: Same as input"
-      LockScale		      off
-      RndMeth		      "Floor"
-      SaturateOnIntegerOverflow	on
-    }
-    Block {
       BlockType		      Constant
       Value		      "1"
       VectorParams1D	      on
       SamplingMode	      "Sample based"
       OutMin		      "[]"
       OutMax		      "[]"
+      OutDataTypeMode	      "Inherit from 'Constant value'"
+      OutDataType	      "fixdt(1,16,0)"
+      ConRadixGroup	      "Use specified scaling"
+      OutScaling	      "[]"
       OutDataTypeStr	      "Inherit: Inherit from 'Constant value'"
       LockScale		      off
       SampleTime	      "inf"
       FramePeriod	      "inf"
       PreserveConstantTs      off
-    }
-    Block {
-      BlockType		      Delay
-      DelayLengthSource	      "Dialog"
-      DelayLength	      "2"
-      DelayLengthUpperLimit   "100"
-      InitialConditionSource  "Dialog"
-      InitialCondition	      "0.0"
-      ExternalReset	      "None"
-      PreventDirectFeedthrough off
-      DiagnosticForOutOfRangeDelayLength "None"
-      RemoveProtectionDelayLength off
-      InputProcessing	      "Elements as channels (sample based)"
-      UseCircularBuffer	      off
-      SampleTime	      "-1"
-      StateMustResolveToSignalObject off
-      CodeGenStateStorageClass "Auto"
     }
     Block {
       BlockType		      Demux
@@ -689,18 +622,14 @@ Model {
       BusSelectionMode	      off
     }
     Block {
-      BlockType		      Display
-      Format		      "short"
-      Decimation	      "10"
-      Floating		      off
-      SampleTime	      "-1"
-    }
-    Block {
       BlockType		      DotProduct
       SampleTime	      "-1"
       InputSameDT	      on
       OutMin		      "[]"
       OutMax		      "[]"
+      OutputDataTypeScalingMode	"Same as first input"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
       OutDataTypeStr	      "Inherit: Same as first input"
       LockScale		      off
       RndMeth		      "Floor"
@@ -712,12 +641,6 @@ Model {
       PropagateVarSize	      "Only when enabling"
       ShowOutputPort	      off
       ZeroCross		      on
-      PortDimensions	      "1"
-      SampleTime	      "-1"
-      OutMin		      "[]"
-      OutMax		      "[]"
-      OutDataTypeStr	      "double"
-      Interpolate	      on
     }
     Block {
       BlockType		      Gain
@@ -725,9 +648,16 @@ Model {
       Multiplication	      "Element-wise(K.*u)"
       ParamMin		      "[]"
       ParamMax		      "[]"
+      ParameterDataTypeMode   "Same as input"
+      ParameterDataType	      "fixdt(1,16,0)"
+      ParameterScalingMode    "Best Precision: Matrix-wise"
+      ParameterScaling	      "[]"
       ParamDataTypeStr	      "Inherit: Same as input"
       OutMin		      "[]"
       OutMax		      "[]"
+      OutDataTypeMode	      "Same as input"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
       OutDataTypeStr	      "Inherit: Same as input"
       LockScale		      off
       RndMeth		      "Floor"
@@ -737,15 +667,19 @@ Model {
     Block {
       BlockType		      Inport
       Port		      "1"
-      OutputFunctionCall      off
-      OutMin		      "[]"
-      OutMax		      "[]"
-      OutDataTypeStr	      "Inherit: auto"
-      LockScale		      off
+      UseBusObject	      off
+      BusObject		      "BusObject"
       BusOutputAsStruct	      off
       PortDimensions	      "-1"
       VarSizeSig	      "Inherit"
       SampleTime	      "-1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      DataType		      "auto"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
       SignalType	      "auto"
       SamplingMode	      "auto"
       LatchByDelayingOutsideSignal off
@@ -773,6 +707,8 @@ Model {
       Inputs		      "2"
       IconShape		      "rectangular"
       AllPortsSameDT	      on
+      OutDataTypeMode	      "Logical (see Configuration Parameters: Optimization)"
+      LogicDataType	      "uint(8)"
       OutDataTypeStr	      "Inherit: Logical (see Configuration Parameters: Optimization)"
       SampleTime	      "-1"
     }
@@ -783,6 +719,9 @@ Model {
       SampleTime	      "-1"
       OutMin		      "[]"
       OutMax		      "[]"
+      OutDataTypeMode	      "Same as first input"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
       OutDataTypeStr	      "Inherit: Same as first input"
       LockScale		      off
       RndMeth		      "Floor"
@@ -805,6 +744,9 @@ Model {
       InputSameDT	      on
       OutMin		      "[]"
       OutMax		      "[]"
+      OutDataTypeMode	      "Inherit via internal rule"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
       LockScale		      off
       RndMeth		      "Floor"
@@ -823,14 +765,19 @@ Model {
     Block {
       BlockType		      Outport
       Port		      "1"
-      OutMin		      "[]"
-      OutMax		      "[]"
-      OutDataTypeStr	      "Inherit: auto"
-      LockScale		      off
+      UseBusObject	      off
+      BusObject		      "BusObject"
       BusOutputAsStruct	      off
       PortDimensions	      "-1"
       VarSizeSig	      "Inherit"
       SampleTime	      "-1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      DataType		      "auto"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
       SignalType	      "auto"
       SamplingMode	      "auto"
       SourceOfInitialOutputValue "Dialog"
@@ -846,6 +793,9 @@ Model {
       InputSameDT	      on
       OutMin		      "[]"
       OutMax		      "[]"
+      OutDataTypeMode	      "Same as first input"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
       OutDataTypeStr	      "Inherit: Same as first input"
       LockScale		      off
       RndMeth		      "Zero"
@@ -865,21 +815,24 @@ Model {
       BlockType		      RelationalOperator
       Operator		      ">="
       InputSameDT	      on
+      LogicOutDataTypeMode    "Logical (see Configuration Parameters: Optimization)"
+      LogicDataType	      "uint(8)"
       OutDataTypeStr	      "Inherit: Logical (see Configuration Parameters: Optimization)"
       ZeroCross		      on
       SampleTime	      "-1"
     }
     Block {
       BlockType		      Saturate
-      UpperLimitSource	      "Dialog"
       UpperLimit	      "0.5"
-      LowerLimitSource	      "Dialog"
       LowerLimit	      "-0.5"
       LinearizeAsGain	      on
       ZeroCross		      on
       SampleTime	      "-1"
       OutMin		      "[]"
       OutMax		      "[]"
+      OutDataTypeMode	      "Same as input"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
       OutDataTypeStr	      "Inherit: Same as input"
       LockScale		      off
       RndMeth		      "Floor"
@@ -895,7 +848,6 @@ Model {
       YMax		      "5"
       SaveToWorkspace	      off
       SaveName		      "ScopeData"
-      DataFormat	      "Array"
       LimitDataPoints	      on
       MaxDataPoints	      "5000"
       Decimation	      "1"
@@ -909,12 +861,15 @@ Model {
       SampleTime	      "-1"
       OutMin		      "[]"
       OutMax		      "[]"
+      OutDataTypeMode	      "Same as first input"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
       OutDataTypeStr	      "Inherit: Same as first input"
       LockScale		      off
       RndMeth		      "Floor"
       SaturateOnIntegerOverflow	on
       IntermediateResultsDataTypeStr "Inherit: Inherit via internal rule"
-      AlgorithmType	      "Exact"
+      AlgorithmType	      "Newton-Raphson"
       Iterations	      "3"
     }
     Block {
@@ -943,11 +898,7 @@ Model {
       RTWMemSecDataParameters "Inherit from model"
       SimViewingDevice	      off
       DataTypeOverride	      "UseLocalSettings"
-      DataTypeOverrideAppliesTo	"AllNumericTypes"
       MinMaxOverflowLogging   "UseLocalSettings"
-      SFBlockType	      "NONE"
-      Variant		      off
-      GeneratePreprocessorConditionals off
     }
     Block {
       BlockType		      Sum
@@ -959,6 +910,9 @@ Model {
       AccumDataTypeStr	      "Inherit: Inherit via internal rule"
       OutMin		      "[]"
       OutMax		      "[]"
+      OutDataTypeMode	      "Same as first input"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
       OutDataTypeStr	      "Inherit: Same as first input"
       LockScale		      off
       RndMeth		      "Floor"
@@ -972,6 +926,9 @@ Model {
       InputSameDT	      on
       OutMin		      "[]"
       OutMax		      "[]"
+      OutDataTypeMode	      "Inherit via internal rule"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
       LockScale		      off
       RndMeth		      "Floor"
@@ -999,11 +956,9 @@ Model {
     Block {
       BlockType		      UnitDelay
       X0		      "0"
-      InputProcessing	      "Inherited"
       SampleTime	      "1"
       StateMustResolveToSignalObject off
       RTWStateStorageClass    "Auto"
-      HasFrameUpgradeWarning  on
     }
   }
   System {
@@ -1022,11 +977,11 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "80"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "1351"
+    SIDHighWatermark	    1384
     Block {
       BlockType		      SubSystem
       Name		      "AHRS Complementary Filter"
-      SID		      "858"
+      SID		      858
       Ports		      [5, 1]
       Position		      [255, 20, 380, 220]
       TreatAsAtomicUnit	      on
@@ -1056,14 +1011,14 @@ Model {
 	Block {
 	  BlockType		  Inport
 	  Name			  "yaw"
-	  SID			  "859"
+	  SID			  859
 	  Position		  [25, 33, 55, 47]
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Inport
 	  Name			  "TAS"
-	  SID			  "861"
+	  SID			  861
 	  Position		  [170, 98, 200, 112]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
@@ -1071,7 +1026,7 @@ Model {
 	Block {
 	  BlockType		  Inport
 	  Name			  "windSpd"
-	  SID			  "862"
+	  SID			  862
 	  Position		  [25, 153, 55, 167]
 	  Port			  "3"
 	  IconDisplay		  "Port number"
@@ -1079,7 +1034,7 @@ Model {
 	Block {
 	  BlockType		  Inport
 	  Name			  "windAng"
-	  SID			  "863"
+	  SID			  863
 	  Position		  [25, 193, 55, 207]
 	  Port			  "4"
 	  IconDisplay		  "Port number"
@@ -1087,7 +1042,7 @@ Model {
 	Block {
 	  BlockType		  Inport
 	  Name			  "GPS_vel"
-	  SID			  "860"
+	  SID			  860
 	  Position		  [340, 218, 370, 232]
 	  Port			  "5"
 	  IconDisplay		  "Port number"
@@ -1095,18 +1050,19 @@ Model {
 	Block {
 	  BlockType		  Sum
 	  Name			  "Add"
-	  SID			  "864"
+	  SID			  864
 	  Ports			  [2, 1]
 	  Position		  [325, 52, 355, 83]
 	  Inputs		  "+-"
 	  InputSameDT		  off
+	  OutDataTypeMode	  "Inherit via internal rule"
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
 	  BlockType		  Demux
 	  Name			  "Demux"
-	  SID			  "865"
+	  SID			  865
 	  Ports			  [1, 2]
 	  Position		  [410, 51, 415, 89]
 	  ShowName		  off
@@ -1116,7 +1072,7 @@ Model {
 	Block {
 	  BlockType		  Demux
 	  Name			  "Demux1"
-	  SID			  "866"
+	  SID			  866
 	  Ports			  [1, 2]
 	  Position		  [410, 206, 415, 244]
 	  ShowName		  off
@@ -1126,7 +1082,7 @@ Model {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "FirstOrderCompFilter E"
-	  SID			  "867"
+	  SID			  867
 	  Ports			  [2, 1]
 	  Position		  [465, 159, 590, 261]
 	  MinAlgLoopOccurrences	  off
@@ -1138,11 +1094,11 @@ Model {
 	  MaskHideContents	  off
 	  MaskPromptString	  "Beta=dt/Tau, Tau = filter time constant (sec), dt = filter time step (sec)"
 	  MaskStyleString	  "edit"
-	  MaskVariables		  "beta=@1;"
 	  MaskTunableValueString  "on"
 	  MaskEnableString	  "on"
 	  MaskVisibilityString	  "on"
 	  MaskToolTipString	  "on"
+	  MaskVariables		  "beta=@1;"
 	  MaskIconFrame		  on
 	  MaskIconOpaque	  on
 	  MaskIconRotate	  "none"
@@ -1167,14 +1123,14 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "HP_in"
-	      SID		      "868"
+	      SID		      868
 	      Position		      [65, 73, 95, 87]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
 	      Name		      "LP_in"
-	      SID		      "869"
+	      SID		      869
 	      Position		      [70, 243, 100, 257]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -1182,80 +1138,87 @@ Model {
 	    Block {
 	      BlockType		      Sum
 	      Name		      "Add"
-	      SID		      "870"
+	      SID		      870
 	      Ports		      [3, 1]
 	      Position		      [295, 64, 325, 96]
 	      Inputs		      "+-+"
 	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      SaturateOnIntegerOverflow	off
 	    }
 	    Block {
 	      BlockType		      Sum
 	      Name		      "Add1"
-	      SID		      "871"
+	      SID		      871
 	      Ports		      [2, 1]
 	      Position		      [295, 251, 325, 284]
 	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      SaturateOnIntegerOverflow	off
 	    }
 	    Block {
 	      BlockType		      Sum
 	      Name		      "Add2"
-	      SID		      "872"
+	      SID		      872
 	      Ports		      [2, 1]
 	      Position		      [405, 72, 435, 103]
 	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      SaturateOnIntegerOverflow	off
 	    }
 	    Block {
 	      BlockType		      Constant
 	      Name		      "Constant"
-	      SID		      "873"
+	      SID		      873
 	      Position		      [70, 340, 100, 370]
 	    }
 	    Block {
 	      BlockType		      Product
 	      Name		      "Product1"
-	      SID		      "874"
+	      SID		      874
 	      Ports		      [2, 1]
 	      Position		      [200, 242, 230, 273]
 	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      SaturateOnIntegerOverflow	off
 	    }
 	    Block {
 	      BlockType		      Product
 	      Name		      "Product2"
-	      SID		      "875"
+	      SID		      875
 	      Ports		      [2, 1]
 	      Position		      [200, 347, 230, 378]
 	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      SaturateOnIntegerOverflow	off
 	    }
 	    Block {
 	      BlockType		      Product
 	      Name		      "Product3"
-	      SID		      "876"
+	      SID		      876
 	      Ports		      [2, 1]
 	      Position		      [210, 122, 240, 153]
 	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      SaturateOnIntegerOverflow	off
 	    }
 	    Block {
 	      BlockType		      Sum
 	      Name		      "Sum"
-	      SID		      "877"
+	      SID		      877
 	      Ports		      [2, 1]
 	      Position		      [130, 345, 150, 365]
 	      ShowName		      off
 	      IconShape		      "round"
 	      Inputs		      "-+|"
 	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      SaturateOnIntegerOverflow	off
 	      Port {
@@ -1268,14 +1231,14 @@ Model {
 	    Block {
 	      BlockType		      UnitDelay
 	      Name		      "Unit Delay"
-	      SID		      "878"
+	      SID		      878
 	      Position		      [150, 63, 185, 97]
 	      SampleTime	      "-1"
 	    }
 	    Block {
 	      BlockType		      UnitDelay
 	      Name		      "Unit Delay1"
-	      SID		      "879"
+	      SID		      879
 	      Position		      [295, 158, 330, 192]
 	      BlockMirror	      on
 	      SampleTime	      "-1"
@@ -1283,7 +1246,7 @@ Model {
 	    Block {
 	      BlockType		      UnitDelay
 	      Name		      "Unit Delay3"
-	      SID		      "880"
+	      SID		      880
 	      Position		      [295, 388, 330, 422]
 	      BlockMirror	      on
 	      SampleTime	      "-1"
@@ -1291,7 +1254,7 @@ Model {
 	    Block {
 	      BlockType		      Constant
 	      Name		      "beta"
-	      SID		      "881"
+	      SID		      881
 	      Position		      [70, 285, 100, 315]
 	      Value		      "beta"
 	      Port {
@@ -1304,7 +1267,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "Out"
-	      SID		      "882"
+	      SID		      882
 	      Position		      [470, 83, 500, 97]
 	      IconDisplay	      "Port number"
 	    }
@@ -1442,7 +1405,6 @@ Model {
 	      DstPort		      2
 	    }
 	    Annotation {
-	      SID		      "1174"
 	      Position		      [424, 174]
 	    }
 	  }
@@ -1450,7 +1412,7 @@ Model {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "FirstOrderCompFilter N"
-	  SID			  "884"
+	  SID			  884
 	  Ports			  [2, 1]
 	  Position		  [465, 34, 590, 136]
 	  MinAlgLoopOccurrences	  off
@@ -1462,11 +1424,11 @@ Model {
 	  MaskHideContents	  off
 	  MaskPromptString	  "Beta=dt/Tau, Tau = filter time constant (sec), dt = filter time step (sec)"
 	  MaskStyleString	  "edit"
-	  MaskVariables		  "beta=@1;"
 	  MaskTunableValueString  "on"
 	  MaskEnableString	  "on"
 	  MaskVisibilityString	  "on"
 	  MaskToolTipString	  "on"
+	  MaskVariables		  "beta=@1;"
 	  MaskIconFrame		  on
 	  MaskIconOpaque	  on
 	  MaskIconRotate	  "none"
@@ -1491,14 +1453,14 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "HP_in"
-	      SID		      "885"
+	      SID		      885
 	      Position		      [65, 73, 95, 87]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
 	      Name		      "LP_in"
-	      SID		      "886"
+	      SID		      886
 	      Position		      [70, 243, 100, 257]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -1506,80 +1468,87 @@ Model {
 	    Block {
 	      BlockType		      Sum
 	      Name		      "Add"
-	      SID		      "887"
+	      SID		      887
 	      Ports		      [3, 1]
 	      Position		      [295, 64, 325, 96]
 	      Inputs		      "+-+"
 	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      SaturateOnIntegerOverflow	off
 	    }
 	    Block {
 	      BlockType		      Sum
 	      Name		      "Add1"
-	      SID		      "888"
+	      SID		      888
 	      Ports		      [2, 1]
 	      Position		      [295, 251, 325, 284]
 	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      SaturateOnIntegerOverflow	off
 	    }
 	    Block {
 	      BlockType		      Sum
 	      Name		      "Add2"
-	      SID		      "889"
+	      SID		      889
 	      Ports		      [2, 1]
 	      Position		      [405, 72, 435, 103]
 	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      SaturateOnIntegerOverflow	off
 	    }
 	    Block {
 	      BlockType		      Constant
 	      Name		      "Constant"
-	      SID		      "890"
+	      SID		      890
 	      Position		      [70, 340, 100, 370]
 	    }
 	    Block {
 	      BlockType		      Product
 	      Name		      "Product1"
-	      SID		      "891"
+	      SID		      891
 	      Ports		      [2, 1]
 	      Position		      [200, 242, 230, 273]
 	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      SaturateOnIntegerOverflow	off
 	    }
 	    Block {
 	      BlockType		      Product
 	      Name		      "Product2"
-	      SID		      "892"
+	      SID		      892
 	      Ports		      [2, 1]
 	      Position		      [200, 347, 230, 378]
 	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      SaturateOnIntegerOverflow	off
 	    }
 	    Block {
 	      BlockType		      Product
 	      Name		      "Product3"
-	      SID		      "893"
+	      SID		      893
 	      Ports		      [2, 1]
 	      Position		      [210, 122, 240, 153]
 	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      SaturateOnIntegerOverflow	off
 	    }
 	    Block {
 	      BlockType		      Sum
 	      Name		      "Sum"
-	      SID		      "894"
+	      SID		      894
 	      Ports		      [2, 1]
 	      Position		      [130, 345, 150, 365]
 	      ShowName		      off
 	      IconShape		      "round"
 	      Inputs		      "-+|"
 	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      SaturateOnIntegerOverflow	off
 	      Port {
@@ -1592,14 +1561,14 @@ Model {
 	    Block {
 	      BlockType		      UnitDelay
 	      Name		      "Unit Delay"
-	      SID		      "895"
+	      SID		      895
 	      Position		      [150, 63, 185, 97]
 	      SampleTime	      "-1"
 	    }
 	    Block {
 	      BlockType		      UnitDelay
 	      Name		      "Unit Delay1"
-	      SID		      "896"
+	      SID		      896
 	      Position		      [295, 158, 330, 192]
 	      BlockMirror	      on
 	      SampleTime	      "-1"
@@ -1607,7 +1576,7 @@ Model {
 	    Block {
 	      BlockType		      UnitDelay
 	      Name		      "Unit Delay3"
-	      SID		      "897"
+	      SID		      897
 	      Position		      [295, 388, 330, 422]
 	      BlockMirror	      on
 	      SampleTime	      "-1"
@@ -1615,7 +1584,7 @@ Model {
 	    Block {
 	      BlockType		      Constant
 	      Name		      "beta"
-	      SID		      "898"
+	      SID		      898
 	      Position		      [70, 285, 100, 315]
 	      Value		      "beta"
 	      Port {
@@ -1628,7 +1597,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "Out"
-	      SID		      "899"
+	      SID		      899
 	      Position		      [470, 83, 500, 97]
 	      IconDisplay	      "Port number"
 	    }
@@ -1766,7 +1735,6 @@ Model {
 	      DstPort		      2
 	    }
 	    Annotation {
-	      SID		      "1175"
 	      Position		      [424, 174]
 	    }
 	  }
@@ -1774,7 +1742,7 @@ Model {
 	Block {
 	  BlockType		  Mux
 	  Name			  "Mux"
-	  SID			  "901"
+	  SID			  901
 	  Ports			  [2, 1]
 	  Position		  [185, 31, 190, 69]
 	  ShowName		  off
@@ -1784,7 +1752,7 @@ Model {
 	Block {
 	  BlockType		  Mux
 	  Name			  "Mux1"
-	  SID			  "902"
+	  SID			  902
 	  Ports			  [2, 1]
 	  Position		  [625, 76, 630, 114]
 	  ShowName		  off
@@ -1794,7 +1762,7 @@ Model {
 	Block {
 	  BlockType		  Mux
 	  Name			  "Mux4"
-	  SID			  "903"
+	  SID			  903
 	  Ports			  [2, 1]
 	  Position		  [245, 186, 250, 224]
 	  ShowName		  off
@@ -1804,37 +1772,40 @@ Model {
 	Block {
 	  BlockType		  Product
 	  Name			  "Product"
-	  SID			  "904"
+	  SID			  904
 	  Ports			  [2, 1]
 	  Position		  [170, 177, 200, 208]
 	  InputSameDT		  off
+	  OutDataTypeMode	  "Inherit via internal rule"
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
 	  BlockType		  Product
 	  Name			  "Product 3"
-	  SID			  "905"
+	  SID			  905
 	  Ports			  [2, 1]
 	  Position		  [245, 42, 280, 78]
 	  InputSameDT		  off
+	  OutDataTypeMode	  "Inherit via internal rule"
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
 	  BlockType		  Product
 	  Name			  "Product1"
-	  SID			  "906"
+	  SID			  906
 	  Ports			  [2, 1]
 	  Position		  [170, 237, 200, 268]
 	  InputSameDT		  off
+	  OutDataTypeMode	  "Inherit via internal rule"
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
 	  BlockType		  Trigonometry
 	  Name			  "Trigonometric\nFunction"
-	  SID			  "907"
+	  SID			  907
 	  Ports			  [1, 1]
 	  Position		  [110, 25, 140, 55]
 	  Operator		  "cos"
@@ -1842,14 +1813,14 @@ Model {
 	Block {
 	  BlockType		  Trigonometry
 	  Name			  "Trigonometric\nFunction1"
-	  SID			  "908"
+	  SID			  908
 	  Ports			  [1, 1]
 	  Position		  [110, 90, 140, 120]
 	}
 	Block {
 	  BlockType		  Trigonometry
 	  Name			  "Trigonometric\nFunction2"
-	  SID			  "909"
+	  SID			  909
 	  Ports			  [1, 1]
 	  Position		  [105, 185, 135, 215]
 	  Operator		  "cos"
@@ -1857,14 +1828,14 @@ Model {
 	Block {
 	  BlockType		  Trigonometry
 	  Name			  "Trigonometric\nFunction3"
-	  SID			  "910"
+	  SID			  910
 	  Ports			  [1, 1]
 	  Position		  [105, 245, 135, 275]
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "groundspeed_vector"
-	  SID			  "911"
+	  SID			  911
 	  Position		  [660, 88, 690, 102]
 	  IconDisplay		  "Port number"
 	}
@@ -2031,7 +2002,6 @@ Model {
 	  DstPort		  2
 	}
 	Annotation {
-	  SID			  "1176"
 	  Name			  "Filter time constant tuned to suit GPS latency and quality of wind estimation "
 	  Position		  [526, 306]
 	}
@@ -2040,7 +2010,7 @@ Model {
     Block {
       BlockType		      Demux
       Name		      "Demux"
-      SID		      "462"
+      SID		      462
       Ports		      [1, 2]
       Position		      [1160, 201, 1165, 239]
       ShowName		      off
@@ -2050,7 +2020,7 @@ Model {
     Block {
       BlockType		      SubSystem
       Name		      "GPS"
-      SID		      "737"
+      SID		      737
       Ports		      [1, 1]
       Position		      [125, 195, 205, 245]
       MinAlgLoopOccurrences   off
@@ -2079,53 +2049,68 @@ Model {
 	Block {
 	  BlockType		  Inport
 	  Name			  "vel_NE"
-	  SID			  "738"
+	  SID			  738
 	  Position		  [25, 38, 55, 52]
 	  IconDisplay		  "Port number"
 	}
 	Block {
-	  BlockType		  Delay
-	  Name			  "Integer Delay"
-	  SID			  "1170"
+	  BlockType		  Reference
+	  Name			  "Integer Delay1"
+	  SID			  1360
 	  Ports			  [1, 1]
-	  Position		  [315, 28, 350, 62]
-	  InputPortMap		  "u0"
-	  InputProcessing	  "Inherited"
+	  Position		  [310, 188, 345, 222]
+	  LibraryVersion	  "1.216"
+	  SourceBlock		  "simulink/Discrete/Integer Delay"
+	  SourceType		  "Integer Delay"
+	  vinit			  "0.0"
+	  samptime		  "-1"
+	  NumDelays		  "8"
 	}
 	Block {
-	  BlockType		  Delay
-	  Name			  "Integer Delay1"
-	  SID			  "1171"
+	  BlockType		  Reference
+	  Name			  "Integer Delay2"
+	  SID			  1359
 	  Ports			  [1, 1]
-	  Position		  [315, 188, 350, 222]
-	  InputPortMap		  "u0"
-	  DelayLength		  "8"
-	  InputProcessing	  "Inherited"
+	  Position		  [310, 28, 345, 62]
+	  LibraryVersion	  "1.216"
+	  SourceBlock		  "simulink/Discrete/Integer Delay"
+	  SourceType		  "Integer Delay"
+	  vinit			  "0.0"
+	  samptime		  "-1"
+	  NumDelays		  "3"
 	}
 	Block {
 	  BlockType		  Reference
 	  Name			  "Manual Switch"
-	  SID			  "1157"
+	  SID			  1157
 	  Ports			  [2, 1]
 	  Position		  [405, 37, 435, 73]
-	  LibraryVersion	  "1.260"
+	  LibraryVersion	  "1.216"
 	  SourceBlock		  "simulink/Signal\nRouting/Manual Switch"
 	  SourceType		  "Manual Switch"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData "off"
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
 	  sw			  "1"
 	  action		  "0"
-	  varsize		  off
+	  varsize		  "off"
 	}
 	Block {
 	  BlockType		  RateTransition
 	  Name			  "Rate Transition1"
-	  SID			  "746"
+	  SID			  746
 	  Position		  [130, 24, 165, 66]
 	  OutPortSampleTime	  "0.25"
 	}
 	Block {
 	  BlockType		  RateTransition
 	  Name			  "Rate Transition2"
-	  SID			  "752"
+	  SID			  752
 	  Position		  [220, 24, 255, 66]
 	  Deterministic		  off
 	  OutPortSampleTime	  "0.1"
@@ -2133,21 +2118,21 @@ Model {
 	Block {
 	  BlockType		  RateTransition
 	  Name			  "Rate Transition3"
-	  SID			  "771"
+	  SID			  771
 	  Position		  [125, 184, 160, 226]
 	  OutPortSampleTime	  "1"
 	}
 	Block {
 	  BlockType		  RateTransition
 	  Name			  "Rate Transition4"
-	  SID			  "772"
+	  SID			  772
 	  Position		  [220, 184, 255, 226]
 	  OutPortSampleTime	  "0.1"
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "GPS_vel"
-	  SID			  "739"
+	  SID			  739
 	  Position		  [485, 48, 515, 62]
 	  IconDisplay		  "Port number"
 	}
@@ -2174,7 +2159,7 @@ Model {
 	Line {
 	  SrcBlock		  "Rate Transition2"
 	  SrcPort		  1
-	  DstBlock		  "Integer Delay"
+	  DstBlock		  "Integer Delay2"
 	  DstPort		  1
 	}
 	Line {
@@ -2192,12 +2177,12 @@ Model {
 	Line {
 	  SrcBlock		  "Integer Delay1"
 	  SrcPort		  1
-	  Points		  [20, 0; 0, -140]
+	  Points		  [25, 0; 0, -140]
 	  DstBlock		  "Manual Switch"
 	  DstPort		  2
 	}
 	Line {
-	  SrcBlock		  "Integer Delay"
+	  SrcBlock		  "Integer Delay2"
 	  SrcPort		  1
 	  DstBlock		  "Manual Switch"
 	  DstPort		  1
@@ -2209,12 +2194,10 @@ Model {
 	  DstPort		  1
 	}
 	Annotation {
-	  SID			  "1177"
 	  Name			  "UBlox 4Hz output"
 	  Position		  [134, 97]
 	}
 	Annotation {
-	  SID			  "1178"
 	  Name			  "Cheapo 1Hz output"
 	  Position		  [129, 257]
 	}
@@ -2223,7 +2206,7 @@ Model {
     Block {
       BlockType		      Constant
       Name		      "Last WP NE"
-      SID		      "4"
+      SID		      4
       Position		      [435, 404, 490, 436]
       Value		      "[0;0]"
       SampleTime	      "0.1"
@@ -2237,12 +2220,20 @@ Model {
     Block {
       BlockType		      Reference
       Name		      "Manual Switch"
-      SID		      "1158"
+      SID		      1158
       Ports		      [2, 1]
       Position		      [790, 167, 820, 203]
-      LibraryVersion	      "1.260"
+      LibraryVersion	      "1.216"
       SourceBlock	      "simulink/Signal\nRouting/Manual Switch"
       SourceType	      "Manual Switch"
+      ShowPortLabels	      "FromPortIcon"
+      SystemSampleTime	      "-1"
+      FunctionWithSeparateData off
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
       sw		      "0"
       action		      "0"
       varsize		      off
@@ -2250,7 +2241,7 @@ Model {
     Block {
       BlockType		      SubSystem
       Name		      "Modified L1 Guidance - Circle"
-      SID		      "1187"
+      SID		      1187
       Ports		      [4, 2, 1]
       Position		      [560, 569, 705, 961]
       TreatAsAtomicUnit	      on
@@ -2265,12 +2256,12 @@ Model {
       MaskPromptString	      "Tracking Loop Period (sec) - set to 15 times total loop delay|Tracking Loop Theoretical "
       "Damping Ratio|Loiter Direction [1 , -1] - 1 for RH, -1 for LH"
       MaskStyleString	      "edit,edit,edit"
-      MaskVariables	      "period=@1;dampingRatio=@2;loitDirn=@3;"
       MaskTunableValueString  "on,on,on"
       MaskCallbackString      "||"
       MaskEnableString	      "on,on,on"
       MaskVisibilityString    "on,on,on"
       MaskToolTipString	      "on,on,on"
+      MaskVariables	      "period=@1;dampingRatio=@2;loitDirn=@3;"
       MaskIconFrame	      on
       MaskIconOpaque	      on
       MaskIconRotate	      "none"
@@ -2279,7 +2270,7 @@ Model {
       MaskValueString	      "20|0.71|-1"
       System {
 	Name			"Modified L1 Guidance - Circle"
-	Location		[202, 74, 1364, 707]
+	Location		[202, 74, 1364, 747]
 	Open			off
 	ModelBrowserVisibility	on
 	ModelBrowserWidth	200
@@ -2295,14 +2286,14 @@ Model {
 	Block {
 	  BlockType		  Inport
 	  Name			  "groundspeed_vector"
-	  SID			  "1188"
+	  SID			  1188
 	  Position		  [30, 78, 60, 92]
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Inport
 	  Name			  "current_loc"
-	  SID			  "1189"
+	  SID			  1189
 	  Position		  [30, 258, 60, 272]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
@@ -2310,7 +2301,7 @@ Model {
 	Block {
 	  BlockType		  Inport
 	  Name			  "WP"
-	  SID			  "1190"
+	  SID			  1190
 	  Position		  [30, 313, 60, 327]
 	  Port			  "3"
 	  IconDisplay		  "Port number"
@@ -2318,7 +2309,7 @@ Model {
 	Block {
 	  BlockType		  Inport
 	  Name			  "radius"
-	  SID			  "1191"
+	  SID			  1191
 	  Position		  [30, 508, 60, 522]
 	  Port			  "4"
 	  IconDisplay		  "Port number"
@@ -2326,14 +2317,14 @@ Model {
 	Block {
 	  BlockType		  EnablePort
 	  Name			  "Enable"
-	  SID			  "1192"
+	  SID			  1192
 	  Ports			  []
 	  Position		  [402, 15, 422, 35]
 	}
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "Calc Circle Errors"
-	  SID			  "1193"
+	  SID			  1193
 	  Ports			  [4, 2]
 	  Position		  [340, 410, 490, 530]
 	  MinAlgLoopOccurrences	  off
@@ -2361,12 +2352,13 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "groundspeed_vector"
-	      SID		      "1194"
+	      SID		      1194
 	      Position		      [45, 28, 75, 42]
 	      IconDisplay	      "Port number"
 	      Port {
 		PortNumber		1
 		Name			"groundspeed_vector"
+		PropagatedSignals	", "
 		RTWStorageClass		"Auto"
 		DataLoggingNameMode	"SignalName"
 	      }
@@ -2374,7 +2366,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "air_unit"
-	      SID		      "1195"
+	      SID		      1195
 	      Position		      [45, 113, 75, 127]
 	      NamePlacement	      "alternate"
 	      Port		      "2"
@@ -2383,7 +2375,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "air"
-	      SID		      "1196"
+	      SID		      1196
 	      Position		      [45, 163, 75, 177]
 	      Port		      "3"
 	      IconDisplay	      "Port number"
@@ -2391,7 +2383,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "radius"
-	      SID		      "1197"
+	      SID		      1197
 	      Position		      [45, 228, 75, 242]
 	      Port		      "4"
 	      IconDisplay	      "Port number"
@@ -2399,45 +2391,49 @@ Model {
 	    Block {
 	      BlockType		      Sum
 	      Name		      "Add 2"
-	      SID		      "1198"
+	      SID		      1198
 	      Ports		      [2, 1]
 	      Position		      [250, 172, 280, 203]
 	      Inputs		      "+-"
 	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      SaturateOnIntegerOverflow	off
 	    }
 	    Block {
 	      BlockType		      DotProduct
 	      Name		      "Dot Product"
-	      SID		      "1199"
+	      SID		      1199
 	      Position		      [185, 27, 215, 58]
+	      OutputDataTypeScalingMode	"Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	    }
 	    Block {
 	      BlockType		      DotProduct
 	      Name		      "Dot Product1"
-	      SID		      "1200"
+	      SID		      1200
 	      Position		      [130, 162, 160, 193]
+	      OutputDataTypeScalingMode	"Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	    }
 	    Block {
 	      BlockType		      Sqrt
 	      Name		      "Sqrt"
-	      SID		      "1201"
+	      SID		      1201
 	      Position		      [185, 165, 215, 195]
+	      AlgorithmType	      "Exact"
 	    }
 	    Block {
 	      BlockType		      Outport
 	      Name		      "xtrackErrCirc"
-	      SID		      "1202"
+	      SID		      1202
 	      Position		      [340, 183, 370, 197]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Outport
 	      Name		      "xtrackVelCirc"
-	      SID		      "1203"
+	      SID		      1203
 	      Position		      [340, 38, 370, 52]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -2507,9 +2503,9 @@ Model {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "Calc Coefficients"
-	  SID			  "1204"
-	  Ports			  [1, 4]
-	  Position		  [340, 169, 490, 266]
+	  SID			  1204
+	  Ports			  [1, 5]
+	  Position		  [340, 174, 490, 386]
 	  MinAlgLoopOccurrences	  off
 	  PropExecContextOutsideSubsystem off
 	  RTWSystemCode		  "Auto"
@@ -2517,20 +2513,6 @@ Model {
 	  Opaque		  off
 	  RequestExecContextInheritance	off
 	  MaskHideContents	  off
-	  Port {
-	    PortNumber		    1
-	    Name		    "VomegaA"
-	    PropagatedSignals	    "V*omegaA"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
-	  Port {
-	    PortNumber		    2
-	    Name		    "Kv"
-	    PropagatedSignals	    "Kv"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
 	  System {
 	    Name		    "Calc Coefficients"
 	    Location		    [-40, 124, 1256, 1124]
@@ -2549,71 +2531,58 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "groundspeed_vector"
-	      SID		      "1205"
-	      Position		      [50, 203, 80, 217]
+	      SID		      1370
+	      Position		      [30, 233, 60, 247]
 	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Sum
-	      Name		      "Add"
-	      SID		      "1206"
-	      Ports		      [2, 1]
-	      Position		      [180, 422, 210, 453]
-	      BackgroundColor	      "darkGreen"
-	      Inputs		      "+-"
-	      InputSameDT	      off
-	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
-	      SaturateOnIntegerOverflow	off
 	    }
 	    Block {
 	      BlockType		      Constant
 	      Name		      "Constant 1"
-	      SID		      "1207"
-	      Position		      [30, 367, 100, 393]
+	      SID		      1371
+	      Position		      [130, 677, 200, 703]
 	      BackgroundColor	      "darkGreen"
-	      Value		      "2*sqrt(2)"
+	      Value		      "4"
 	    }
 	    Block {
 	      BlockType		      Constant
 	      Name		      "Constant 2"
-	      SID		      "1208"
-	      Position		      [30, 252, 100, 278]
+	      SID		      1372
+	      Position		      [120, 287, 190, 313]
 	      BackgroundColor	      "darkGreen"
-	      Value		      "sqrt(2)*pi"
-	    }
-	    Block {
-	      BlockType		      Constant
-	      Name		      "Constant 3"
-	      SID		      "1209"
-	      Position		      [30, 467, 100, 493]
-	      BackgroundColor	      "darkGreen"
-	      Value		      "1/sqrt(2)"
+	      Value		      "1/pi"
+	      Port {
+		PortNumber		1
+		Name			"omegaAinv"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
 	    }
 	    Block {
 	      BlockType		      Constant
 	      Name		      "Constant 4"
-	      SID		      "1210"
-	      Position		      [30, 117, 100, 143]
+	      SID		      1210
+	      Position		      [140, 117, 210, 143]
 	      BackgroundColor	      "darkGreen"
 	      Value		      "2*pi"
 	    }
 	    Block {
 	      BlockType		      Constant
 	      Name		      "Constant 5"
-	      SID		      "1211"
-	      Position		      [30, 42, 100, 68]
+	      SID		      1211
+	      Position		      [140, 42, 210, 68]
 	      BackgroundColor	      "darkGreen"
 	      Value		      "2"
 	    }
 	    Block {
 	      BlockType		      Product
 	      Name		      "Divide 1"
-	      SID		      "1212"
+	      SID		      1212
 	      Ports		      [2, 1]
-	      Position		      [180, 122, 210, 153]
+	      Position		      [290, 122, 320, 153]
 	      BackgroundColor	      "darkGreen"
 	      Inputs		      "*/"
 	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      RndMeth		      "Floor"
 	      SaturateOnIntegerOverflow	off
@@ -2625,41 +2594,23 @@ Model {
 	      }
 	    }
 	    Block {
-	      BlockType		      Product
-	      Name		      "Divide 3"
-	      SID		      "1213"
-	      Ports		      [2, 1]
-	      Position		      [180, 257, 210, 288]
-	      BackgroundColor	      "darkGreen"
-	      Inputs		      "*/"
-	      InputSameDT	      off
-	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
-	      RndMeth		      "Floor"
-	      SaturateOnIntegerOverflow	off
-	      Port {
-		PortNumber		1
-		Name			"omegaA"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
-	      }
-	    }
-	    Block {
 	      BlockType		      Math
 	      Name		      "Math Function"
-	      SID		      "1214"
+	      SID		      1214
 	      Ports		      [1, 1]
-	      Position		      [260, 125, 290, 155]
+	      Position		      [370, 125, 400, 155]
 	      Operator		      "square"
 	    }
 	    Block {
 	      BlockType		      Product
 	      Name		      "Product"
-	      SID		      "1215"
+	      SID		      1215
 	      Ports		      [2, 1]
-	      Position		      [180, 47, 210, 78]
+	      Position		      [290, 47, 320, 78]
 	      BackgroundColor	      "darkGreen"
 	      Inputs		      "**"
 	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      RndMeth		      "Floor"
 	      SaturateOnIntegerOverflow	off
@@ -2667,33 +2618,29 @@ Model {
 	    Block {
 	      BlockType		      Product
 	      Name		      "Product 1"
-	      SID		      "1216"
+	      SID		      1373
 	      Ports		      [3, 1]
-	      Position		      [295, 351, 330, 409]
-	      BackgroundColor	      "darkGreen"
+	      Position		      [290, 480, 320, 730]
 	      Inputs		      "3"
 	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      SaturateOnIntegerOverflow	off
-	      Port {
-		PortNumber		1
-		Name			"Kv"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
-	      }
 	    }
 	    Block {
 	      BlockType		      Product
-	      Name		      "Product 5"
-	      SID		      "1217"
-	      Ports		      [2, 1]
-	      Position		      [300, 202, 330, 233]
+	      Name		      "Product 2"
+	      SID		      1374
+	      Ports		      [4, 1]
+	      Position		      [290, 205, 320, 455]
+	      Inputs		      "4"
 	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      SaturateOnIntegerOverflow	off
 	      Port {
 		PortNumber		1
-		Name			"V*omegaA"
+		Name			"L1_dist"
 		RTWStorageClass		"Auto"
 		DataLoggingNameMode	"SignalName"
 	      }
@@ -2701,12 +2648,13 @@ Model {
 	    Block {
 	      BlockType		      Product
 	      Name		      "Product1"
-	      SID		      "1218"
+	      SID		      1218
 	      Ports		      [2, 1]
-	      Position		      [260, 57, 290, 88]
+	      Position		      [370, 57, 400, 88]
 	      BackgroundColor	      "darkGreen"
 	      Inputs		      "**"
 	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      RndMeth		      "Floor"
 	      SaturateOnIntegerOverflow	off
@@ -2714,17 +2662,17 @@ Model {
 	    Block {
 	      BlockType		      Constant
 	      Name		      "dampingRatio"
-	      SID		      "1219"
-	      Position		      [30, 416, 100, 444]
+	      SID		      1375
+	      Position		      [120, 406, 190, 434]
 	      BackgroundColor	      "green"
 	      Value		      "dampingRatio"
 	    }
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "magnitude 1"
-	      SID		      "1220"
+	      SID		      1376
 	      Ports		      [1, 1]
-	      Position		      [155, 190, 235, 230]
+	      Position		      [120, 220, 200, 260]
 	      MinAlgLoopOccurrences   off
 	      PropExecContextOutsideSubsystem off
 	      RTWSystemCode	      "Auto"
@@ -2756,35 +2704,45 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "vecIn"
-		  SID			  "1221"
+		  SID			  1377
 		  Position		  [20, 68, 50, 82]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  DotProduct
 		  Name			  "Dot Product"
-		  SID			  "1222"
+		  SID			  1378
 		  Position		  [140, 67, 170, 98]
+		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 		}
 		Block {
 		  BlockType		  Sqrt
 		  Name			  "Sqrt"
-		  SID			  "1223"
+		  SID			  1379
 		  Position		  [205, 70, 235, 100]
+		  AlgorithmType		  "Exact"
 		}
 		Block {
 		  BlockType		  Outport
 		  Name			  "magOut"
-		  SID			  "1224"
+		  SID			  1380
 		  Position		  [300, 78, 330, 92]
 		  IconDisplay		  "Port number"
 		}
 		Line {
-		  SrcBlock		  "Sqrt"
+		  SrcBlock		  "vecIn"
 		  SrcPort		  1
-		  DstBlock		  "magOut"
-		  DstPort		  1
+		  Points		  [43, 0]
+		  Branch {
+		    Points		    [0, 15]
+		    DstBlock		    "Dot Product"
+		    DstPort		    2
+		  }
+		  Branch {
+		    DstBlock		    "Dot Product"
+		    DstPort		    1
+		  }
 		}
 		Line {
 		  SrcBlock		  "Dot Product"
@@ -2793,162 +2751,59 @@ Model {
 		  DstPort		  1
 		}
 		Line {
-		  SrcBlock		  "vecIn"
+		  SrcBlock		  "Sqrt"
 		  SrcPort		  1
-		  Points		  [43, 0]
-		  Branch {
-		    DstBlock		    "Dot Product"
-		    DstPort		    1
-		  }
-		  Branch {
-		    Points		    [0, 15]
-		    DstBlock		    "Dot Product"
-		    DstPort		    2
-		  }
+		  DstBlock		  "magOut"
+		  DstPort		  1
 		}
 	      }
 	    }
 	    Block {
 	      BlockType		      Constant
 	      Name		      "period"
-	      SID		      "1225"
-	      Position		      [30, 307, 100, 333]
+	      SID		      1381
+	      Position		      [120, 347, 190, 373]
 	      BackgroundColor	      "green"
 	      Value		      "period"
 	    }
 	    Block {
 	      BlockType		      Outport
-	      Name		      "VomegaA"
-	      SID		      "1226"
-	      Position		      [395, 213, 425, 227]
+	      Name		      "L1_dist"
+	      SID		      1382
+	      Position		      [400, 323, 430, 337]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Outport
-	      Name		      "Kv_L1"
-	      SID		      "1227"
-	      Position		      [395, 373, 425, 387]
+	      Name		      "L1_gain"
+	      SID		      1383
+	      Position		      [395, 598, 425, 612]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Outport
-	      Name		      "Kx"
-	      SID		      "1228"
-	      Position		      [395, 133, 425, 147]
+	      Name		      "speed"
+	      SID		      1384
+	      Position		      [395, 183, 425, 197]
 	      Port		      "3"
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Outport
-	      Name		      "Kv"
-	      SID		      "1229"
-	      Position		      [395, 68, 425, 82]
+	      Name		      "Kx"
+	      SID		      1228
+	      Position		      [505, 133, 535, 147]
 	      Port		      "4"
 	      IconDisplay	      "Port number"
 	    }
-	    Line {
+	    Block {
+	      BlockType		      Outport
 	      Name		      "Kv"
-	      Labels		      [0, 0]
-	      SrcBlock		      "Product 1"
-	      SrcPort		      1
-	      DstBlock		      "Kv_L1"
-	      DstPort		      1
-	    }
-	    Line {
-	      Name		      "V*omegaA"
-	      Labels		      [0, 0]
-	      SrcBlock		      "Product 5"
-	      SrcPort		      1
-	      DstBlock		      "VomegaA"
-	      DstPort		      1
-	    }
-	    Line {
-	      SrcBlock		      "groundspeed_vector"
-	      SrcPort		      1
-	      DstBlock		      "magnitude 1"
-	      DstPort		      1
-	    }
-	    Line {
-	      SrcBlock		      "Constant 1"
-	      SrcPort		      1
-	      DstBlock		      "Product 1"
-	      DstPort		      2
-	    }
-	    Line {
-	      SrcBlock		      "Add"
-	      SrcPort		      1
-	      Points		      [46, 0; 0, -40]
-	      DstBlock		      "Product 1"
-	      DstPort		      3
-	    }
-	    Line {
-	      Name		      "V"
-	      Labels		      [1, 1]
-	      SrcBlock		      "magnitude 1"
-	      SrcPort		      1
-	      DstBlock		      "Product 5"
-	      DstPort		      1
-	    }
-	    Line {
-	      Name		      "omegaA"
-	      Labels		      [1, 1]
-	      SrcBlock		      "Divide 3"
-	      SrcPort		      1
-	      Points		      [53, 0]
-	      Branch {
-		Labels			[1, 1]
-		Points			[0, 85]
-		DstBlock		"Product 1"
-		DstPort			1
-	      }
-	      Branch {
-		Labels			[2, 1]
-		Points			[0, -50]
-		DstBlock		"Product 5"
-		DstPort			2
-	      }
-	    }
-	    Line {
-	      SrcBlock		      "Constant 3"
-	      SrcPort		      1
-	      Points		      [12, 0; 0, -35]
-	      DstBlock		      "Add"
-	      DstPort		      2
-	    }
-	    Line {
-	      SrcBlock		      "dampingRatio"
-	      SrcPort		      1
-	      Points		      [26, 0]
-	      Branch {
-		Points			[0, -360]
-		DstBlock		"Product"
-		DstPort			2
-	      }
-	      Branch {
-		DstBlock		"Add"
-		DstPort			1
-	      }
-	    }
-	    Line {
-	      SrcBlock		      "period"
-	      SrcPort		      1
-	      Points		      [16, 0; 0, -40]
-	      Branch {
-		Points			[0, -135]
-		DstBlock		"Divide 1"
-		DstPort			2
-	      }
-	      Branch {
-		DstBlock		"Divide 3"
-		DstPort			2
-	      }
-	    }
-	    Line {
-	      SrcBlock		      "Constant 2"
-	      SrcPort		      1
-	      DstBlock		      "Divide 3"
-	      DstPort		      1
+	      SID		      1229
+	      Position		      [505, 68, 535, 82]
+	      Port		      "5"
+	      IconDisplay	      "Port number"
 	    }
 	    Line {
 	      SrcBlock		      "Constant 4"
@@ -2996,27 +2851,250 @@ Model {
 	      DstBlock		      "Kv"
 	      DstPort		      1
 	    }
+	    Line {
+	      Name		      "V"
+	      Labels		      [1, 0]
+	      SrcBlock		      "magnitude 1"
+	      SrcPort		      1
+	      Points		      [55, 0]
+	      Branch {
+		DstBlock		"Product 2"
+		DstPort			1
+	      }
+	      Branch {
+		Points			[0, -50]
+		DstBlock		"speed"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      Name		      "omegaAinv"
+	      Labels		      [1, 0]
+	      SrcBlock		      "Constant 2"
+	      SrcPort		      1
+	      DstBlock		      "Product 2"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "groundspeed_vector"
+	      SrcPort		      1
+	      DstBlock		      "magnitude 1"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "L1_dist"
+	      Labels		      [0, 0]
+	      SrcBlock		      "Product 2"
+	      SrcPort		      1
+	      DstBlock		      "L1_dist"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "period"
+	      SrcPort		      1
+	      Points		      [45, 0]
+	      Branch {
+		DstBlock		"Product 2"
+		DstPort			3
+	      }
+	      Branch {
+		Points			[0, -215]
+		DstBlock		"Divide 1"
+		DstPort			2
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "dampingRatio"
+	      SrcPort		      1
+	      Points		      [30, 0]
+	      Branch {
+		DstBlock		"Product 2"
+		DstPort			4
+	      }
+	      Branch {
+		Points			[0, 100]
+		Branch {
+		  Points		  [0, 85]
+		  DstBlock		  "Product 1"
+		  DstPort		  2
+		}
+		Branch {
+		  DstBlock		  "Product 1"
+		  DstPort		  1
+		}
+	      }
+	      Branch {
+		Points			[0, -350]
+		DstBlock		"Product"
+		DstPort			2
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Product 1"
+	      SrcPort		      1
+	      DstBlock		      "L1_gain"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Constant 1"
+	      SrcPort		      1
+	      DstBlock		      "Product 1"
+	      DstPort		      3
+	    }
 	    Annotation {
-	      SID		      "1232"
 	      Name		      "omega^2"
-	      Position		      [336, 122]
+	      Position		      [446, 122]
 	    }
 	    Annotation {
-	      SID		      "1231"
 	      Name		      "2*zeta*omega"
-	      Position		      [341, 53]
+	      Position		      [451, 53]
 	    }
-	    Annotation {
-	      SID		      "1230"
-	      Name		      "omegaA = V/L1\nV*omegaA = V^2/L1"
-	      Position		      [401, 281]
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Calc Lat Acc Dem"
+	  SID			  1362
+	  Ports			  [4, 1]
+	  Position		  [550, 84, 675, 246]
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "Calc Lat Acc Dem"
+	    Location		    [202, 74, 1364, 747]
+	    Open		    off
+	    ModelBrowserVisibility  on
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Nu"
+	      SID		      1363
+	      Position		      [60, 103, 90, 117]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "L1_dist"
+	      SID		      1364
+	      Position		      [70, 463, 100, 477]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "L1_gain"
+	      SID		      1365
+	      Position		      [60, 193, 90, 207]
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "speed"
+	      SID		      1366
+	      Position		      [60, 283, 90, 297]
+	      Port		      "4"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Product
+	      Name		      "Product 7"
+	      SID		      1367
+	      Ports		      [5, 1]
+	      Position		      [300, 64, 330, 516]
+	      Inputs		      "****/"
+	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	      Port {
+		PortNumber		1
+		Name			"latAccDem"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Trigonometry
+	      Name		      "sin(Nu)"
+	      SID		      1368
+	      Ports		      [1, 1]
+	      Position		      [170, 95, 200, 125]
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "latAccDemCap"
+	      SID		      1369
+	      Position		      [440, 288, 470, 302]
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "sin(Nu)"
+	      SrcPort		      1
+	      DstBlock		      "Product 7"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "latAccDem"
+	      Labels		      [0, 0]
+	      SrcBlock		      "Product 7"
+	      SrcPort		      1
+	      Points		      [0, 5]
+	      DstBlock		      "latAccDemCap"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Nu"
+	      SrcPort		      1
+	      DstBlock		      "sin(Nu)"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "L1_gain"
+	      SrcPort		      1
+	      DstBlock		      "Product 7"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "speed"
+	      SrcPort		      1
+	      Points		      [165, 0]
+	      Branch {
+		DstBlock		"Product 7"
+		DstPort			3
+	      }
+	      Branch {
+		Points			[0, 90]
+		DstBlock		"Product 7"
+		DstPort			4
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "L1_dist"
+	      SrcPort		      1
+	      DstBlock		      "Product 7"
+	      DstPort		      5
 	    }
 	  }
 	}
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "Calc Lat Acc Dem to Circ WP"
-	  SID			  "1233"
+	  SID			  1233
 	  Ports			  [7, 1]
 	  Position		  [550, 294, 670, 706]
 	  MinAlgLoopOccurrences	  off
@@ -3044,14 +3122,14 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "Kx"
-	      SID		      "1234"
+	      SID		      1234
 	      Position		      [130, 203, 160, 217]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
 	      Name		      "Kv"
-	      SID		      "1235"
+	      SID		      1235
 	      Position		      [130, 318, 160, 332]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -3059,7 +3137,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "xtrackErrCirc"
-	      SID		      "1236"
+	      SID		      1236
 	      Position		      [130, 153, 160, 167]
 	      Port		      "3"
 	      IconDisplay	      "Port number"
@@ -3067,7 +3145,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "xtrackVelCirc"
-	      SID		      "1237"
+	      SID		      1237
 	      Position		      [130, 268, 160, 282]
 	      Port		      "4"
 	      IconDisplay	      "Port number"
@@ -3075,7 +3153,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "air_unit"
-	      SID		      "1238"
+	      SID		      1238
 	      Position		      [130, 388, 160, 402]
 	      NamePlacement	      "alternate"
 	      Port		      "5"
@@ -3084,7 +3162,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "groundspeed_Vector"
-	      SID		      "1239"
+	      SID		      1239
 	      Position		      [130, 433, 160, 447]
 	      Port		      "6"
 	      IconDisplay	      "Port number"
@@ -3092,7 +3170,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "radius"
-	      SID		      "1240"
+	      SID		      1240
 	      Position		      [130, 663, 160, 677]
 	      Port		      "7"
 	      IconDisplay	      "Port number"
@@ -3100,58 +3178,61 @@ Model {
 	    Block {
 	      BlockType		      Sum
 	      Name		      "Add 1"
-	      SID		      "1241"
+	      SID		      1241
 	      Ports		      [2, 1]
 	      Position		      [285, 647, 315, 678]
 	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      SaturateOnIntegerOverflow	off
 	    }
 	    Block {
 	      BlockType		      Sum
 	      Name		      "Add 2"
-	      SID		      "1242"
+	      SID		      1242
 	      Ports		      [2, 1]
 	      Position		      [660, 256, 695, 314]
 	      Inputs		      "2"
 	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      SaturateOnIntegerOverflow	off
 	    }
 	    Block {
 	      BlockType		      Sum
 	      Name		      "Add 3"
-	      SID		      "1243"
+	      SID		      1243
 	      Ports		      [2, 1]
 	      Position		      [940, 386, 975, 444]
 	      Inputs		      "2"
 	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      SaturateOnIntegerOverflow	off
 	    }
 	    Block {
 	      BlockType		      Constant
 	      Name		      "Constant"
-	      SID		      "1244"
+	      SID		      1244
 	      Position		      [400, 490, 430, 520]
 	      Value		      "0"
 	    }
 	    Block {
 	      BlockType		      Constant
 	      Name		      "Constant1"
-	      SID		      "1332"
+	      SID		      1332
 	      Position		      [660, 345, 690, 375]
-	      ZOrder		      -5
 	      Value		      "0"
 	    }
 	    Block {
 	      BlockType		      Product
 	      Name		      "Divide"
-	      SID		      "1245"
+	      SID		      1245
 	      Ports		      [2, 1]
 	      Position		      [665, 412, 695, 443]
 	      Inputs		      "*/"
 	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      RndMeth		      "Floor"
 	      SaturateOnIntegerOverflow	off
@@ -3165,17 +3246,19 @@ Model {
 	    Block {
 	      BlockType		      Gain
 	      Name		      "Gain"
-	      SID		      "1247"
+	      SID		      1247
 	      Position		      [285, 710, 315, 740]
 	      Gain		      "0.5"
+	      ParameterDataTypeMode   "Inherit via internal rule"
 	      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+	      OutDataTypeMode	      "Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      SaturateOnIntegerOverflow	off
 	    }
 	    Block {
 	      BlockType		      Math
 	      Name		      "Math Function"
-	      SID		      "1248"
+	      SID		      1248
 	      Ports		      [1, 1]
 	      Position		      [580, 405, 610, 435]
 	      Operator		      "square"
@@ -3183,7 +3266,7 @@ Model {
 	    Block {
 	      BlockType		      MinMax
 	      Name		      "MinMax"
-	      SID		      "1249"
+	      SID		      1249
 	      Ports		      [2, 1]
 	      Position		      [370, 657, 400, 688]
 	      Function		      "max"
@@ -3194,7 +3277,7 @@ Model {
 	    Block {
 	      BlockType		      MinMax
 	      Name		      "MinMax1"
-	      SID		      "1250"
+	      SID		      1250
 	      Ports		      [2, 1]
 	      Position		      [505, 402, 535, 433]
 	      Function		      "max"
@@ -3205,10 +3288,9 @@ Model {
 	    Block {
 	      BlockType		      MinMax
 	      Name		      "MinMax3"
-	      SID		      "1331"
+	      SID		      1331
 	      Ports		      [2, 1]
 	      Position		      [735, 337, 765, 368]
-	      ZOrder		      -15
 	      BackgroundColor	      "red"
 	      Function		      "max"
 	      Inputs		      "2"
@@ -3218,10 +3300,11 @@ Model {
 	    Block {
 	      BlockType		      Product
 	      Name		      "Product 4"
-	      SID		      "1253"
+	      SID		      1253
 	      Ports		      [2, 1]
 	      Position		      [280, 251, 315, 349]
 	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      SaturateOnIntegerOverflow	off
 	      Port {
@@ -3234,19 +3317,19 @@ Model {
 	    Block {
 	      BlockType		      Product
 	      Name		      "Product 6"
-	      SID		      "1254"
+	      SID		      1254
 	      Ports		      [2, 1]
 	      Position		      [280, 136, 315, 234]
 	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      SaturateOnIntegerOverflow	off
 	    }
 	    Block {
 	      BlockType		      Switch
 	      Name		      "Switch"
-	      SID		      "1335"
+	      SID		      1335
 	      Position		      [805, 320, 855, 360]
-	      ZOrder		      -18
 	      BackgroundColor	      "red"
 	      Criteria		      "u2 > Threshold"
 	      InputSameDT	      off
@@ -3255,7 +3338,7 @@ Model {
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "crossproductZ"
-	      SID		      "1256"
+	      SID		      1256
 	      Ports		      [2, 1]
 	      Position		      [250, 382, 345, 433]
 	      MinAlgLoopOccurrences   off
@@ -3289,14 +3372,14 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "vecIn2D 1"
-		  SID			  "1257"
+		  SID			  1257
 		  Position		  [55, 37, 85, 53]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Inport
 		  Name			  "vecIn2D 2"
-		  SID			  "1258"
+		  SID			  1258
 		  Position		  [55, 98, 85, 112]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -3304,7 +3387,7 @@ Model {
 		Block {
 		  BlockType		  Demux
 		  Name			  "Demux"
-		  SID			  "1259"
+		  SID			  1259
 		  Ports			  [1, 2]
 		  Position		  [135, 26, 140, 64]
 		  ShowName		  off
@@ -3314,7 +3397,7 @@ Model {
 		Block {
 		  BlockType		  Demux
 		  Name			  "Demux1"
-		  SID			  "1260"
+		  SID			  1260
 		  Ports			  [1, 2]
 		  Position		  [135, 86, 140, 124]
 		  ShowName		  off
@@ -3324,40 +3407,43 @@ Model {
 		Block {
 		  BlockType		  Product
 		  Name			  "Product"
-		  SID			  "1261"
+		  SID			  1261
 		  Ports			  [2, 1]
 		  Position		  [245, 27, 275, 58]
 		  InputSameDT		  off
+		  OutDataTypeMode	  "Inherit via internal rule"
 		  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 		  SaturateOnIntegerOverflow off
 		}
 		Block {
 		  BlockType		  Product
 		  Name			  "Product1"
-		  SID			  "1262"
+		  SID			  1262
 		  Ports			  [2, 1]
 		  Position		  [245, 87, 275, 118]
 		  InputSameDT		  off
+		  OutDataTypeMode	  "Inherit via internal rule"
 		  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 		  SaturateOnIntegerOverflow off
 		}
 		Block {
 		  BlockType		  Sum
 		  Name			  "Sum2"
-		  SID			  "1263"
+		  SID			  1263
 		  Ports			  [2, 1]
 		  Position		  [320, 35, 340, 55]
 		  ShowName		  off
 		  IconShape		  "round"
 		  Inputs		  "|+-"
 		  InputSameDT		  off
+		  OutDataTypeMode	  "Inherit via internal rule"
 		  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 		  SaturateOnIntegerOverflow off
 		}
 		Block {
 		  BlockType		  Outport
 		  Name			  "scalarOut1"
-		  SID			  "1264"
+		  SID			  1264
 		  Position		  [380, 38, 410, 52]
 		  IconDisplay		  "Port number"
 		}
@@ -3424,29 +3510,33 @@ Model {
 	    Block {
 	      BlockType		      Gain
 	      Name		      "loiter direction 1"
-	      SID		      "1265"
+	      SID		      1265
 	      Position		      [1030, 400, 1060, 430]
 	      BackgroundColor	      "lightBlue"
 	      Gain		      "loitDirn"
+	      ParameterDataTypeMode   "Inherit via internal rule"
 	      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+	      OutDataTypeMode	      "Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      SaturateOnIntegerOverflow	off
 	    }
 	    Block {
 	      BlockType		      Gain
 	      Name		      "loiter direction 2"
-	      SID		      "1266"
+	      SID		      1266
 	      Position		      [410, 395, 440, 425]
 	      BackgroundColor	      "lightBlue"
 	      Gain		      "loitDirn"
+	      ParameterDataTypeMode   "Inherit via internal rule"
 	      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+	      OutDataTypeMode	      "Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      SaturateOnIntegerOverflow	off
 	    }
 	    Block {
 	      BlockType		      Outport
 	      Name		      "latAccDemCirc"
-	      SID		      "1268"
+	      SID		      1268
 	      Position		      [1145, 408, 1175, 422]
 	      IconDisplay	      "Port number"
 	    }
@@ -3642,205 +3732,9 @@ Model {
 	}
 	Block {
 	  BlockType		  SubSystem
-	  Name			  "Calc Lat Acc Dem to WP"
-	  SID			  "1269"
-	  Ports			  [4, 1]
-	  Position		  [550, 67, 670, 223]
-	  MinAlgLoopOccurrences	  off
-	  PropExecContextOutsideSubsystem off
-	  RTWSystemCode		  "Auto"
-	  FunctionWithSeparateData off
-	  Opaque		  off
-	  RequestExecContextInheritance	off
-	  MaskHideContents	  off
-	  System {
-	    Name		    "Calc Lat Acc Dem to WP"
-	    Location		    [-101, -1126, 1615, -21]
-	    Open		    off
-	    ModelBrowserVisibility  on
-	    ModelBrowserWidth	    200
-	    ScreenColor		    "white"
-	    PaperOrientation	    "landscape"
-	    PaperPositionMode	    "auto"
-	    PaperType		    "A4"
-	    PaperUnits		    "centimeters"
-	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
-	    TiledPageScale	    1
-	    ShowPageBoundaries	    off
-	    ZoomFactor		    "100"
-	    Block {
-	      BlockType		      Inport
-	      Name		      "xtrackVel"
-	      SID		      "1270"
-	      Position		      [20, 43, 50, 57]
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Inport
-	      Name		      "Nu"
-	      SID		      "1271"
-	      Position		      [20, 208, 50, 222]
-	      Port		      "2"
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Inport
-	      Name		      "VomegaA"
-	      SID		      "1272"
-	      Position		      [235, 243, 265, 257]
-	      Port		      "3"
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Inport
-	      Name		      "Kv_L1"
-	      SID		      "1273"
-	      Position		      [20, 93, 50, 107]
-	      Port		      "4"
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Sum
-	      Name		      "Add 2"
-	      SID		      "1274"
-	      Ports		      [2, 1]
-	      Position		      [235, 167, 265, 198]
-	      InputSameDT	      off
-	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
-	      SaturateOnIntegerOverflow	off
-	    }
-	    Block {
-	      BlockType		      Constant
-	      Name		      "Constant 2\n"
-	      SID		      "1275"
-	      Position		      [80, 150, 110, 180]
-	      Value		      "2"
-	    }
-	    Block {
-	      BlockType		      Product
-	      Name		      "Product 4"
-	      SID		      "1276"
-	      Ports		      [2, 1]
-	      Position		      [160, 141, 195, 239]
-	      InputSameDT	      off
-	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
-	      SaturateOnIntegerOverflow	off
-	      Port {
-		PortNumber		1
-		Name			"latAccDem"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
-	      }
-	    }
-	    Block {
-	      BlockType		      Product
-	      Name		      "Product 6"
-	      SID		      "1277"
-	      Ports		      [2, 1]
-	      Position		      [160, 26, 195, 124]
-	      InputSameDT	      off
-	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
-	      SaturateOnIntegerOverflow	off
-	    }
-	    Block {
-	      BlockType		      Product
-	      Name		      "Product 7"
-	      SID		      "1278"
-	      Ports		      [2, 1]
-	      Position		      [300, 177, 330, 208]
-	      InputSameDT	      off
-	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
-	      SaturateOnIntegerOverflow	off
-	    }
-	    Block {
-	      BlockType		      Trigonometry
-	      Name		      "sin(Nu)"
-	      SID		      "1279"
-	      Ports		      [1, 1]
-	      Position		      [80, 200, 110, 230]
-	    }
-	    Block {
-	      BlockType		      Outport
-	      Name		      "latAccDemCap"
-	      SID		      "1280"
-	      Position		      [405, 188, 435, 202]
-	      IconDisplay	      "Port number"
-	    }
-	    Line {
-	      SrcBlock		      "Nu"
-	      SrcPort		      1
-	      DstBlock		      "sin(Nu)"
-	      DstPort		      1
-	    }
-	    Line {
-	      SrcBlock		      "VomegaA"
-	      SrcPort		      1
-	      Points		      [10, 0; 0, -50]
-	      DstBlock		      "Product 7"
-	      DstPort		      2
-	    }
-	    Line {
-	      SrcBlock		      "Product 7"
-	      SrcPort		      1
-	      DstBlock		      "latAccDemCap"
-	      DstPort		      1
-	    }
-	    Line {
-	      SrcBlock		      "Kv_L1"
-	      SrcPort		      1
-	      DstBlock		      "Product 6"
-	      DstPort		      2
-	    }
-	    Line {
-	      SrcBlock		      "xtrackVel"
-	      SrcPort		      1
-	      DstBlock		      "Product 6"
-	      DstPort		      1
-	    }
-	    Line {
-	      SrcBlock		      "Add 2"
-	      SrcPort		      1
-	      DstBlock		      "Product 7"
-	      DstPort		      1
-	    }
-	    Line {
-	      SrcBlock		      "Product 6"
-	      SrcPort		      1
-	      Points		      [20, 0]
-	      DstBlock		      "Add 2"
-	      DstPort		      1
-	    }
-	    Line {
-	      Name		      "latAccDem"
-	      SrcBlock		      "Product 4"
-	      SrcPort		      1
-	      DstBlock		      "Add 2"
-	      DstPort		      2
-	    }
-	    Line {
-	      SrcBlock		      "Constant 2\n"
-	      SrcPort		      1
-	      DstBlock		      "Product 4"
-	      DstPort		      1
-	    }
-	    Line {
-	      SrcBlock		      "sin(Nu)"
-	      SrcPort		      1
-	      DstBlock		      "Product 4"
-	      DstPort		      2
-	    }
-	    Annotation {
-	      SID		      "1281"
-	      Name		      "additional damping"
-	      Position		      [252, 65]
-	    }
-	  }
-	}
-	Block {
-	  BlockType		  SubSystem
 	  Name			  "Calc Nu to WP"
-	  SID			  "1282"
-	  Ports			  [2, 2]
+	  SID			  1282
+	  Ports			  [2, 1]
 	  Position		  [340, 64, 490, 146]
 	  MinAlgLoopOccurrences	  off
 	  PropExecContextOutsideSubsystem off
@@ -3851,7 +3745,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Calc Nu to WP"
-	    Location		    [-101, -1126, 1615, -21]
+	    Location		    [-512, 145, 1188, 1250]
 	    Open		    off
 	    ModelBrowserVisibility  on
 	    ModelBrowserWidth	    200
@@ -3867,14 +3761,14 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "groundspeed_Vector"
-	      SID		      "1283"
+	      SID		      1283
 	      Position		      [45, 43, 75, 57]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
 	      Name		      "air_unit"
-	      SID		      "1284"
+	      SID		      1284
 	      Position		      [45, 123, 75, 137]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -3882,8 +3776,9 @@ Model {
 	    Block {
 	      BlockType		      DotProduct
 	      Name		      "Dot Product"
-	      SID		      "1285"
+	      SID		      1285
 	      Position		      [195, 107, 225, 138]
+	      OutputDataTypeScalingMode	"Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      Port {
 		PortNumber		1
@@ -3895,27 +3790,28 @@ Model {
 	    Block {
 	      BlockType		      Gain
 	      Name		      "Gain"
-	      SID		      "1286"
+	      SID		      1286
 	      Position		      [295, 110, 325, 140]
 	      Gain		      "-1"
+	      ParameterDataTypeMode   "Inherit via internal rule"
 	      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+	      OutDataTypeMode	      "Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      SaturateOnIntegerOverflow	off
 	    }
 	    Block {
 	      BlockType		      Saturate
 	      Name		      "Saturation"
-	      SID		      "1287"
+	      SID		      1287
 	      Ports		      [1, 1]
 	      Position		      [460, 100, 490, 130]
-	      InputPortMap	      "u0"
 	      UpperLimit	      "pi/2"
 	      LowerLimit	      "-pi/2"
 	    }
 	    Block {
 	      BlockType		      Trigonometry
 	      Name		      "atan2"
-	      SID		      "1288"
+	      SID		      1288
 	      Ports		      [2, 1]
 	      Position		      [360, 97, 395, 133]
 	      Operator		      "atan2"
@@ -3929,7 +3825,7 @@ Model {
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "crossproductZ"
-	      SID		      "1289"
+	      SID		      1289
 	      Ports		      [2, 1]
 	      Position		      [160, 12, 255, 63]
 	      MinAlgLoopOccurrences   off
@@ -3963,14 +3859,14 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "vecIn2D 1"
-		  SID			  "1290"
+		  SID			  1290
 		  Position		  [55, 37, 85, 53]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Inport
 		  Name			  "vecIn2D 2"
-		  SID			  "1291"
+		  SID			  1291
 		  Position		  [55, 98, 85, 112]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -3978,7 +3874,7 @@ Model {
 		Block {
 		  BlockType		  Demux
 		  Name			  "Demux"
-		  SID			  "1292"
+		  SID			  1292
 		  Ports			  [1, 2]
 		  Position		  [135, 26, 140, 64]
 		  ShowName		  off
@@ -3988,7 +3884,7 @@ Model {
 		Block {
 		  BlockType		  Demux
 		  Name			  "Demux1"
-		  SID			  "1293"
+		  SID			  1293
 		  Ports			  [1, 2]
 		  Position		  [135, 86, 140, 124]
 		  ShowName		  off
@@ -3998,40 +3894,43 @@ Model {
 		Block {
 		  BlockType		  Product
 		  Name			  "Product"
-		  SID			  "1294"
+		  SID			  1294
 		  Ports			  [2, 1]
 		  Position		  [245, 27, 275, 58]
 		  InputSameDT		  off
+		  OutDataTypeMode	  "Inherit via internal rule"
 		  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 		  SaturateOnIntegerOverflow off
 		}
 		Block {
 		  BlockType		  Product
 		  Name			  "Product1"
-		  SID			  "1295"
+		  SID			  1295
 		  Ports			  [2, 1]
 		  Position		  [245, 87, 275, 118]
 		  InputSameDT		  off
+		  OutDataTypeMode	  "Inherit via internal rule"
 		  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 		  SaturateOnIntegerOverflow off
 		}
 		Block {
 		  BlockType		  Sum
 		  Name			  "Sum2"
-		  SID			  "1296"
+		  SID			  1296
 		  Ports			  [2, 1]
 		  Position		  [320, 35, 340, 55]
 		  ShowName		  off
 		  IconShape		  "round"
 		  Inputs		  "|+-"
 		  InputSameDT		  off
+		  OutDataTypeMode	  "Inherit via internal rule"
 		  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 		  SaturateOnIntegerOverflow off
 		}
 		Block {
 		  BlockType		  Outport
 		  Name			  "scalarOut1"
-		  SID			  "1297"
+		  SID			  1297
 		  Position		  [380, 38, 410, 52]
 		  IconDisplay		  "Port number"
 		}
@@ -4097,17 +3996,9 @@ Model {
 	    }
 	    Block {
 	      BlockType		      Outport
-	      Name		      "xtrackVelCap"
-	      SID		      "1298"
-	      Position		      [440, 33, 470, 47]
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Outport
 	      Name		      "Nu"
-	      SID		      "1299"
+	      SID		      1299
 	      Position		      [535, 108, 565, 122]
-	      Port		      "2"
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
@@ -4145,16 +4036,9 @@ Model {
 	      Labels		      [0, 0]
 	      SrcBlock		      "crossproductZ"
 	      SrcPort		      1
-	      Points		      [55, 0]
-	      Branch {
-		Points			[0, 65]
-		DstBlock		"atan2"
-		DstPort			1
-	      }
-	      Branch {
-		DstBlock		"xtrackVelCap"
-		DstPort			1
-	      }
+	      Points		      [55, 0; 0, 65]
+	      DstBlock		      "atan2"
+	      DstPort		      1
 	    }
 	    Line {
 	      SrcBlock		      "air_unit"
@@ -4187,9 +4071,9 @@ Model {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "Calc Roll Angle Demand"
-	  SID			  "1300"
+	  SID			  1300
 	  Ports			  [1, 1]
-	  Position		  [805, 260, 925, 320]
+	  Position		  [815, 260, 935, 320]
 	  MinAlgLoopOccurrences	  off
 	  PropExecContextOutsideSubsystem off
 	  RTWSystemCode		  "Auto"
@@ -4215,18 +4099,19 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "latAccDem"
-	      SID		      "1301"
+	      SID		      1301
 	      Position		      [50, 18, 80, 32]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Product
 	      Name		      "Divide 2"
-	      SID		      "1302"
+	      SID		      1302
 	      Ports		      [2, 1]
 	      Position		      [140, 72, 170, 103]
 	      Inputs		      "*/"
 	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      RndMeth		      "Floor"
 	      SaturateOnIntegerOverflow	off
@@ -4234,17 +4119,16 @@ Model {
 	    Block {
 	      BlockType		      Saturate
 	      Name		      "Saturation1"
-	      SID		      "1303"
+	      SID		      1303
 	      Ports		      [1, 1]
 	      Position		      [250, 75, 280, 105]
-	      InputPortMap	      "u0"
 	      UpperLimit	      "pi/4"
 	      LowerLimit	      "-pi/4"
 	    }
 	    Block {
 	      BlockType		      Trigonometry
 	      Name		      "atan"
-	      SID		      "1304"
+	      SID		      1304
 	      Ports		      [1, 1]
 	      Position		      [190, 75, 220, 105]
 	      Operator		      "atan"
@@ -4252,14 +4136,14 @@ Model {
 	    Block {
 	      BlockType		      Constant
 	      Name		      "gravity"
-	      SID		      "1305"
+	      SID		      1305
 	      Position		      [50, 80, 80, 110]
 	      Value		      "9.8"
 	    }
 	    Block {
 	      BlockType		      Outport
 	      Name		      "navRollDem"
-	      SID		      "1306"
+	      SID		      1306
 	      Position		      [320, 83, 350, 97]
 	      IconDisplay	      "Port number"
 	    }
@@ -4299,9 +4183,9 @@ Model {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "Detect Region"
-	  SID			  "1307"
+	  SID			  1307
 	  Ports			  [3, 1]
-	  Position		  [720, 368, 840, 442]
+	  Position		  [770, 427, 895, 573]
 	  MinAlgLoopOccurrences	  off
 	  PropExecContextOutsideSubsystem off
 	  RTWSystemCode		  "Auto"
@@ -4327,14 +4211,14 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "latAccDemCap"
-	      SID		      "1308"
+	      SID		      1308
 	      Position		      [60, 37, 90, 53]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
 	      Name		      "latAccDemCirc"
-	      SID		      "1309"
+	      SID		      1309
 	      Position		      [60, 83, 90, 97]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -4342,7 +4226,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "xtrackErrCirc"
-	      SID		      "1338"
+	      SID		      1338
 	      Position		      [65, 308, 95, 322]
 	      BackgroundColor	      "red"
 	      Port		      "3"
@@ -4351,100 +4235,122 @@ Model {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Compare To Zero"
-	      SID		      "1310"
+	      SID		      1310
 	      Ports		      [1, 1]
 	      Position		      [260, 130, 290, 160]
-	      LibraryVersion	      "1.260"
+	      LibraryVersion	      "1.216"
 	      SourceBlock	      "simulink/Logic and Bit\nOperations/Compare\nTo Zero"
 	      SourceType	      "Compare To Zero"
+	      ShowPortLabels	      "FromPortIcon"
+	      SystemSampleTime	      "-1"
+	      FunctionWithSeparateData "off"
+	      RTWMemSecFuncInitTerm   "Inherit from model"
+	      RTWMemSecFuncExecute    "Inherit from model"
+	      RTWMemSecDataConstants  "Inherit from model"
+	      RTWMemSecDataInternal   "Inherit from model"
+	      RTWMemSecDataParameters "Inherit from model"
 	      relop		      ">"
-	      OutDataTypeStr	      "uint8"
-	      ZeroCross		      on
+	      LogicOutDataTypeMode    "uint8"
+	      ZeroCross		      "on"
 	    }
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Compare To Zero1"
-	      SID		      "1340"
+	      SID		      1340
 	      Ports		      [1, 1]
 	      Position		      [260, 300, 290, 330]
-	      LibraryVersion	      "1.260"
+	      LibraryVersion	      "1.216"
 	      SourceBlock	      "simulink/Logic and Bit\nOperations/Compare\nTo Zero"
 	      SourceType	      "Compare To Zero"
+	      ShowPortLabels	      "FromPortIcon"
+	      SystemSampleTime	      "-1"
+	      FunctionWithSeparateData "off"
+	      RTWMemSecFuncInitTerm   "Inherit from model"
+	      RTWMemSecFuncExecute    "Inherit from model"
+	      RTWMemSecDataConstants  "Inherit from model"
+	      RTWMemSecDataInternal   "Inherit from model"
+	      RTWMemSecDataParameters "Inherit from model"
 	      relop		      ">"
-	      OutDataTypeStr	      "uint8"
-	      ZeroCross		      on
+	      LogicOutDataTypeMode    "uint8"
+	      ZeroCross		      "on"
 	    }
 	    Block {
 	      BlockType		      Logic
 	      Name		      "Logical Operator"
-	      SID		      "1311"
+	      SID		      1311
 	      Ports		      [3, 1]
 	      Position		      [365, 49, 395, 81]
 	      Inputs		      "3"
 	      AllPortsSameDT	      off
+	      OutDataTypeMode	      "boolean"
 	      OutDataTypeStr	      "boolean"
 	    }
 	    Block {
 	      BlockType		      Logic
 	      Name		      "Logical Operator1"
-	      SID		      "1312"
+	      SID		      1312
 	      Ports		      [2, 1]
 	      Position		      [540, 57, 570, 88]
 	      Operator		      "OR"
 	      AllPortsSameDT	      off
+	      OutDataTypeMode	      "boolean"
 	      OutDataTypeStr	      "boolean"
 	    }
 	    Block {
 	      BlockType		      Logic
 	      Name		      "Logical Operator2"
-	      SID		      "1313"
+	      SID		      1313
 	      Ports		      [1, 1]
 	      Position		      [365, 169, 395, 201]
 	      Operator		      "NOT"
 	      AllPortsSameDT	      off
+	      OutDataTypeMode	      "boolean"
 	      OutDataTypeStr	      "boolean"
 	    }
 	    Block {
 	      BlockType		      Logic
 	      Name		      "Logical Operator3"
-	      SID		      "1314"
+	      SID		      1314
 	      Ports		      [3, 1]
 	      Position		      [450, 229, 480, 261]
 	      Inputs		      "3"
 	      AllPortsSameDT	      off
+	      OutDataTypeMode	      "boolean"
 	      OutDataTypeStr	      "boolean"
 	    }
 	    Block {
 	      BlockType		      Constant
 	      Name		      "Loiter Direction"
-	      SID		      "1315"
+	      SID		      1315
 	      Position		      [65, 130, 95, 160]
 	      Value		      "loitDirn"
 	    }
 	    Block {
 	      BlockType		      RelationalOperator
 	      Name		      "Relational Operator 2"
-	      SID		      "1316"
+	      SID		      1316
 	      Ports		      [2, 1]
 	      Position		      [260, 37, 290, 68]
 	      Operator		      "<"
 	      InputSameDT	      off
+	      LogicOutDataTypeMode    "boolean"
 	      OutDataTypeStr	      "boolean"
 	    }
 	    Block {
 	      BlockType		      RelationalOperator
 	      Name		      "Relational Operator1"
-	      SID		      "1317"
+	      SID		      1317
 	      Ports		      [2, 1]
 	      Position		      [260, 232, 290, 263]
 	      Operator		      ">"
 	      InputSameDT	      off
+	      LogicOutDataTypeMode    "boolean"
 	      OutDataTypeStr	      "boolean"
 	    }
 	    Block {
 	      BlockType		      Outport
 	      Name		      "flyToCentre"
-	      SID		      "1318"
+	      SID		      1318
 	      Position		      [655, 68, 685, 82]
 	      IconDisplay	      "Port number"
 	    }
@@ -4561,35 +4467,16 @@ Model {
 	  }
 	}
 	Block {
-	  BlockType		  Display
-	  Name			  "Display"
-	  SID			  "1319"
-	  Ports			  [1]
-	  Position		  [750, 465, 840, 495]
-	  ZOrder		  -1
-	  Decimation		  "1"
-	  Lockdown		  off
-	}
-	Block {
-	  BlockType		  Display
-	  Name			  "Display1"
-	  SID			  "1320"
-	  Ports			  [1]
-	  Position		  [750, 535, 840, 565]
-	  ZOrder		  -1
-	  Decimation		  "1"
-	  Lockdown		  off
-	}
-	Block {
 	  BlockType		  Sum
 	  Name			  "Sum1"
-	  SID			  "1321"
+	  SID			  1321
 	  Ports			  [2, 1]
 	  Position		  [115, 255, 135, 275]
 	  ShowName		  off
 	  IconShape		  "round"
 	  Inputs		  "|+-"
 	  InputSameDT		  off
+	  OutDataTypeMode	  "Inherit via internal rule"
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 	  SaturateOnIntegerOverflow off
 	  Port {
@@ -4602,8 +4489,8 @@ Model {
 	Block {
 	  BlockType		  Switch
 	  Name			  "Switch"
-	  SID			  "1322"
-	  Position		  [720, 270, 770, 310]
+	  SID			  1322
+	  Position		  [730, 270, 780, 310]
 	  Criteria		  "u2 ~= 0"
 	  InputSameDT		  off
 	  SaturateOnIntegerOverflow off
@@ -4611,7 +4498,7 @@ Model {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "unitVector 1"
-	  SID			  "1323"
+	  SID			  1323
 	  Ports			  [1, 1]
 	  Position		  [175, 245, 255, 285]
 	  MinAlgLoopOccurrences	  off
@@ -4645,18 +4532,19 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "vecIn"
-	      SID		      "1324"
+	      SID		      1324
 	      Position		      [20, 68, 50, 82]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Product
 	      Name		      "Divide"
-	      SID		      "1325"
+	      SID		      1325
 	      Ports		      [2, 1]
 	      Position		      [285, 62, 315, 93]
 	      Inputs		      "*/"
 	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      RndMeth		      "Floor"
 	      SaturateOnIntegerOverflow	off
@@ -4664,20 +4552,22 @@ Model {
 	    Block {
 	      BlockType		      DotProduct
 	      Name		      "Dot Product"
-	      SID		      "1326"
+	      SID		      1326
 	      Position		      [140, 67, 170, 98]
+	      OutputDataTypeScalingMode	"Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	    }
 	    Block {
 	      BlockType		      Sqrt
 	      Name		      "Sqrt"
-	      SID		      "1327"
+	      SID		      1327
 	      Position		      [205, 70, 235, 100]
+	      AlgorithmType	      "Exact"
 	    }
 	    Block {
 	      BlockType		      Outport
 	      Name		      "vecOut"
-	      SID		      "1328"
+	      SID		      1328
 	      Position		      [420, 73, 450, 87]
 	      IconDisplay	      "Port number"
 	    }
@@ -4723,15 +4613,15 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "navRollDem"
-	  SID			  "1329"
-	  Position		  [965, 283, 995, 297]
+	  SID			  1329
+	  Position		  [975, 283, 1005, 297]
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "xtrackErr"
-	  SID			  "1330"
-	  Position		  [595, 253, 625, 267]
+	  SID			  1330
+	  Position		  [820, 623, 850, 637]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
 	}
@@ -4744,15 +4634,15 @@ Model {
 	Line {
 	  SrcBlock		  "groundspeed_vector"
 	  SrcPort		  1
-	  Points		  [251, 0]
+	  Points		  [250, 0]
 	  Branch {
 	    DstBlock		    "Calc Nu to WP"
 	    DstPort		    1
 	  }
 	  Branch {
-	    Points		    [0, 135]
+	    Points		    [0, 195]
 	    Branch {
-	      Points		      [-2, 0; 0, 205; 1, 0]
+	      Points		      [0, 145]
 	      Branch {
 		Points			[0, 195]
 		DstBlock		"Calc Lat Acc Dem to Circ WP"
@@ -4797,33 +4687,6 @@ Model {
 	    DstBlock		    "unitVector 1"
 	    DstPort		    1
 	  }
-	}
-	Line {
-	  SrcBlock		  "Calc Nu to WP"
-	  SrcPort		  1
-	  DstBlock		  "Calc Lat Acc Dem to WP"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Calc Nu to WP"
-	  SrcPort		  2
-	  DstBlock		  "Calc Lat Acc Dem to WP"
-	  DstPort		  2
-	}
-	Line {
-	  Name			  "VomegaA"
-	  SrcBlock		  "Calc Coefficients"
-	  SrcPort		  1
-	  Points		  [9, 0; 0, -15]
-	  DstBlock		  "Calc Lat Acc Dem to WP"
-	  DstPort		  3
-	}
-	Line {
-	  Name			  "Kv"
-	  SrcBlock		  "Calc Coefficients"
-	  SrcPort		  2
-	  DstBlock		  "Calc Lat Acc Dem to WP"
-	  DstPort		  4
 	}
 	Line {
 	  Name			  "air_unit"
@@ -4878,29 +4741,28 @@ Model {
 	    DstPort		    3
 	  }
 	  Branch {
-	    Points		    [-1, -10]
+	    Points		    [-1, 0; 0, 295; 205, 0; 0, -105]
 	    Branch {
-	      Points		      [1, -170]
-	      DstBlock		      "xtrackErr"
-	      DstPort		      1
-	    }
-	    Branch {
+	      Points		      [0, -80]
 	      DstBlock		      "Detect Region"
 	      DstPort		      3
+	    }
+	    Branch {
+	      DstBlock		      "xtrackErr"
+	      DstPort		      1
 	    }
 	  }
 	}
 	Line {
 	  SrcBlock		  "Calc Coefficients"
-	  SrcPort		  3
-	  Points		  [15, 0; 0, 90]
+	  SrcPort		  4
 	  DstBlock		  "Calc Lat Acc Dem to Circ WP"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "Calc Coefficients"
-	  SrcPort		  4
-	  Points		  [5, 0; 0, 125]
+	  SrcPort		  5
+	  Points		  [5, 0; 0, 20]
 	  DstBlock		  "Calc Lat Acc Dem to Circ WP"
 	  DstPort		  2
 	}
@@ -4911,55 +4773,65 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "Calc Lat Acc Dem to WP"
+	  SrcBlock		  "Calc Lat Acc Dem"
 	  SrcPort		  1
-	  Points		  [9, 0; 0, 130; 1, 0]
+	  Points		  [4, 0; 0, 110; 1, 0]
 	  Branch {
 	    DstBlock		    "Switch"
 	    DstPort		    1
 	  }
 	  Branch {
-	    Points		    [0, 110; 15, 0]
-	    Branch {
-	      Points		      [5, 0]
-	      DstBlock		      "Detect Region"
-	      DstPort		      1
-	    }
-	    Branch {
-	      Points		      [0, 95]
-	      DstBlock		      "Display"
-	      DstPort		      1
-	    }
+	    Points		    [0, 175]
+	    DstBlock		    "Detect Region"
+	    DstPort		    1
 	  }
 	}
 	Line {
 	  SrcBlock		  "Calc Lat Acc Dem to Circ WP"
 	  SrcPort		  1
-	  Points		  [12, 0; -2, -5]
+	  Points		  [12, 0; -2, -5; 2, 5; 8, 0]
 	  Branch {
-	    Points		    [2, -75; 8, 0]
-	    Branch {
-	      Points		      [10, 0]
-	      DstBlock		      "Detect Region"
-	      DstPort		      2
-	    }
-	    Branch {
-	      Points		      [0, -115]
-	      DstBlock		      "Switch"
-	      DstPort		      3
-	    }
+	    DstBlock		    "Detect Region"
+	    DstPort		    2
 	  }
 	  Branch {
-	    Points		    [0, 55]
-	    DstBlock		    "Display1"
-	    DstPort		    1
+	    Points		    [0, -195]
+	    DstBlock		    "Switch"
+	    DstPort		    3
 	  }
 	}
 	Line {
 	  SrcBlock		  "Detect Region"
 	  SrcPort		  1
-	  Points		  [9, 0; 0, -59; -149, 0]
+	  Points		  [34, 0; 0, -154; -229, 0; 0, -56]
 	  DstBlock		  "Switch"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Calc Nu to WP"
+	  SrcPort		  1
+	  DstBlock		  "Calc Lat Acc Dem"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Calc Coefficients"
+	  SrcPort		  3
+	  Points		  [20, 0; 0, -55]
+	  DstBlock		  "Calc Lat Acc Dem"
+	  DstPort		  4
+	}
+	Line {
+	  SrcBlock		  "Calc Coefficients"
+	  SrcPort		  2
+	  Points		  [10, 0; 0, -55]
+	  DstBlock		  "Calc Lat Acc Dem"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Calc Coefficients"
+	  SrcPort		  1
+	  Points		  [0, -55]
+	  DstBlock		  "Calc Lat Acc Dem"
 	  DstPort		  2
 	}
       }
@@ -4967,7 +4839,7 @@ Model {
     Block {
       BlockType		      SubSystem
       Name		      "Modified L1 Guidance - Line"
-      SID		      "381"
+      SID		      381
       Ports		      [4, 2, 1]
       Position		      [560, 74, 705, 466]
       TreatAsAtomicUnit	      on
@@ -4982,24 +4854,24 @@ Model {
       MaskPromptString	      "Tracking Loop Period (sec) - set to 15 times total loop delay|Tracking Loop Theoretical "
       "Damping Ratio"
       MaskStyleString	      "edit,edit"
-      MaskVariables	      "period=@1;dampingRatio=@2;"
       MaskTunableValueString  "on,on"
       MaskCallbackString      "|"
       MaskEnableString	      "on,on"
       MaskVisibilityString    "on,on"
       MaskToolTipString	      "on,on"
+      MaskVariables	      "period=@1;dampingRatio=@2;"
       MaskIconFrame	      on
       MaskIconOpaque	      on
       MaskIconRotate	      "none"
       MaskPortRotate	      "default"
       MaskIconUnits	      "autoscale"
-      MaskValueString	      "20|0.71"
+      MaskValueString	      "20|0.75"
       System {
 	Name			"Modified L1 Guidance - Line"
 	Location		[-8, -8, 1288, 992]
 	Open			off
 	ModelBrowserVisibility	on
-	ModelBrowserWidth	200
+	ModelBrowserWidth	256
 	ScreenColor		"white"
 	PaperOrientation	"landscape"
 	PaperPositionMode	"auto"
@@ -5012,12 +4884,13 @@ Model {
 	Block {
 	  BlockType		  Inport
 	  Name			  "groundspeed_vector"
-	  SID			  "913"
+	  SID			  913
 	  Position		  [230, 93, 260, 107]
 	  IconDisplay		  "Port number"
 	  Port {
 	    PortNumber		    1
 	    Name		    "groundspeed_vector"
+	    PropagatedSignals	    ", "
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
 	  }
@@ -5025,7 +4898,7 @@ Model {
 	Block {
 	  BlockType		  Inport
 	  Name			  "current_loc"
-	  SID			  "383"
+	  SID			  383
 	  Position		  [30, 493, 60, 507]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
@@ -5033,7 +4906,7 @@ Model {
 	Block {
 	  BlockType		  Inport
 	  Name			  "next_WP"
-	  SID			  "384"
+	  SID			  384
 	  Position		  [30, 548, 60, 562]
 	  Port			  "3"
 	  IconDisplay		  "Port number"
@@ -5048,7 +4921,7 @@ Model {
 	Block {
 	  BlockType		  Inport
 	  Name			  "prev_WP"
-	  SID			  "385"
+	  SID			  385
 	  Position		  [30, 593, 60, 607]
 	  Port			  "4"
 	  IconDisplay		  "Port number"
@@ -5063,16 +4936,16 @@ Model {
 	Block {
 	  BlockType		  EnablePort
 	  Name			  "Enable"
-	  SID			  "753"
+	  SID			  753
 	  Ports			  []
-	  Position		  [852, 340, 872, 360]
+	  Position		  [852, 500, 872, 520]
 	}
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "Calc Coefficients"
-	  SID			  "604"
+	  SID			  604
 	  Ports			  [1, 3]
-	  Position		  [390, 398, 535, 492]
+	  Position		  [390, 402, 535, 498]
 	  MinAlgLoopOccurrences	  off
 	  PropExecContextOutsideSubsystem off
 	  RTWSystemCode		  "Auto"
@@ -5082,21 +4955,13 @@ Model {
 	  MaskHideContents	  off
 	  Port {
 	    PortNumber		    2
-	    Name		    "VomegaA"
-	    PropagatedSignals	    "V*omegaA"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
-	  Port {
-	    PortNumber		    3
-	    Name		    "Kv"
-	    PropagatedSignals	    "Kv"
+	    Name		    "L1_gain"
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
 	  }
 	  System {
 	    Name		    "Calc Coefficients"
-	    Location		    [172, 52, 1390, 869]
+	    Location		    [175, -900, 1393, -83]
 	    Open		    off
 	    ModelBrowserVisibility  on
 	    ModelBrowserWidth	    200
@@ -5112,73 +4977,25 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "groundspeed_vector"
-	      SID		      "605"
-	      Position		      [45, 38, 75, 52]
+	      SID		      605
+	      Position		      [125, 63, 155, 77]
 	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Sum
-	      Name		      "Add"
-	      SID		      "388"
-	      Ports		      [2, 1]
-	      Position		      [140, 362, 170, 393]
-	      BackgroundColor	      "darkGreen"
-	      Inputs		      "+-"
-	      InputSameDT	      off
-	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
-	      SaturateOnIntegerOverflow	off
 	    }
 	    Block {
 	      BlockType		      Constant
 	      Name		      "Constant 1"
-	      SID		      "391"
-	      Position		      [25, 307, 95, 333]
+	      SID		      1354
+	      Position		      [225, 507, 295, 533]
 	      BackgroundColor	      "darkGreen"
-	      Value		      "2*sqrt(2)"
+	      Value		      "4"
 	    }
 	    Block {
 	      BlockType		      Constant
 	      Name		      "Constant 2"
-	      SID		      "392"
-	      Position		      [25, 167, 95, 193]
+	      SID		      392
+	      Position		      [215, 117, 285, 143]
 	      BackgroundColor	      "darkGreen"
-	      Value		      "sqrt(2)*pi"
-	    }
-	    Block {
-	      BlockType		      Constant
-	      Name		      "Constant 3"
-	      SID		      "394"
-	      Position		      [25, 407, 95, 433]
-	      BackgroundColor	      "darkGreen"
-	      Value		      "1/sqrt(2)"
-	    }
-	    Block {
-	      BlockType		      Product
-	      Name		      "Divide 3"
-	      SID		      "400"
-	      Ports		      [2, 1]
-	      Position		      [140, 172, 170, 203]
-	      BackgroundColor	      "darkGreen"
-	      Inputs		      "*/"
-	      InputSameDT	      off
-	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
-	      RndMeth		      "Floor"
-	      SaturateOnIntegerOverflow	off
-	      Port {
-		PortNumber		1
-		Name			"omegaA"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
-	      }
-	    }
-	    Block {
-	      BlockType		      Math
-	      Name		      "Math\nFunction1"
-	      SID		      "486"
-	      Ports		      [1, 1]
-	      Position		      [245, 115, 275, 145]
-	      BackgroundColor	      "darkGreen"
-	      Operator		      "reciprocal"
+	      Value		      "1/pi"
 	      Port {
 		PortNumber		1
 		Name			"omegaAinv"
@@ -5189,28 +5006,24 @@ Model {
 	    Block {
 	      BlockType		      Product
 	      Name		      "Product 1"
-	      SID		      "405"
+	      SID		      1352
 	      Ports		      [3, 1]
-	      Position		      [385, 291, 420, 349]
-	      BackgroundColor	      "darkGreen"
+	      Position		      [385, 310, 415, 560]
 	      Inputs		      "3"
 	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      SaturateOnIntegerOverflow	off
-	      Port {
-		PortNumber		1
-		Name			"Kv"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
-	      }
 	    }
 	    Block {
 	      BlockType		      Product
 	      Name		      "Product 2"
-	      SID		      "487"
-	      Ports		      [2, 1]
-	      Position		      [385, 37, 415, 68]
+	      SID		      487
+	      Ports		      [4, 1]
+	      Position		      [385, 35, 415, 285]
+	      Inputs		      "4"
 	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      SaturateOnIntegerOverflow	off
 	      Port {
@@ -5221,35 +5034,19 @@ Model {
 	      }
 	    }
 	    Block {
-	      BlockType		      Product
-	      Name		      "Product 5"
-	      SID		      "409"
-	      Ports		      [2, 1]
-	      Position		      [390, 117, 420, 148]
-	      InputSameDT	      off
-	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
-	      SaturateOnIntegerOverflow	off
-	      Port {
-		PortNumber		1
-		Name			"V*omegaA"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
-	      }
-	    }
-	    Block {
 	      BlockType		      Constant
 	      Name		      "dampingRatio"
-	      SID		      "438"
-	      Position		      [25, 356, 95, 384]
+	      SID		      438
+	      Position		      [215, 236, 285, 264]
 	      BackgroundColor	      "green"
 	      Value		      "dampingRatio"
 	    }
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "magnitude 1"
-	      SID		      "440"
+	      SID		      440
 	      Ports		      [1, 1]
-	      Position		      [215, 25, 295, 65]
+	      Position		      [215, 50, 295, 90]
 	      MinAlgLoopOccurrences   off
 	      PropExecContextOutsideSubsystem off
 	      RTWSystemCode	      "Auto"
@@ -5281,27 +5078,29 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "vecIn"
-		  SID			  "441"
+		  SID			  441
 		  Position		  [20, 68, 50, 82]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  DotProduct
 		  Name			  "Dot Product"
-		  SID			  "442"
+		  SID			  442
 		  Position		  [140, 67, 170, 98]
+		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 		}
 		Block {
 		  BlockType		  Sqrt
 		  Name			  "Sqrt"
-		  SID			  "443"
+		  SID			  443
 		  Position		  [205, 70, 235, 100]
+		  AlgorithmType		  "Exact"
 		}
 		Block {
 		  BlockType		  Outport
 		  Name			  "magOut"
-		  SID			  "444"
+		  SID			  444
 		  Position		  [300, 78, 330, 92]
 		  IconDisplay		  "Port number"
 		}
@@ -5336,123 +5135,55 @@ Model {
 	    Block {
 	      BlockType		      Constant
 	      Name		      "period"
-	      SID		      "445"
-	      Position		      [25, 222, 95, 248]
+	      SID		      445
+	      Position		      [215, 177, 285, 203]
 	      BackgroundColor	      "green"
 	      Value		      "period"
 	    }
 	    Block {
 	      BlockType		      Outport
 	      Name		      "L1_dist"
-	      SID		      "606"
-	      Position		      [490, 48, 520, 62]
+	      SID		      606
+	      Position		      [495, 153, 525, 167]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Outport
-	      Name		      "VomegaA"
-	      SID		      "607"
-	      Position		      [490, 128, 520, 142]
+	      Name		      "L1_gain"
+	      SID		      1353
+	      Position		      [490, 428, 520, 442]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Outport
-	      Name		      "Kv"
-	      SID		      "608"
-	      Position		      [490, 313, 520, 327]
+	      Name		      "speed"
+	      SID		      1356
+	      Position		      [490, 13, 520, 27]
 	      Port		      "3"
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
-	      SrcBlock		      "Constant 2"
-	      SrcPort		      1
-	      DstBlock		      "Divide 3"
-	      DstPort		      1
-	    }
-	    Line {
-	      SrcBlock		      "period"
-	      SrcPort		      1
-	      Points		      [16, 0; 0, -40]
-	      DstBlock		      "Divide 3"
-	      DstPort		      2
-	    }
-	    Line {
-	      SrcBlock		      "dampingRatio"
-	      SrcPort		      1
-	      DstBlock		      "Add"
-	      DstPort		      1
-	    }
-	    Line {
-	      SrcBlock		      "Constant 3"
-	      SrcPort		      1
-	      Points		      [12, 0; 0, -35]
-	      DstBlock		      "Add"
-	      DstPort		      2
-	    }
-	    Line {
-	      Name		      "omegaA"
-	      SrcBlock		      "Divide 3"
-	      SrcPort		      1
-	      Points		      [35, 0]
-	      Branch {
-		Points			[0, -60]
-		DstBlock		"Math\nFunction1"
-		DstPort			1
-	      }
-	      Branch {
-		Labels			[1, 1]
-		Points			[118, 0]
-		Branch {
-		  Labels		  [1, 1]
-		  Points		  [0, 110]
-		  DstBlock		  "Product 1"
-		  DstPort		  1
-		}
-		Branch {
-		  Labels		  [2, 1]
-		  Points		  [0, -50]
-		  DstBlock		  "Product 5"
-		  DstPort		  2
-		}
-	      }
-	    }
-	    Line {
 	      Name		      "V"
+	      Labels		      [1, 0]
 	      SrcBlock		      "magnitude 1"
 	      SrcPort		      1
-	      Points		      [20, 0]
+	      Points		      [55, 0]
 	      Branch {
-		Labels			[2, 1]
-		Points			[0, 80]
-		DstBlock		"Product 5"
-		DstPort			1
-	      }
-	      Branch {
-		Labels			[1, 0]
 		DstBlock		"Product 2"
 		DstPort			1
 	      }
-	    }
-	    Line {
-	      SrcBlock		      "Add"
-	      SrcPort		      1
-	      Points		      [66, 0; 0, -40]
-	      DstBlock		      "Product 1"
-	      DstPort		      3
-	    }
-	    Line {
-	      SrcBlock		      "Constant 1"
-	      SrcPort		      1
-	      DstBlock		      "Product 1"
-	      DstPort		      2
+	      Branch {
+		Points			[0, -50]
+		DstBlock		"speed"
+		DstPort			1
+	      }
 	    }
 	    Line {
 	      Name		      "omegaAinv"
-	      Labels		      [2, 0]
-	      SrcBlock		      "Math\nFunction1"
+	      Labels		      [1, 0]
+	      SrcBlock		      "Constant 2"
 	      SrcPort		      1
-	      Points		      [25, 0; 0, -70]
 	      DstBlock		      "Product 2"
 	      DstPort		      2
 	    }
@@ -5471,34 +5202,52 @@ Model {
 	      DstPort		      1
 	    }
 	    Line {
-	      Name		      "V*omegaA"
-	      Labels		      [0, 0]
-	      SrcBlock		      "Product 5"
+	      SrcBlock		      "period"
 	      SrcPort		      1
-	      DstBlock		      "VomegaA"
+	      DstBlock		      "Product 2"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "dampingRatio"
+	      SrcPort		      1
+	      Points		      [30, 0]
+	      Branch {
+		DstBlock		"Product 2"
+		DstPort			4
+	      }
+	      Branch {
+		Points			[0, 100]
+		Branch {
+		  Points		  [0, 85]
+		  DstBlock		  "Product 1"
+		  DstPort		  2
+		}
+		Branch {
+		  DstBlock		  "Product 1"
+		  DstPort		  1
+		}
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Product 1"
+	      SrcPort		      1
+	      DstBlock		      "L1_gain"
 	      DstPort		      1
 	    }
 	    Line {
-	      Name		      "Kv"
-	      Labels		      [0, 0]
-	      SrcBlock		      "Product 1"
+	      SrcBlock		      "Constant 1"
 	      SrcPort		      1
-	      DstBlock		      "Kv"
-	      DstPort		      1
-	    }
-	    Annotation {
-	      SID		      "1183"
-	      Name		      "omegaA = V/L1\nV*omegaA = V^2/L1"
-	      Position		      [496, 196]
+	      DstBlock		      "Product 1"
+	      DstPort		      3
 	    }
 	  }
 	}
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "Calc Lat Acc Dem"
-	  SID			  "691"
-	  Ports			  [5, 1]
-	  Position		  [815, 51, 915, 269]
+	  SID			  691
+	  Ports			  [4, 1]
+	  Position		  [815, 221, 915, 444]
 	  MinAlgLoopOccurrences	  off
 	  PropExecContextOutsideSubsystem off
 	  RTWSystemCode		  "Auto"
@@ -5508,7 +5257,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Calc Lat Acc Dem"
-	    Location		    [172, 52, 1390, 869]
+	    Location		    [246, -952, 1464, -135]
 	    Open		    off
 	    ModelBrowserVisibility  on
 	    ModelBrowserWidth	    200
@@ -5523,94 +5272,44 @@ Model {
 	    ZoomFactor		    "100"
 	    Block {
 	      BlockType		      Inport
-	      Name		      "xtrackVel"
-	      SID		      "692"
-	      Position		      [20, 38, 50, 52]
+	      Name		      "Nu"
+	      SID		      697
+	      Position		      [60, 103, 90, 117]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
-	      Name		      "dampingWeight"
-	      SID		      "693"
-	      Position		      [20, 68, 50, 82]
+	      Name		      "L1_dist"
+	      SID		      1355
+	      Position		      [70, 463, 100, 477]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
-	      Name		      "Kv"
-	      SID		      "694"
-	      Position		      [20, 98, 50, 112]
+	      Name		      "L1_gain"
+	      SID		      696
+	      Position		      [60, 193, 90, 207]
 	      Port		      "3"
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
-	      Name		      "VomegaA"
-	      SID		      "696"
-	      Position		      [235, 243, 265, 257]
+	      Name		      "speed"
+	      SID		      1357
+	      Position		      [60, 283, 90, 297]
 	      Port		      "4"
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
-	      BlockType		      Inport
-	      Name		      "Nu"
-	      SID		      "697"
-	      Position		      [20, 208, 50, 222]
-	      Port		      "5"
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Sum
-	      Name		      "Add 2"
-	      SID		      "390"
-	      Ports		      [2, 1]
-	      Position		      [235, 167, 265, 198]
-	      InputSameDT	      off
-	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
-	      SaturateOnIntegerOverflow	off
-	    }
-	    Block {
-	      BlockType		      Constant
-	      Name		      "Constant 2\n"
-	      SID		      "393"
-	      Position		      [80, 150, 110, 180]
-	      Value		      "2"
-	    }
-	    Block {
-	      BlockType		      Product
-	      Name		      "Product 4"
-	      SID		      "408"
-	      Ports		      [2, 1]
-	      Position		      [160, 141, 195, 239]
-	      InputSameDT	      off
-	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
-	      SaturateOnIntegerOverflow	off
-	      Port {
-		PortNumber		1
-		Name			"latAccDem"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
-	      }
-	    }
-	    Block {
-	      BlockType		      Product
-	      Name		      "Product 6"
-	      SID		      "410"
-	      Ports		      [3, 1]
-	      Position		      [160, 26, 195, 124]
-	      Inputs		      "3"
-	      InputSameDT	      off
-	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
-	      SaturateOnIntegerOverflow	off
-	    }
-	    Block {
 	      BlockType		      Product
 	      Name		      "Product 7"
-	      SID		      "411"
-	      Ports		      [2, 1]
-	      Position		      [300, 177, 330, 208]
+	      SID		      411
+	      Ports		      [5, 1]
+	      Position		      [300, 64, 330, 516]
+	      Inputs		      "****/"
 	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      SaturateOnIntegerOverflow	off
 	      Port {
@@ -5623,66 +5322,22 @@ Model {
 	    Block {
 	      BlockType		      Trigonometry
 	      Name		      "sin(Nu)"
-	      SID		      "446"
+	      SID		      446
 	      Ports		      [1, 1]
-	      Position		      [80, 200, 110, 230]
+	      Position		      [170, 95, 200, 125]
 	    }
 	    Block {
 	      BlockType		      Outport
 	      Name		      "latAccDem"
-	      SID		      "695"
-	      Position		      [405, 188, 435, 202]
+	      SID		      695
+	      Position		      [440, 288, 470, 302]
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
 	      SrcBlock		      "sin(Nu)"
 	      SrcPort		      1
-	      DstBlock		      "Product 4"
-	      DstPort		      2
-	    }
-	    Line {
-	      SrcBlock		      "Constant 2\n"
-	      SrcPort		      1
-	      DstBlock		      "Product 4"
-	      DstPort		      1
-	    }
-	    Line {
-	      Name		      "latAccDem"
-	      SrcBlock		      "Product 4"
-	      SrcPort		      1
-	      DstBlock		      "Add 2"
-	      DstPort		      2
-	    }
-	    Line {
-	      SrcBlock		      "Product 6"
-	      SrcPort		      1
-	      Points		      [20, 0]
-	      DstBlock		      "Add 2"
-	      DstPort		      1
-	    }
-	    Line {
-	      SrcBlock		      "Add 2"
-	      SrcPort		      1
 	      DstBlock		      "Product 7"
 	      DstPort		      1
-	    }
-	    Line {
-	      SrcBlock		      "xtrackVel"
-	      SrcPort		      1
-	      DstBlock		      "Product 6"
-	      DstPort		      1
-	    }
-	    Line {
-	      SrcBlock		      "dampingWeight"
-	      SrcPort		      1
-	      DstBlock		      "Product 6"
-	      DstPort		      2
-	    }
-	    Line {
-	      SrcBlock		      "Kv"
-	      SrcPort		      1
-	      DstBlock		      "Product 6"
-	      DstPort		      3
 	    }
 	    Line {
 	      Name		      "latAccDem"
@@ -5693,30 +5348,44 @@ Model {
 	      DstPort		      1
 	    }
 	    Line {
-	      SrcBlock		      "VomegaA"
-	      SrcPort		      1
-	      Points		      [10, 0; 0, -50]
-	      DstBlock		      "Product 7"
-	      DstPort		      2
-	    }
-	    Line {
 	      SrcBlock		      "Nu"
 	      SrcPort		      1
 	      DstBlock		      "sin(Nu)"
 	      DstPort		      1
 	    }
-	    Annotation {
-	      SID		      "1184"
-	      Name		      "additional damping"
-	      Position		      [252, 65]
+	    Line {
+	      SrcBlock		      "L1_gain"
+	      SrcPort		      1
+	      DstBlock		      "Product 7"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "speed"
+	      SrcPort		      1
+	      Points		      [165, 0]
+	      Branch {
+		DstBlock		"Product 7"
+		DstPort			3
+	      }
+	      Branch {
+		Points			[0, 90]
+		DstBlock		"Product 7"
+		DstPort			4
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "L1_dist"
+	      SrcPort		      1
+	      DstBlock		      "Product 7"
+	      DstPort		      5
 	    }
 	  }
 	}
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "Calc Nu to fly To WP A"
-	  SID			  "641"
-	  Ports			  [2, 3, 1]
+	  SID			  641
+	  Ports			  [2, 1, 1]
 	  Position		  [385, 279, 535, 361]
 	  MinAlgLoopOccurrences	  off
 	  PropExecContextOutsideSubsystem off
@@ -5727,7 +5396,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Calc Nu to fly To WP A"
-	    Location		    [343, 103, 1019, 608]
+	    Location		    [258, 74, 1364, 707]
 	    Open		    off
 	    ModelBrowserVisibility  on
 	    ModelBrowserWidth	    200
@@ -5743,14 +5412,14 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "groundspeed_Vector"
-	      SID		      "642"
+	      SID		      642
 	      Position		      [25, 33, 55, 47]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
 	      Name		      "air"
-	      SID		      "644"
+	      SID		      644
 	      Position		      [25, 108, 55, 122]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -5758,21 +5427,16 @@ Model {
 	    Block {
 	      BlockType		      EnablePort
 	      Name		      "Enable"
-	      SID		      "663"
+	      SID		      663
 	      Ports		      []
 	      Position		      [272, 190, 292, 210]
 	    }
 	    Block {
-	      BlockType		      Constant
-	      Name		      "Constant"
-	      SID		      "684"
-	      Position		      [505, 185, 535, 215]
-	    }
-	    Block {
 	      BlockType		      DotProduct
 	      Name		      "Dot Product"
-	      SID		      "629"
+	      SID		      629
 	      Position		      [365, 122, 395, 153]
+	      OutputDataTypeScalingMode	"Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      Port {
 		PortNumber		1
@@ -5784,53 +5448,19 @@ Model {
 	    Block {
 	      BlockType		      Gain
 	      Name		      "Gain"
-	      SID		      "628"
+	      SID		      628
 	      Position		      [215, 100, 245, 130]
 	      Gain		      "-1"
+	      ParameterDataTypeMode   "Inherit via internal rule"
 	      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
-	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
-	      SaturateOnIntegerOverflow	off
-	    }
-	    Block {
-	      BlockType		      Gain
-	      Name		      "Gain1"
-	      SID		      "677"
-	      Position		      [715, 40, 745, 70]
-	      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
-	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
-	      SaturateOnIntegerOverflow	off
-	    }
-	    Block {
-	      BlockType		      Gain
-	      Name		      "Gain2"
-	      SID		      "678"
-	      Position		      [720, 45, 750, 75]
-	      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
-	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
-	      SaturateOnIntegerOverflow	off
-	    }
-	    Block {
-	      BlockType		      Gain
-	      Name		      "Gain3"
-	      SID		      "679"
-	      Position		      [670, 225, 700, 255]
-	      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
-	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
-	      SaturateOnIntegerOverflow	off
-	    }
-	    Block {
-	      BlockType		      Gain
-	      Name		      "Gain4"
-	      SID		      "680"
-	      Position		      [505, 40, 535, 70]
-	      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+	      OutDataTypeMode	      "Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      SaturateOnIntegerOverflow	off
 	    }
 	    Block {
 	      BlockType		      Trigonometry
 	      Name		      "atan2"
-	      SID		      "630"
+	      SID		      630
 	      Ports		      [2, 1]
 	      Position		      [505, 112, 540, 148]
 	      Operator		      "atan2"
@@ -5844,7 +5474,7 @@ Model {
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "crossproductZ"
-	      SID		      "619"
+	      SID		      619
 	      Ports		      [2, 1]
 	      Position		      [330, 27, 425, 78]
 	      MinAlgLoopOccurrences   off
@@ -5878,14 +5508,14 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "vecIn2D 1"
-		  SID			  "620"
+		  SID			  620
 		  Position		  [55, 37, 85, 53]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Inport
 		  Name			  "vecIn2D 2"
-		  SID			  "621"
+		  SID			  621
 		  Position		  [55, 98, 85, 112]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -5893,7 +5523,7 @@ Model {
 		Block {
 		  BlockType		  Demux
 		  Name			  "Demux"
-		  SID			  "622"
+		  SID			  622
 		  Ports			  [1, 2]
 		  Position		  [135, 26, 140, 64]
 		  ShowName		  off
@@ -5903,7 +5533,7 @@ Model {
 		Block {
 		  BlockType		  Demux
 		  Name			  "Demux1"
-		  SID			  "623"
+		  SID			  623
 		  Ports			  [1, 2]
 		  Position		  [135, 86, 140, 124]
 		  ShowName		  off
@@ -5913,40 +5543,43 @@ Model {
 		Block {
 		  BlockType		  Product
 		  Name			  "Product"
-		  SID			  "624"
+		  SID			  624
 		  Ports			  [2, 1]
 		  Position		  [245, 27, 275, 58]
 		  InputSameDT		  off
+		  OutDataTypeMode	  "Inherit via internal rule"
 		  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 		  SaturateOnIntegerOverflow off
 		}
 		Block {
 		  BlockType		  Product
 		  Name			  "Product1"
-		  SID			  "625"
+		  SID			  625
 		  Ports			  [2, 1]
 		  Position		  [245, 87, 275, 118]
 		  InputSameDT		  off
+		  OutDataTypeMode	  "Inherit via internal rule"
 		  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 		  SaturateOnIntegerOverflow off
 		}
 		Block {
 		  BlockType		  Sum
 		  Name			  "Sum2"
-		  SID			  "626"
+		  SID			  626
 		  Ports			  [2, 1]
 		  Position		  [320, 35, 340, 55]
 		  ShowName		  off
 		  IconShape		  "round"
 		  Inputs		  "|+-"
 		  InputSameDT		  off
+		  OutDataTypeMode	  "Inherit via internal rule"
 		  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 		  SaturateOnIntegerOverflow off
 		}
 		Block {
 		  BlockType		  Outport
 		  Name			  "scalarOut1"
-		  SID			  "627"
+		  SID			  627
 		  Position		  [380, 38, 410, 52]
 		  IconDisplay		  "Port number"
 		}
@@ -6013,7 +5646,7 @@ Model {
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "unitVector 2"
-	      SID		      "613"
+	      SID		      613
 	      Ports		      [1, 1]
 	      Position		      [90, 95, 170, 135]
 	      MinAlgLoopOccurrences   off
@@ -6041,18 +5674,19 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "vecIn"
-		  SID			  "614"
+		  SID			  614
 		  Position		  [20, 68, 50, 82]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Product
 		  Name			  "Divide"
-		  SID			  "615"
+		  SID			  615
 		  Ports			  [2, 1]
 		  Position		  [285, 62, 315, 93]
 		  Inputs		  "*/"
 		  InputSameDT		  off
+		  OutDataTypeMode	  "Inherit via internal rule"
 		  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 		  RndMeth		  "Floor"
 		  SaturateOnIntegerOverflow off
@@ -6060,20 +5694,22 @@ Model {
 		Block {
 		  BlockType		  DotProduct
 		  Name			  "Dot Product"
-		  SID			  "616"
+		  SID			  616
 		  Position		  [140, 67, 170, 98]
+		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 		}
 		Block {
 		  BlockType		  Sqrt
 		  Name			  "Sqrt"
-		  SID			  "617"
+		  SID			  617
 		  Position		  [205, 70, 235, 100]
+		  AlgorithmType		  "Exact"
 		}
 		Block {
 		  BlockType		  Outport
 		  Name			  "vecOut"
-		  SID			  "618"
+		  SID			  618
 		  Position		  [420, 73, 450, 87]
 		  IconDisplay		  "Port number"
 		}
@@ -6118,25 +5754,9 @@ Model {
 	    }
 	    Block {
 	      BlockType		      Outport
-	      Name		      "xtrackVel"
-	      SID		      "675"
-	      Position		      [565, 48, 595, 62]
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Outport
-	      Name		      "dampingWeight"
-	      SID		      "683"
-	      Position		      [565, 193, 595, 207]
-	      Port		      "2"
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Outport
 	      Name		      "Nu"
-	      SID		      "643"
+	      SID		      643
 	      Position		      [565, 123, 595, 137]
-	      Port		      "3"
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
@@ -6164,16 +5784,9 @@ Model {
 	      Labels		      [0, 0]
 	      SrcBlock		      "crossproductZ"
 	      SrcPort		      1
-	      Points		      [30, 0]
-	      Branch {
-		Points			[0, 65]
-		DstBlock		"atan2"
-		DstPort			1
-	      }
-	      Branch {
-		DstBlock		"Gain4"
-		DstPort			1
-	      }
+	      Points		      [30, 0; 0, 65]
+	      DstBlock		      "atan2"
+	      DstPort		      1
 	    }
 	    Line {
 	      Name		      "ltrackVel"
@@ -6211,25 +5824,13 @@ Model {
 	      DstBlock		      "Nu"
 	      DstPort		      1
 	    }
-	    Line {
-	      SrcBlock		      "Gain4"
-	      SrcPort		      1
-	      DstBlock		      "xtrackVel"
-	      DstPort		      1
-	    }
-	    Line {
-	      SrcBlock		      "Constant"
-	      SrcPort		      1
-	      DstBlock		      "dampingWeight"
-	      DstPort		      1
-	    }
 	  }
 	}
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "Calc Nu to fly along AB line"
-	  SID			  "645"
-	  Ports			  [4, 4, 1]
+	  SID			  645
+	  Ports			  [4, 2, 1]
 	  Position		  [385, 85, 535, 205]
 	  MinAlgLoopOccurrences	  off
 	  PropExecContextOutsideSubsystem off
@@ -6240,7 +5841,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Calc Nu to fly along AB line"
-	    Location		    [16, 52, 1772, 1341]
+	    Location		    [258, 74, 1364, 707]
 	    Open		    off
 	    ModelBrowserVisibility  on
 	    ModelBrowserWidth	    200
@@ -6256,7 +5857,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "groundspeed_vector"
-	      SID		      "646"
+	      SID		      646
 	      Position		      [45, 28, 75, 42]
 	      IconDisplay	      "Port number"
 	      Port {
@@ -6270,7 +5871,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "air"
-	      SID		      "649"
+	      SID		      649
 	      Position		      [220, 133, 250, 147]
 	      NamePlacement	      "alternate"
 	      Port		      "2"
@@ -6279,7 +5880,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "AB_unit"
-	      SID		      "651"
+	      SID		      651
 	      Position		      [45, 173, 75, 187]
 	      Port		      "3"
 	      IconDisplay	      "Port number"
@@ -6294,7 +5895,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "L1_dist"
-	      SID		      "652"
+	      SID		      652
 	      Position		      [220, 213, 250, 227]
 	      Port		      "4"
 	      IconDisplay	      "Port number"
@@ -6302,17 +5903,18 @@ Model {
 	    Block {
 	      BlockType		      EnablePort
 	      Name		      "Enable"
-	      SID		      "662"
+	      SID		      662
 	      Ports		      []
 	      Position		      [332, 285, 352, 305]
 	    }
 	    Block {
 	      BlockType		      Sum
 	      Name		      "Add 1"
-	      SID		      "389"
+	      SID		      389
 	      Ports		      [2, 1]
-	      Position		      [520, 57, 550, 88]
+	      Position		      [520, 42, 550, 73]
 	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      SaturateOnIntegerOverflow	off
 	      Port {
@@ -6325,8 +5927,8 @@ Model {
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "Calculate Nu1 Angle"
-	      SID		      "587"
-	      Ports		      [3, 3]
+	      SID		      587
+	      Ports		      [3, 2]
 	      Position		      [285, 123, 455, 237]
 	      MinAlgLoopOccurrences   off
 	      PropExecContextOutsideSubsystem off
@@ -6344,12 +5946,6 @@ Model {
 	      }
 	      Port {
 		PortNumber		2
-		Name			"dampingWeight"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
-	      }
-	      Port {
-		PortNumber		3
 		Name			"xtrackErr"
 		PropagatedSignals	"xtrackErr"
 		RTWStorageClass		"Auto"
@@ -6373,14 +5969,14 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "A_air"
-		  SID			  "589"
+		  SID			  589
 		  Position		  [15, 28, 45, 42]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Inport
 		  Name			  "AB_unit"
-		  SID			  "590"
+		  SID			  590
 		  Position		  [15, 83, 45, 97]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -6388,56 +5984,20 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "L1_dist"
-		  SID			  "591"
+		  SID			  591
 		  Position		  [190, 88, 220, 102]
 		  Port			  "3"
 		  IconDisplay		  "Port number"
 		}
 		Block {
-		  BlockType		  Abs
-		  Name			  "Abs"
-		  SID			  "478"
-		  Position		  [420, 145, 450, 175]
-		  SaturateOnIntegerOverflow off
-		}
-		Block {
-		  BlockType		  Sum
-		  Name			  "Add 3"
-		  SID			  "475"
-		  Ports			  [2, 1]
-		  Position		  [545, 162, 575, 193]
-		  Inputs		  "-+"
-		  InputSameDT		  off
-		  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-		  SaturateOnIntegerOverflow off
-		}
-		Block {
-		  BlockType		  Constant
-		  Name			  "Constant 5"
-		  SID			  "469"
-		  Position		  [485, 207, 515, 233]
-		  BackgroundColor	  "darkGreen"
-		}
-		Block {
 		  BlockType		  Product
 		  Name			  "Divide 4"
-		  SID			  "401"
+		  SID			  401
 		  Ports			  [2, 1]
 		  Position		  [245, 72, 275, 103]
 		  Inputs		  "*/"
 		  InputSameDT		  off
-		  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-		  RndMeth		  "Floor"
-		  SaturateOnIntegerOverflow off
-		}
-		Block {
-		  BlockType		  Product
-		  Name			  "Divide 5"
-		  SID			  "474"
-		  Ports			  [2, 1]
-		  Position		  [485, 152, 515, 183]
-		  Inputs		  "*/"
-		  InputSameDT		  off
+		  OutDataTypeMode	  "Inherit via internal rule"
 		  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 		  RndMeth		  "Floor"
 		  SaturateOnIntegerOverflow off
@@ -6445,26 +6005,20 @@ Model {
 		Block {
 		  BlockType		  Gain
 		  Name			  "Gain"
-		  SID			  "477"
+		  SID			  477
 		  Position		  [305, 130, 335, 160]
 		  BackgroundColor	  "darkGreen"
 		  Gain			  "-1"
+		  ParameterDataTypeMode	  "Inherit via internal rule"
 		  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+		  OutDataTypeMode	  "Inherit via internal rule"
 		  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 		  SaturateOnIntegerOverflow off
 		}
 		Block {
-		  BlockType		  Math
-		  Name			  "Math Function"
-		  SID			  "473"
-		  Ports			  [1, 1]
-		  Position		  [605, 165, 635, 195]
-		  Operator		  "square"
-		}
-		Block {
 		  BlockType		  Constant
 		  Name			  "approachAngle"
-		  SID			  "459"
+		  SID			  459
 		  Position		  [100, 130, 170, 160]
 		  BackgroundColor	  "green"
 		  Value			  "45*pi/180"
@@ -6472,7 +6026,7 @@ Model {
 		Block {
 		  BlockType		  Trigonometry
 		  Name			  "asin"
-		  SID			  "418"
+		  SID			  418
 		  Ports			  [1, 1]
 		  Position		  [545, 95, 575, 125]
 		  Operator		  "asin"
@@ -6487,7 +6041,7 @@ Model {
 		Block {
 		  BlockType		  Trigonometry
 		  Name			  "asin(n1)"
-		  SID			  "460"
+		  SID			  460
 		  Ports			  [1, 1]
 		  Position		  [205, 130, 235, 160]
 		  BackgroundColor	  "darkGreen"
@@ -6496,7 +6050,7 @@ Model {
 		Block {
 		  BlockType		  SubSystem
 		  Name			  "crossproductZ 1"
-		  SID			  "420"
+		  SID			  420
 		  Ports			  [2, 1]
 		  Position		  [90, 52, 185, 103]
 		  MinAlgLoopOccurrences	  off
@@ -6530,14 +6084,14 @@ Model {
 		    Block {
 		    BlockType		    Inport
 		    Name		    "vecIn2D 1"
-		    SID			    "421"
+		    SID			    421
 		    Position		    [55, 37, 85, 53]
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
 		    BlockType		    Inport
 		    Name		    "vecIn2D 2"
-		    SID			    "422"
+		    SID			    422
 		    Position		    [55, 98, 85, 112]
 		    Port		    "2"
 		    IconDisplay		    "Port number"
@@ -6545,7 +6099,7 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    "Demux"
-		    SID			    "423"
+		    SID			    423
 		    Ports		    [1, 2]
 		    Position		    [135, 26, 140, 64]
 		    ShowName		    off
@@ -6555,7 +6109,7 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    "Demux1"
-		    SID			    "424"
+		    SID			    424
 		    Ports		    [1, 2]
 		    Position		    [135, 86, 140, 124]
 		    ShowName		    off
@@ -6565,40 +6119,43 @@ Model {
 		    Block {
 		    BlockType		    Product
 		    Name		    "Product"
-		    SID			    "425"
+		    SID			    425
 		    Ports		    [2, 1]
 		    Position		    [245, 27, 275, 58]
 		    InputSameDT		    off
+		    OutDataTypeMode	    "Inherit via internal rule"
 		    OutDataTypeStr	    "Inherit: Inherit via internal rule"
 		    SaturateOnIntegerOverflow off
 		    }
 		    Block {
 		    BlockType		    Product
 		    Name		    "Product1"
-		    SID			    "426"
+		    SID			    426
 		    Ports		    [2, 1]
 		    Position		    [245, 87, 275, 118]
 		    InputSameDT		    off
+		    OutDataTypeMode	    "Inherit via internal rule"
 		    OutDataTypeStr	    "Inherit: Inherit via internal rule"
 		    SaturateOnIntegerOverflow off
 		    }
 		    Block {
 		    BlockType		    Sum
 		    Name		    "Sum2"
-		    SID			    "427"
+		    SID			    427
 		    Ports		    [2, 1]
 		    Position		    [320, 35, 340, 55]
 		    ShowName		    off
 		    IconShape		    "round"
 		    Inputs		    "|+-"
 		    InputSameDT		    off
+		    OutDataTypeMode	    "Inherit via internal rule"
 		    OutDataTypeStr	    "Inherit: Inherit via internal rule"
 		    SaturateOnIntegerOverflow off
 		    }
 		    Block {
 		    BlockType		    Outport
 		    Name		    "scalarOut1"
-		    SID			    "428"
+		    SID			    428
 		    Position		    [380, 38, 410, 52]
 		    IconDisplay		    "Port number"
 		    }
@@ -6665,7 +6222,7 @@ Model {
 		Block {
 		  BlockType		  MinMax
 		  Name			  "lower liimit"
-		  SID			  "476"
+		  SID			  476
 		  Ports			  [2, 1]
 		  Position		  [360, 92, 390, 123]
 		  Function		  "max"
@@ -6682,9 +6239,10 @@ Model {
 		Block {
 		  BlockType		  MinMax
 		  Name			  "lupper limit"
-		  SID			  "404"
+		  SID			  404
 		  Ports			  [2, 1]
 		  Position		  [305, 82, 335, 113]
+		  Function		  "min"
 		  Inputs		  "2"
 		  InputSameDT		  off
 		  SaturateOnIntegerOverflow off
@@ -6692,24 +6250,16 @@ Model {
 		Block {
 		  BlockType		  Outport
 		  Name			  "Nu1"
-		  SID			  "592"
+		  SID			  592
 		  Position		  [660, 103, 690, 117]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Outport
-		  Name			  "dampingWeight"
-		  SID			  "593"
-		  Position		  [660, 173, 690, 187]
-		  Port			  "2"
-		  IconDisplay		  "Port number"
-		}
-		Block {
-		  BlockType		  Outport
 		  Name			  "xtrackErr"
-		  SID			  "588"
+		  SID			  588
 		  Position		  [660, 33, 690, 47]
-		  Port			  "3"
+		  Port			  "2"
 		  IconDisplay		  "Port number"
 		}
 		Line {
@@ -6748,29 +6298,16 @@ Model {
 		}
 		Line {
 		  Name			  "sine_Nu1"
+		  Labels		  [1, 0]
 		  SrcBlock		  "lower liimit"
 		  SrcPort		  1
-		  Points		  [9, 0]
-		  Branch {
-		    Points		    [0, 50]
-		    DstBlock		    "Abs"
-		    DstPort		    1
-		  }
-		  Branch {
-		    Labels		    [1, 0]
-		    DstBlock		    "asin"
-		    DstPort		    1
-		  }
+		  DstBlock		  "asin"
+		  DstPort		  1
 		}
 		Line {
 		  SrcBlock		  "asin(n1)"
 		  SrcPort		  1
 		  Points		  [46, 0]
-		  Branch {
-		    Points		    [0, 57; 176, 0; 0, -27]
-		    DstBlock		    "Divide 5"
-		    DstPort		    2
-		  }
 		  Branch {
 		    DstBlock		    "Gain"
 		    DstPort		    1
@@ -6789,31 +6326,6 @@ Model {
 		  DstPort		  2
 		}
 		Line {
-		  SrcBlock		  "Abs"
-		  SrcPort		  1
-		  DstBlock		  "Divide 5"
-		  DstPort		  1
-		}
-		Line {
-		  SrcBlock		  "Divide 5"
-		  SrcPort		  1
-		  DstBlock		  "Add 3"
-		  DstPort		  1
-		}
-		Line {
-		  SrcBlock		  "Constant 5"
-		  SrcPort		  1
-		  Points		  [10, 0]
-		  DstBlock		  "Add 3"
-		  DstPort		  2
-		}
-		Line {
-		  SrcBlock		  "Add 3"
-		  SrcPort		  1
-		  DstBlock		  "Math Function"
-		  DstPort		  1
-		}
-		Line {
 		  SrcBlock		  "L1_dist"
 		  SrcPort		  1
 		  DstBlock		  "Divide 4"
@@ -6825,12 +6337,6 @@ Model {
 		  SrcBlock		  "asin"
 		  SrcPort		  1
 		  DstBlock		  "Nu1"
-		  DstPort		  1
-		}
-		Line {
-		  SrcBlock		  "Math Function"
-		  SrcPort		  1
-		  DstBlock		  "dampingWeight"
 		  DstPort		  1
 		}
 		Line {
@@ -6846,19 +6352,13 @@ Model {
 		  DstBlock		  "crossproductZ 1"
 		  DstPort		  1
 		}
-		Annotation {
-		  SID			  "1185"
-		  Name			  "Set weighting on additional damping term that fades to zero outside tracking region\nThis prevents the d"
-		  "amping term from changing the approach angle"
-		  Position		  [523, 287]
-		}
 	      }
 	    }
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "Calculate Nu2 Angle"
-	      SID		      "599"
-	      Ports		      [2, 2]
+	      SID		      599
+	      Ports		      [2, 1]
 	      Position		      [185, 20, 310, 80]
 	      MinAlgLoopOccurrences   off
 	      PropExecContextOutsideSubsystem off
@@ -6869,19 +6369,13 @@ Model {
 	      MaskHideContents	      off
 	      Port {
 		PortNumber		1
-		Name			"xtrackVel"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
-	      }
-	      Port {
-		PortNumber		2
 		Name			"Nu2"
 		RTWStorageClass		"Auto"
 		DataLoggingNameMode	"SignalName"
 	      }
 	      System {
 		Name			"Calculate Nu2 Angle"
-		Location		[172, 52, 1390, 869]
+		Location		[258, 74, 1364, 707]
 		Open			off
 		ModelBrowserVisibility	on
 		ModelBrowserWidth	200
@@ -6897,14 +6391,14 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "groundspeed_vector"
-		  SID			  "601"
+		  SID			  601
 		  Position		  [20, 33, 50, 47]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Inport
 		  Name			  "trackUnitVec"
-		  SID			  "603"
+		  SID			  603
 		  Position		  [20, 123, 50, 137]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -6912,8 +6406,9 @@ Model {
 		Block {
 		  BlockType		  DotProduct
 		  Name			  "Dot Product"
-		  SID			  "402"
+		  SID			  402
 		  Position		  [165, 107, 195, 138]
+		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 		  Port {
 		    PortNumber		    1
@@ -6923,18 +6418,9 @@ Model {
 		  }
 		}
 		Block {
-		  BlockType		  Gain
-		  Name			  "Gain4"
-		  SID			  "681"
-		  Position		  [345, 5, 375, 35]
-		  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
-		  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-		  SaturateOnIntegerOverflow off
-		}
-		Block {
 		  BlockType		  Trigonometry
 		  Name			  "atan2"
-		  SID			  "417"
+		  SID			  417
 		  Ports			  [2, 1]
 		  Position		  [340, 47, 375, 83]
 		  Operator		  "atan2"
@@ -6942,7 +6428,7 @@ Model {
 		Block {
 		  BlockType		  SubSystem
 		  Name			  "crossproductZ 2"
-		  SID			  "429"
+		  SID			  429
 		  Ports			  [2, 1]
 		  Position		  [135, 25, 230, 80]
 		  MinAlgLoopOccurrences	  off
@@ -6976,14 +6462,14 @@ Model {
 		    Block {
 		    BlockType		    Inport
 		    Name		    "vecIn2D 1"
-		    SID			    "430"
+		    SID			    430
 		    Position		    [35, 32, 65, 48]
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
 		    BlockType		    Inport
 		    Name		    "vecIn2D 2"
-		    SID			    "431"
+		    SID			    431
 		    Position		    [35, 93, 65, 107]
 		    Port		    "2"
 		    IconDisplay		    "Port number"
@@ -6991,7 +6477,7 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    "Demux"
-		    SID			    "432"
+		    SID			    432
 		    Ports		    [1, 2]
 		    Position		    [115, 21, 120, 59]
 		    ShowName		    off
@@ -7001,7 +6487,7 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    "Demux1"
-		    SID			    "433"
+		    SID			    433
 		    Ports		    [1, 2]
 		    Position		    [115, 81, 120, 119]
 		    ShowName		    off
@@ -7011,40 +6497,43 @@ Model {
 		    Block {
 		    BlockType		    Product
 		    Name		    "Product"
-		    SID			    "434"
+		    SID			    434
 		    Ports		    [2, 1]
 		    Position		    [225, 22, 255, 53]
 		    InputSameDT		    off
+		    OutDataTypeMode	    "Inherit via internal rule"
 		    OutDataTypeStr	    "Inherit: Inherit via internal rule"
 		    SaturateOnIntegerOverflow off
 		    }
 		    Block {
 		    BlockType		    Product
 		    Name		    "Product1"
-		    SID			    "435"
+		    SID			    435
 		    Ports		    [2, 1]
 		    Position		    [225, 82, 255, 113]
 		    InputSameDT		    off
+		    OutDataTypeMode	    "Inherit via internal rule"
 		    OutDataTypeStr	    "Inherit: Inherit via internal rule"
 		    SaturateOnIntegerOverflow off
 		    }
 		    Block {
 		    BlockType		    Sum
 		    Name		    "Sum2"
-		    SID			    "436"
+		    SID			    436
 		    Ports		    [2, 1]
 		    Position		    [300, 30, 320, 50]
 		    ShowName		    off
 		    IconShape		    "round"
 		    Inputs		    "|+-"
 		    InputSameDT		    off
+		    OutDataTypeMode	    "Inherit via internal rule"
 		    OutDataTypeStr	    "Inherit: Inherit via internal rule"
 		    SaturateOnIntegerOverflow off
 		    }
 		    Block {
 		    BlockType		    Outport
 		    Name		    "scalarOut1"
-		    SID			    "437"
+		    SID			    437
 		    Position		    [360, 33, 390, 47]
 		    IconDisplay		    "Port number"
 		    }
@@ -7110,35 +6599,18 @@ Model {
 		}
 		Block {
 		  BlockType		  Outport
-		  Name			  "xtrackVel"
-		  SID			  "600"
-		  Position		  [430, 13, 460, 27]
-		  IconDisplay		  "Port number"
-		}
-		Block {
-		  BlockType		  Outport
 		  Name			  "Nu2"
-		  SID			  "602"
+		  SID			  602
 		  Position		  [430, 58, 460, 72]
-		  Port			  "2"
 		  IconDisplay		  "Port number"
 		}
 		Line {
 		  Name			  "xtrackVel"
-		  Labels		  [0, 0]
+		  Labels		  [0, 0; -1, 0]
 		  SrcBlock		  "crossproductZ 2"
 		  SrcPort		  1
-		  Points		  [70, 0]
-		  Branch {
-		    Labels		    [-1, 0]
-		    DstBlock		    "atan2"
-		    DstPort		    1
-		  }
-		  Branch {
-		    Points		    [0, -35]
-		    DstBlock		    "Gain4"
-		    DstPort		    1
-		  }
+		  DstBlock		  "atan2"
+		  DstPort		  1
 		}
 		Line {
 		  Name			  "ltrackVel"
@@ -7183,43 +6655,21 @@ Model {
 		  DstBlock		  "Nu2"
 		  DstPort		  1
 		}
-		Line {
-		  SrcBlock		  "Gain4"
-		  SrcPort		  1
-		  DstBlock		  "xtrackVel"
-		  DstPort		  1
-		}
 	      }
 	    }
 	    Block {
 	      BlockType		      Outport
-	      Name		      "xtrackVel"
-	      SID		      "647"
-	      Position		      [590, 28, 620, 42]
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Outport
-	      Name		      "dampingWeight"
-	      SID		      "650"
-	      Position		      [590, 173, 620, 187]
-	      Port		      "2"
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Outport
 	      Name		      "Nu"
-	      SID		      "648"
-	      Position		      [590, 68, 620, 82]
-	      Port		      "3"
+	      SID		      648
+	      Position		      [590, 53, 620, 67]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Outport
 	      Name		      "xtrackErr"
-	      SID		      "653"
-	      Position		      [590, 213, 620, 227]
-	      Port		      "4"
+	      SID		      653
+	      Position		      [590, 203, 620, 217]
+	      Port		      "2"
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
@@ -7227,7 +6677,7 @@ Model {
 	      Labels		      [0, 0]
 	      SrcBlock		      "Calculate Nu1 Angle"
 	      SrcPort		      1
-	      Points		      [25, 0; 0, -60]
+	      Points		      [25, 0; 0, -90]
 	      DstBlock		      "Add 1"
 	      DstPort		      2
 	    }
@@ -7235,7 +6685,7 @@ Model {
 	      Name		      "Nu2"
 	      Labels		      [1, 0]
 	      SrcBlock		      "Calculate Nu2 Angle"
-	      SrcPort		      2
+	      SrcPort		      1
 	      DstBlock		      "Add 1"
 	      DstPort		      1
 	    }
@@ -7243,7 +6693,7 @@ Model {
 	      Name		      "xtrackErr"
 	      Labels		      [0, 0]
 	      SrcBlock		      "Calculate Nu1 Angle"
-	      SrcPort		      3
+	      SrcPort		      2
 	      DstBlock		      "xtrackErr"
 	      DstPort		      1
 	    }
@@ -7268,27 +6718,11 @@ Model {
 	      DstPort		      3
 	    }
 	    Line {
-	      Name		      "xtrackVel"
-	      Labels		      [0, 0]
-	      SrcBlock		      "Calculate Nu2 Angle"
-	      SrcPort		      1
-	      DstBlock		      "xtrackVel"
-	      DstPort		      1
-	    }
-	    Line {
 	      Name		      "Nu"
 	      Labels		      [0, 0]
 	      SrcBlock		      "Add 1"
 	      SrcPort		      1
 	      DstBlock		      "Nu"
-	      DstPort		      1
-	    }
-	    Line {
-	      Name		      "dampingWeight"
-	      Labels		      [0, 0]
-	      SrcBlock		      "Calculate Nu1 Angle"
-	      SrcPort		      2
-	      DstBlock		      "dampingWeight"
 	      DstPort		      1
 	    }
 	    Line {
@@ -7314,9 +6748,9 @@ Model {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "Calc Roll Angle Demand"
-	  SID			  "685"
+	  SID			  685
 	  Ports			  [1, 1]
-	  Position		  [955, 130, 1075, 190]
+	  Position		  [955, 305, 1075, 365]
 	  MinAlgLoopOccurrences	  off
 	  PropExecContextOutsideSubsystem off
 	  RTWSystemCode		  "Auto"
@@ -7342,18 +6776,19 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "latAccDem"
-	      SID		      "687"
+	      SID		      687
 	      Position		      [50, 18, 80, 32]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Product
 	      Name		      "Divide 2"
-	      SID		      "399"
+	      SID		      399
 	      Ports		      [2, 1]
 	      Position		      [140, 72, 170, 103]
 	      Inputs		      "*/"
 	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      RndMeth		      "Floor"
 	      SaturateOnIntegerOverflow	off
@@ -7361,17 +6796,16 @@ Model {
 	    Block {
 	      BlockType		      Saturate
 	      Name		      "Saturation1"
-	      SID		      "846"
+	      SID		      846
 	      Ports		      [1, 1]
 	      Position		      [250, 75, 280, 105]
-	      InputPortMap	      "u0"
 	      UpperLimit	      "pi/4"
 	      LowerLimit	      "-pi/4"
 	    }
 	    Block {
 	      BlockType		      Trigonometry
 	      Name		      "atan"
-	      SID		      "419"
+	      SID		      419
 	      Ports		      [1, 1]
 	      Position		      [190, 75, 220, 105]
 	      Operator		      "atan"
@@ -7379,14 +6813,14 @@ Model {
 	    Block {
 	      BlockType		      Constant
 	      Name		      "gravity"
-	      SID		      "439"
+	      SID		      439
 	      Position		      [50, 80, 80, 110]
 	      Value		      "9.8"
 	    }
 	    Block {
 	      BlockType		      Outport
 	      Name		      "navRollDem"
-	      SID		      "690"
+	      SID		      690
 	      Position		      [320, 83, 350, 97]
 	      IconDisplay	      "Port number"
 	    }
@@ -7426,7 +6860,7 @@ Model {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "Detect Region"
-	  SID			  "664"
+	  SID			  664
 	  Ports			  [3, 1]
 	  Position		  [390, 519, 535, 591]
 	  MinAlgLoopOccurrences	  off
@@ -7454,14 +6888,14 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "air"
-	      SID		      "665"
+	      SID		      665
 	      Position		      [70, 72, 100, 88]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
 	      Name		      "L1_dist"
-	      SID		      "666"
+	      SID		      666
 	      Position		      [385, 117, 415, 133]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -7469,7 +6903,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "AB_unit"
-	      SID		      "668"
+	      SID		      668
 	      Position		      [70, 158, 100, 172]
 	      Port		      "3"
 	      IconDisplay	      "Port number"
@@ -7477,34 +6911,36 @@ Model {
 	    Block {
 	      BlockType		      Sum
 	      Name		      "Add 3"
-	      SID		      "636"
+	      SID		      636
 	      Ports		      [2, 1]
 	      Position		      [385, 172, 415, 203]
 	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      SaturateOnIntegerOverflow	off
 	    }
 	    Block {
 	      BlockType		      Constant
 	      Name		      "Constant 2\n1"
-	      SID		      "637"
+	      SID		      637
 	      Position		      [300, 200, 330, 230]
 	    }
 	    Block {
 	      BlockType		      Constant
 	      Name		      "Constant 2\n2"
-	      SID		      "639"
+	      SID		      639
 	      Position		      [450, 210, 480, 240]
 	      Value		      "-1/sqrt(2)"
 	    }
 	    Block {
 	      BlockType		      Product
 	      Name		      "Divide"
-	      SID		      "635"
+	      SID		      635
 	      Ports		      [2, 1]
 	      Position		      [450, 152, 480, 183]
 	      Inputs		      "*/"
 	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      RndMeth		      "Floor"
 	      SaturateOnIntegerOverflow	off
@@ -7512,15 +6948,17 @@ Model {
 	    Block {
 	      BlockType		      DotProduct
 	      Name		      "Dot Product1"
-	      SID		      "631"
+	      SID		      631
 	      Position		      [225, 72, 255, 103]
+	      OutputDataTypeScalingMode	"Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	    }
 	    Block {
 	      BlockType		      DotProduct
 	      Name		      "Dot Product2"
-	      SID		      "633"
+	      SID		      633
 	      Position		      [225, 142, 255, 173]
+	      OutputDataTypeScalingMode	"Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      Port {
 		PortNumber		1
@@ -7532,37 +6970,41 @@ Model {
 	    Block {
 	      BlockType		      Logic
 	      Name		      "Logical\nOperator"
-	      SID		      "640"
+	      SID		      640
 	      Ports		      [2, 1]
 	      Position		      [630, 92, 660, 123]
 	      AllPortsSameDT	      off
+	      OutDataTypeMode	      "boolean"
 	      OutDataTypeStr	      "boolean"
 	    }
 	    Block {
 	      BlockType		      RelationalOperator
 	      Name		      "Relational\nOperator"
-	      SID		      "634"
+	      SID		      634
 	      Ports		      [2, 1]
 	      Position		      [450, 82, 480, 113]
 	      Operator		      ">"
 	      InputSameDT	      off
+	      LogicOutDataTypeMode    "boolean"
 	      OutDataTypeStr	      "boolean"
 	    }
 	    Block {
 	      BlockType		      RelationalOperator
 	      Name		      "Relational\nOperator1"
-	      SID		      "638"
+	      SID		      638
 	      Ports		      [2, 1]
 	      Position		      [530, 162, 560, 193]
 	      Operator		      "<"
 	      InputSameDT	      off
+	      LogicOutDataTypeMode    "boolean"
 	      OutDataTypeStr	      "boolean"
 	    }
 	    Block {
 	      BlockType		      Sqrt
 	      Name		      "Sqrt"
-	      SID		      "632"
+	      SID		      632
 	      Position		      [295, 75, 325, 105]
+	      AlgorithmType	      "Exact"
 	      Port {
 		PortNumber		1
 		Name			"WP_A_dist"
@@ -7573,7 +7015,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "flyToA"
-	      SID		      "667"
+	      SID		      667
 	      Position		      [710, 103, 740, 117]
 	      IconDisplay	      "Port number"
 	    }
@@ -7692,19 +7134,20 @@ Model {
 	Block {
 	  BlockType		  Logic
 	  Name			  "Logical\nOperator"
-	  SID			  "669"
+	  SID			  669
 	  Ports			  [1, 1]
 	  Position		  [540, 34, 570, 66]
 	  BlockMirror		  on
 	  Operator		  "NOT"
 	  Inputs		  "1"
 	  AllPortsSameDT	  off
+	  OutDataTypeMode	  "boolean"
 	  OutDataTypeStr	  "boolean"
 	}
 	Block {
 	  BlockType		  Merge
 	  Name			  "Merge"
-	  SID			  "674"
+	  SID			  674
 	  Ports			  [2, 1]
 	  Position		  [695, 230, 735, 270]
 	  Port {
@@ -7715,41 +7158,16 @@ Model {
 	  }
 	}
 	Block {
-	  BlockType		  Merge
-	  Name			  "Merge1"
-	  SID			  "676"
-	  Ports			  [2, 1]
-	  Position		  [700, 50, 740, 90]
-	  Port {
-	    PortNumber		    1
-	    Name		    "xtrackVel"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
-	}
-	Block {
-	  BlockType		  Merge
-	  Name			  "Merge2"
-	  SID			  "682"
-	  Ports			  [2, 1]
-	  Position		  [700, 120, 740, 160]
-	  Port {
-	    PortNumber		    1
-	    Name		    "dampingWeight"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
-	}
-	Block {
 	  BlockType		  Sum
 	  Name			  "Sum"
-	  SID			  "413"
+	  SID			  413
 	  Ports			  [2, 1]
 	  Position		  [150, 545, 170, 565]
 	  ShowName		  off
 	  IconShape		  "round"
 	  Inputs		  "|+-"
 	  InputSameDT		  off
+	  OutDataTypeMode	  "Inherit via internal rule"
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 	  SaturateOnIntegerOverflow off
 	  Port {
@@ -7762,13 +7180,14 @@ Model {
 	Block {
 	  BlockType		  Sum
 	  Name			  "Sum1"
-	  SID			  "414"
+	  SID			  414
 	  Ports			  [2, 1]
 	  Position		  [115, 490, 135, 510]
 	  ShowName		  off
 	  IconShape		  "round"
 	  Inputs		  "|+-"
 	  InputSameDT		  off
+	  OutDataTypeMode	  "Inherit via internal rule"
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 	  SaturateOnIntegerOverflow off
 	  Port {
@@ -7781,7 +7200,7 @@ Model {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "unitVector 1"
-	  SID			  "448"
+	  SID			  448
 	  Ports			  [1, 1]
 	  Position		  [205, 535, 285, 575]
 	  MinAlgLoopOccurrences	  off
@@ -7815,18 +7234,19 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "vecIn"
-	      SID		      "449"
+	      SID		      449
 	      Position		      [20, 68, 50, 82]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Product
 	      Name		      "Divide"
-	      SID		      "450"
+	      SID		      450
 	      Ports		      [2, 1]
 	      Position		      [285, 62, 315, 93]
 	      Inputs		      "*/"
 	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      RndMeth		      "Floor"
 	      SaturateOnIntegerOverflow	off
@@ -7834,20 +7254,22 @@ Model {
 	    Block {
 	      BlockType		      DotProduct
 	      Name		      "Dot Product"
-	      SID		      "451"
+	      SID		      451
 	      Position		      [140, 67, 170, 98]
+	      OutputDataTypeScalingMode	"Inherit via internal rule"
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	    }
 	    Block {
 	      BlockType		      Sqrt
 	      Name		      "Sqrt"
-	      SID		      "452"
+	      SID		      452
 	      Position		      [205, 70, 235, 100]
+	      AlgorithmType	      "Exact"
 	    }
 	    Block {
 	      BlockType		      Outport
 	      Name		      "vecOut"
-	      SID		      "453"
+	      SID		      453
 	      Position		      [420, 73, 450, 87]
 	      IconDisplay	      "Port number"
 	    }
@@ -7893,15 +7315,15 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "navRollDem"
-	  SID			  "456"
-	  Position		  [1115, 153, 1145, 167]
+	  SID			  456
+	  Position		  [1115, 328, 1145, 342]
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "xtrackErr"
-	  SID			  "457"
-	  Position		  [565, 183, 595, 197]
+	  SID			  457
+	  Position		  [565, 168, 595, 182]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
 	}
@@ -7961,37 +7383,36 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  Name			  "Kv"
-	  Labels		  [3, 0]
+	  Name			  "L1_gain"
+	  Labels		  [0, 0]
 	  SrcBlock		  "Calc Coefficients"
-	  SrcPort		  3
-	  Points		  [227, 0; 0, -315]
+	  SrcPort		  2
+	  Points		  [153, 0; 0, -90]
 	  DstBlock		  "Calc Lat Acc Dem"
 	  DstPort		  3
 	}
 	Line {
-	  Name			  "VomegaA"
-	  Labels		  [0, 0]
-	  SrcBlock		  "Calc Coefficients"
-	  SrcPort		  2
-	  Points		  [243, 0; 0, -240]
-	  DstBlock		  "Calc Lat Acc Dem"
-	  DstPort		  4
-	}
-	Line {
 	  SrcBlock		  "Calc Coefficients"
 	  SrcPort		  1
-	  Points		  [5, 0; 0, -35; -185, 0]
+	  Points		  [5, 0]
 	  Branch {
-	    Labels		    [0, 0]
-	    Points		    [0, -190]
-	    DstBlock		    "Calc Nu to fly along AB line"
-	    DstPort		    4
+	    Points		    [0, -40; -185, 0]
+	    Branch {
+	      Labels		      [0, 0]
+	      Points		      [0, -190]
+	      DstBlock		      "Calc Nu to fly along AB line"
+	      DstPort		      4
+	    }
+	    Branch {
+	      Labels		      [0, 0]
+	      Points		      [0, 175]
+	      DstBlock		      "Detect Region"
+	      DstPort		      2
+	    }
 	  }
 	  Branch {
-	    Labels		    [0, 0]
-	    Points		    [0, 175]
-	    DstBlock		    "Detect Region"
+	    Points		    [135, 0; 0, -115]
+	    DstBlock		    "Calc Lat Acc Dem"
 	    DstPort		    2
 	  }
 	}
@@ -8012,7 +7433,7 @@ Model {
 	      DstPort		      1
 	    }
 	    Branch {
-	      Points		      [0, 145]
+	      Points		      [0, 150]
 	      DstBlock		      "Calc Coefficients"
 	      DstPort		      1
 	    }
@@ -8020,7 +7441,7 @@ Model {
 	}
 	Line {
 	  SrcBlock		  "Calc Nu to fly along AB line"
-	  SrcPort		  4
+	  SrcPort		  2
 	  DstBlock		  "xtrackErr"
 	  DstPort		  1
 	}
@@ -8078,64 +7499,20 @@ Model {
 	  SrcBlock		  "Merge"
 	  SrcPort		  1
 	  DstBlock		  "Calc Lat Acc Dem"
-	  DstPort		  5
+	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "Calc Nu to fly along AB line"
-	  SrcPort		  3
-	  Points		  [125, 0; 0, 80]
+	  SrcPort		  1
+	  Points		  [125, 0; 0, 125]
 	  DstBlock		  "Merge"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "Calc Nu to fly To WP A"
-	  SrcPort		  3
-	  Points		  [125, 0; 0, -85]
+	  SrcPort		  1
+	  Points		  [125, 0; 0, -60]
 	  DstBlock		  "Merge"
-	  DstPort		  2
-	}
-	Line {
-	  Name			  "xtrackVel"
-	  Labels		  [0, 0]
-	  SrcBlock		  "Merge1"
-	  SrcPort		  1
-	  DstBlock		  "Calc Lat Acc Dem"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Calc Nu to fly along AB line"
-	  SrcPort		  1
-	  Points		  [80, 0; 0, -40]
-	  DstBlock		  "Merge1"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Calc Nu to fly To WP A"
-	  SrcPort		  1
-	  Points		  [95, 0; 0, -215]
-	  DstBlock		  "Merge1"
-	  DstPort		  2
-	}
-	Line {
-	  SrcBlock		  "Calc Nu to fly along AB line"
-	  SrcPort		  2
-	  DstBlock		  "Merge2"
-	  DstPort		  1
-	}
-	Line {
-	  Name			  "dampingWeight"
-	  Labels		  [3, 0]
-	  SrcBlock		  "Merge2"
-	  SrcPort		  1
-	  Points		  [20, 0; 0, -25]
-	  DstBlock		  "Calc Lat Acc Dem"
-	  DstPort		  2
-	}
-	Line {
-	  SrcBlock		  "Calc Nu to fly To WP A"
-	  SrcPort		  2
-	  Points		  [110, 0; 0, -170]
-	  DstBlock		  "Merge2"
 	  DstPort		  2
 	}
 	Line {
@@ -8150,12 +7527,19 @@ Model {
 	  DstBlock		  "navRollDem"
 	  DstPort		  1
 	}
+	Line {
+	  SrcBlock		  "Calc Coefficients"
+	  SrcPort		  3
+	  Points		  [165, 0; 0, -65]
+	  DstBlock		  "Calc Lat Acc Dem"
+	  DstPort		  4
+	}
       }
     }
     Block {
       BlockType		      Constant
       Name		      "Next WP NE"
-      SID		      "5"
+      SID		      5
       Position		      [435, 304, 490, 336]
       Value		      "[200;0]"
       SampleTime	      "0.1"
@@ -8169,74 +7553,62 @@ Model {
     Block {
       BlockType		      RateTransition
       Name		      "Rate Transition1"
-      SID		      "743"
+      SID		      743
       Position		      [445, 210, 480, 230]
       OutPortSampleTime	      "0.1"
     }
     Block {
       BlockType		      RateTransition
       Name		      "Rate Transition2"
-      SID		      "744"
+      SID		      744
       Position		      [145, 70, 180, 90]
       OutPortSampleTime	      "0.1"
     }
     Block {
       BlockType		      RateTransition
       Name		      "Rate Transition3"
-      SID		      "745"
+      SID		      745
       Position		      [145, 30, 180, 50]
       OutPortSampleTime	      "0.1"
     }
     Block {
       BlockType		      RateTransition
       Name		      "Rate Transition4"
-      SID		      "747"
+      SID		      747
       Position		      [865, 165, 900, 185]
       OutPortSampleTime	      "0"
     }
     Block {
       BlockType		      Scope
       Name		      "Scope1"
-      SID		      "852"
+      SID		      852
       Ports		      [1]
       Position		      [990, 64, 1020, 96]
       Floating		      off
-      Location		      [212, 557, 536, 796]
+      Location		      [212, 523, 536, 762]
       Open		      on
       NumInputPorts	      "1"
       List {
 	ListType		AxesTitles
 	axes1			"%<SignalLabel>"
       }
-      List {
-	ListType		ScopeGraphics
-	FigureColor		"[0.5 0.5 0.5]"
-	AxesColor		"[0 0 0]"
-	AxesTickColor		"[1 1 1]"
-	LineColors		"[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
-	LineStyles		"-|-|-|-|-|-"
-	LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
-	MarkerStyles		"none|none|none|none|none|none"
-      }
-      ShowLegends	      off
       DataFormat	      "StructureWithTime"
       SampleTime	      "0"
     }
     Block {
       BlockType		      Scope
       Name		      "Scope2"
-      SID		      "757"
+      SID		      757
       Ports		      [1]
       Position		      [825, 849, 855, 881]
       Floating		      off
       Location		      [188, 390, 512, 629]
-      Open		      off
+      Open		      on
       NumInputPorts	      "1"
       List {
 	ListType		AxesTitles
 	axes1			"%<SignalLabel>"
       }
-      ShowLegends	      off
       SaveName		      "ScopeData2"
       DataFormat	      "StructureWithTime"
       SampleTime	      "0"
@@ -8244,28 +7616,9 @@ Model {
     Block {
       BlockType		      Scope
       Name		      "Scope3"
-      SID		      "1156"
+      SID		      1156
       Ports		      [1]
       Position		      [825, 354, 855, 386]
-      Floating		      off
-      Location		      [188, 390, 512, 629]
-      Open		      off
-      NumInputPorts	      "1"
-      List {
-	ListType		AxesTitles
-	axes1			"%<SignalLabel>"
-      }
-      ShowLegends	      off
-      SaveName		      "ScopeData1"
-      DataFormat	      "StructureWithTime"
-      SampleTime	      "0"
-    }
-    Block {
-      BlockType		      Scope
-      Name		      "Scope4"
-      SID		      "1169"
-      Ports		      [1]
-      Position		      [1160, 549, 1190, 581]
       Floating		      off
       Location		      [188, 390, 512, 629]
       Open		      on
@@ -8274,17 +7627,24 @@ Model {
 	ListType		AxesTitles
 	axes1			"%<SignalLabel>"
       }
+      SaveName		      "ScopeData1"
+      DataFormat	      "StructureWithTime"
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "Scope4"
+      SID		      1169
+      Ports		      [1]
+      Position		      [1160, 549, 1190, 581]
+      Floating		      off
+      Location		      [188, 390, 512, 629]
+      Open		      off
+      NumInputPorts	      "1"
       List {
-	ListType		ScopeGraphics
-	FigureColor		"[0.5 0.5 0.5]"
-	AxesColor		"[0 0 0]"
-	AxesTickColor		"[1 1 1]"
-	LineColors		"[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
-	LineStyles		"-|-|-|-|-|-"
-	LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
-	MarkerStyles		"none|none|none|none|none|none"
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
       }
-      ShowLegends	      off
       YMin		      "-15"
       SaveName		      "ScopeData3"
       DataFormat	      "StructureWithTime"
@@ -8293,7 +7653,7 @@ Model {
     Block {
       BlockType		      SubSystem
       Name		      "SimpleHorizPlant"
-      SID		      "106"
+      SID		      106
       Ports		      [3, 3]
       Position		      [930, 153, 1085, 287]
       MinAlgLoopOccurrences   off
@@ -8305,7 +7665,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"SimpleHorizPlant"
-	Location		[-101, -1126, 1615, -21]
+	Location		[-470, 118, 1230, 1223]
 	Open			off
 	ModelBrowserVisibility	on
 	ModelBrowserWidth	200
@@ -8321,14 +7681,14 @@ Model {
 	Block {
 	  BlockType		  Inport
 	  Name			  "navRollDem"
-	  SID			  "107"
+	  SID			  107
 	  Position		  [50, 63, 80, 77]
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Inport
 	  Name			  "TAS"
-	  SID			  "108"
+	  SID			  108
 	  Position		  [270, 197, 300, 213]
 	  NamePlacement		  "alternate"
 	  Port			  "2"
@@ -8337,7 +7697,7 @@ Model {
 	Block {
 	  BlockType		  Inport
 	  Name			  "windVel_NE"
-	  SID			  "109"
+	  SID			  109
 	  Position		  [610, 232, 640, 248]
 	  NamePlacement		  "alternate"
 	  Port			  "3"
@@ -8346,10 +7706,11 @@ Model {
 	Block {
 	  BlockType		  Sum
 	  Name			  "Add"
-	  SID			  "99"
+	  SID			  99
 	  Ports			  [2, 1]
 	  Position		  [710, 112, 740, 143]
 	  InputSameDT		  off
+	  OutDataTypeMode	  "Inherit via internal rule"
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 	  SaturateOnIntegerOverflow off
 	  Port {
@@ -8362,18 +7723,19 @@ Model {
 	Block {
 	  BlockType		  Constant
 	  Name			  "Constant"
-	  SID			  "844"
+	  SID			  844
 	  Position		  [210, 115, 240, 145]
 	  Value			  "9.81"
 	}
 	Block {
 	  BlockType		  Product
 	  Name			  "Divide1"
-	  SID			  "845"
+	  SID			  845
 	  Ports			  [2, 1]
 	  Position		  [355, 72, 385, 103]
 	  Inputs		  "*/"
 	  InputSameDT		  off
+	  OutDataTypeMode	  "Inherit via internal rule"
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 	  RndMeth		  "Floor"
 	  SaturateOnIntegerOverflow off
@@ -8387,7 +7749,7 @@ Model {
 	Block {
 	  BlockType		  Constant
 	  Name			  "Iniital NE position"
-	  SID			  "1"
+	  SID			  1
 	  Position		  [590, 279, 665, 311]
 	  Value			  "[500;10]"
 	  Port {
@@ -8400,14 +7762,14 @@ Model {
 	Block {
 	  BlockType		  Constant
 	  Name			  "Iniital heading"
-	  SID			  "703"
+	  SID			  703
 	  Position		  [380, 129, 410, 161]
 	  Value			  "0"
 	}
 	Block {
 	  BlockType		  Mux
 	  Name			  "Mux"
-	  SID			  "101"
+	  SID			  101
 	  Ports			  [2, 1]
 	  Position		  [670, 101, 675, 139]
 	  ShowName		  off
@@ -8417,31 +7779,34 @@ Model {
 	Block {
 	  BlockType		  Product
 	  Name			  "Product"
-	  SID			  "96"
+	  SID			  96
 	  Ports			  [2, 1]
 	  Position		  [610, 157, 640, 188]
 	  InputSameDT		  off
+	  OutDataTypeMode	  "Inherit via internal rule"
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
 	  BlockType		  Product
 	  Name			  "Product1"
-	  SID			  "97"
+	  SID			  97
 	  Ports			  [2, 1]
 	  Position		  [610, 92, 640, 123]
 	  InputSameDT		  off
+	  OutDataTypeMode	  "Inherit via internal rule"
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
 	  BlockType		  Product
 	  Name			  "Product2"
-	  SID			  "843"
+	  SID			  843
 	  Ports			  [2, 1]
 	  Position		  [270, 62, 300, 93]
 	  Inputs		  "**"
 	  InputSameDT		  off
+	  OutDataTypeMode	  "Inherit via internal rule"
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 	  RndMeth		  "Floor"
 	  SaturateOnIntegerOverflow off
@@ -8455,14 +7820,14 @@ Model {
 	Block {
 	  BlockType		  TransferFcn
 	  Name			  "autopilot lag"
-	  SID			  "93"
+	  SID			  93
 	  Position		  [120, 52, 180, 88]
 	  Denominator		  "[1.0 1]"
 	}
 	Block {
 	  BlockType		  Trigonometry
 	  Name			  "cos(hdg)"
-	  SID			  "95"
+	  SID			  95
 	  Ports			  [1, 1]
 	  Position		  [535, 85, 565, 115]
 	  Operator		  "cos"
@@ -8470,7 +7835,7 @@ Model {
 	Block {
 	  BlockType		  Integrator
 	  Name			  "heading"
-	  SID			  "92"
+	  SID			  92
 	  Ports			  [2, 1]
 	  Position		  [450, 82, 480, 113]
 	  InitialConditionSource  "external"
@@ -8479,7 +7844,7 @@ Model {
 	Block {
 	  BlockType		  Integrator
 	  Name			  "position"
-	  SID			  "102"
+	  SID			  102
 	  Ports			  [2, 1]
 	  Position		  [805, 122, 835, 153]
 	  InitialConditionSource  "external"
@@ -8493,14 +7858,14 @@ Model {
 	Block {
 	  BlockType		  Trigonometry
 	  Name			  "sin(hdg)"
-	  SID			  "94"
+	  SID			  94
 	  Ports			  [1, 1]
 	  Position		  [535, 150, 565, 180]
 	}
 	Block {
 	  BlockType		  Trigonometry
 	  Name			  "tan(phi)"
-	  SID			  "842"
+	  SID			  842
 	  Ports			  [1, 1]
 	  Position		  [210, 55, 240, 85]
 	  Operator		  "tan"
@@ -8508,14 +7873,14 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "vel_NE"
-	  SID			  "110"
+	  SID			  110
 	  Position		  [895, 93, 925, 107]
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "pos_NE"
-	  SID			  "111"
+	  SID			  111
 	  Position		  [895, 133, 925, 147]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
@@ -8523,7 +7888,7 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "yaw"
-	  SID			  "504"
+	  SID			  504
 	  Position		  [535, 53, 565, 67]
 	  Port			  "3"
 	  IconDisplay		  "Port number"
@@ -8691,14 +8056,14 @@ Model {
     Block {
       BlockType		      Step
       Name		      "Step"
-      SID		      "754"
+      SID		      754
       Position		      [520, 25, 550, 55]
       SampleTime	      "0"
     }
     Block {
       BlockType		      Constant
       Name		      "TAS"
-      SID		      "53"
+      SID		      53
       Position		      [20, 515, 50, 545]
       Value		      "20"
       SampleTime	      "0"
@@ -8706,7 +8071,7 @@ Model {
     Block {
       BlockType		      Constant
       Name		      "WP_radius"
-      SID		      "1114"
+      SID		      1114
       Position		      [435, 899, 490, 931]
       Value		      "100"
       SampleTime	      "0.1"
@@ -8714,7 +8079,7 @@ Model {
     Block {
       BlockType		      SubSystem
       Name		      "Wind Generator"
-      SID		      "1172"
+      SID		      1172
       Ports		      [0, 1]
       Position		      [930, 540, 1080, 590]
       MinAlgLoopOccurrences   off
@@ -8742,79 +8107,107 @@ Model {
 	Block {
 	  BlockType		  Sum
 	  Name			  "Add"
-	  SID			  "1168"
+	  SID			  1168
 	  Ports			  [2, 1]
 	  Position		  [375, 77, 405, 108]
 	  InputSameDT		  off
+	  OutDataTypeMode	  "Inherit via internal rule"
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
 	  BlockType		  Reference
 	  Name			  "Band-Limited\nWhite Noise"
-	  SID			  "1161"
+	  SID			  1161
 	  Ports			  [0, 1]
 	  Position		  [25, 30, 55, 60]
-	  LibraryVersion	  "1.260"
+	  LibraryVersion	  "1.216"
 	  SourceBlock		  "simulink/Sources/Band-Limited\nWhite Noise"
 	  SourceType		  "Band-Limited White Noise."
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData "off"
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
 	  Cov			  "[0.1]"
 	  Ts			  "0.1"
 	  seed			  "[23341]"
-	  VectorParams1D	  on
+	  VectorParams1D	  "on"
 	}
 	Block {
 	  BlockType		  Reference
 	  Name			  "Band-Limited\nWhite Noise1"
-	  SID			  "1162"
+	  SID			  1162
 	  Ports			  [0, 1]
 	  Position		  [25, 100, 55, 130]
-	  LibraryVersion	  "1.260"
+	  LibraryVersion	  "1.216"
 	  SourceBlock		  "simulink/Sources/Band-Limited\nWhite Noise"
 	  SourceType		  "Band-Limited White Noise."
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData "off"
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
 	  Cov			  "[0.1]"
 	  Ts			  "0.1"
 	  seed			  "[23342]"
-	  VectorParams1D	  on
+	  VectorParams1D	  "on"
 	}
 	Block {
 	  BlockType		  Gain
 	  Name			  "Gain"
-	  SID			  "1163"
+	  SID			  1163
 	  Position		  [115, 30, 145, 60]
 	  Gain			  "25"
+	  ParameterDataTypeMode	  "Inherit via internal rule"
 	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeMode	  "Inherit via internal rule"
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
 	  BlockType		  Gain
 	  Name			  "Gain1"
-	  SID			  "1164"
+	  SID			  1164
 	  Position		  [115, 100, 145, 130]
 	  Gain			  "25"
+	  ParameterDataTypeMode	  "Inherit via internal rule"
 	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeMode	  "Inherit via internal rule"
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
 	  BlockType		  Reference
 	  Name			  "Manual Switch"
-	  SID			  "1351"
+	  SID			  1351
 	  Ports			  [2, 1]
 	  Position		  [440, 87, 470, 123]
-	  ZOrder		  -13
-	  LibraryVersion	  "1.260"
+	  LibraryVersion	  "1.216"
 	  SourceBlock		  "simulink/Signal\nRouting/Manual Switch"
 	  SourceType		  "Manual Switch"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData "off"
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
 	  sw			  "1"
 	  action		  "0"
-	  varsize		  off
+	  varsize		  "off"
 	}
 	Block {
 	  BlockType		  Mux
 	  Name			  "Mux"
-	  SID			  "1165"
+	  SID			  1165
 	  Ports			  [2, 1]
 	  Position		  [330, 66, 335, 104]
 	  ShowName		  off
@@ -8824,35 +8217,35 @@ Model {
 	Block {
 	  BlockType		  TransferFcn
 	  Name			  "Transfer Fcn"
-	  SID			  "1166"
+	  SID			  1166
 	  Position		  [185, 27, 245, 63]
 	  Denominator		  "[10 1]"
 	}
 	Block {
 	  BlockType		  TransferFcn
 	  Name			  "Transfer Fcn1"
-	  SID			  "1167"
+	  SID			  1167
 	  Position		  [185, 97, 245, 133]
 	  Denominator		  "[10 1]"
 	}
 	Block {
 	  BlockType		  Constant
 	  Name			  "windVelNE"
-	  SID			  "63"
+	  SID			  63
 	  Position		  [25, 170, 55, 200]
 	  Value			  "[0;-10]"
 	}
 	Block {
 	  BlockType		  Constant
 	  Name			  "windVelNE1"
-	  SID			  "1337"
+	  SID			  1337
 	  Position		  [25, 250, 55, 280]
 	  Value			  "[0;0]"
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "Out1"
-	  SID			  "1173"
+	  SID			  1173
 	  Position		  [520, 98, 550, 112]
 	  IconDisplay		  "Port number"
 	}
@@ -8931,12 +8324,20 @@ Model {
     Block {
       BlockType		      Reference
       Name		      "XY Graph"
-      SID		      "461"
+      SID		      461
       Ports		      [2]
       Position		      [1230, 294, 1270, 336]
-      LibraryVersion	      "1.260"
+      LibraryVersion	      "1.216"
       SourceBlock	      "simulink/Sinks/XY Graph"
       SourceType	      "XY scope."
+      ShowPortLabels	      "FromPortIcon"
+      SystemSampleTime	      "-1"
+      FunctionWithSeparateData off
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
       xmin		      "-500"
       xmax		      "500"
       ymin		      "0"
@@ -8946,7 +8347,7 @@ Model {
     Block {
       BlockType		      SubSystem
       Name		      "wind estimation"
-      SID		      "777"
+      SID		      777
       Ports		      [1, 2]
       Position		      [125, 105, 200, 165]
       MinAlgLoopOccurrences   off
@@ -8975,14 +8376,14 @@ Model {
 	Block {
 	  BlockType		  Inport
 	  Name			  "vel_NE"
-	  SID			  "778"
+	  SID			  778
 	  Position		  [25, 43, 55, 57]
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Demux
 	  Name			  "Demux"
-	  SID			  "792"
+	  SID			  792
 	  Ports			  [1, 2]
 	  Position		  [265, 31, 270, 69]
 	  ShowName		  off
@@ -8992,70 +8393,76 @@ Model {
 	Block {
 	  BlockType		  DotProduct
 	  Name			  "Dot Product"
-	  SID			  "794"
+	  SID			  794
 	  Position		  [320, 257, 350, 288]
+	  OutputDataTypeScalingMode "Inherit via internal rule"
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 	}
 	Block {
 	  BlockType		  Gain
 	  Name			  "Gain"
-	  SID			  "798"
+	  SID			  798
 	  Position		  [385, 80, 415, 110]
 	  Gain			  "-1"
+	  ParameterDataTypeMode	  "Inherit via internal rule"
 	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeMode	  "Inherit via internal rule"
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
 	  BlockType		  RateTransition
 	  Name			  "Rate Transition2"
-	  SID			  "783"
+	  SID			  783
 	  Position		  [190, 29, 225, 71]
 	  OutPortSampleTime	  "0.1"
 	}
 	Block {
 	  BlockType		  RateTransition
 	  Name			  "Rate Transition5"
-	  SID			  "796"
+	  SID			  796
 	  Position		  [110, 40, 145, 60]
 	  OutPortSampleTime	  "0.1"
 	}
 	Block {
 	  BlockType		  Sqrt
 	  Name			  "Sqrt"
-	  SID			  "795"
+	  SID			  795
 	  Position		  [385, 260, 415, 290]
+	  AlgorithmType		  "Exact"
 	}
 	Block {
 	  BlockType		  Sum
 	  Name			  "Sum"
-	  SID			  "812"
+	  SID			  812
 	  Ports			  [2, 1]
 	  Position		  [470, 85, 490, 105]
 	  ShowName		  off
 	  IconShape		  "round"
 	  Inputs		  "|++"
 	  InputSameDT		  off
+	  OutDataTypeMode	  "Inherit via internal rule"
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
 	  BlockType		  Sum
 	  Name			  "Sum1"
-	  SID			  "813"
+	  SID			  813
 	  Ports			  [2, 1]
 	  Position		  [470, 265, 490, 285]
 	  ShowName		  off
 	  IconShape		  "round"
 	  Inputs		  "|++"
 	  InputSameDT		  off
+	  OutDataTypeMode	  "Inherit via internal rule"
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
 	  BlockType		  Trigonometry
 	  Name			  "Trigonometric\nFunction"
-	  SID			  "793"
+	  SID			  793
 	  Ports			  [2, 1]
 	  Position		  [320, 77, 350, 108]
 	  Operator		  "atan2"
@@ -9063,28 +8470,28 @@ Model {
 	Block {
 	  BlockType		  Constant
 	  Name			  "wind angle error"
-	  SID			  "814"
+	  SID			  814
 	  Position		  [385, 135, 415, 165]
 	  Value			  "0.1"
 	}
 	Block {
 	  BlockType		  Constant
 	  Name			  "wind speed error"
-	  SID			  "815"
+	  SID			  815
 	  Position		  [385, 320, 415, 350]
 	  Value			  "-1"
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "windSpd"
-	  SID			  "786"
+	  SID			  786
 	  Position		  [540, 268, 570, 282]
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "windAng"
-	  SID			  "791"
+	  SID			  791
 	  Position		  [540, 88, 570, 102]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
@@ -9187,7 +8594,6 @@ Model {
 	  DstPort		  2
 	}
 	Annotation {
-	  SID			  "1186"
 	  Name			  "angle wind is coming from - hence sign change"
 	  Position		  [486, 59]
 	}
